@@ -1,0 +1,7 @@
+# Build directories
+**/bin/**
+**/lib/**
+**/build/**
+
+# VCPKG
+**/vcpkg_installed/**
