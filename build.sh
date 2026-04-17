@@ -9,8 +9,8 @@
 
 set -e
 
-if [ "$2" != "Debug" ] && [ "$2" != "Release" ]; then
-    echo "$2 must be either Debug or Release"
+if [ "$1" != "Debug" ] && [ "$1" != "Release" ]; then
+    echo "$1 must be either Debug or Release"
     exit 1
 fi
 
@@ -21,12 +21,12 @@ fi
 
 cd "build" || exit 1
 
-if [ "$2" = "Debug" ]; then
+if [ "$1" = "Debug" ]; then
     echo "Building with Debug configuration"
 
     cmake .. -DCMAKE_BUILD_TYPE=Debug
     cmake --build . -- -j$(nproc)
-elif [ "$2" = "Release" ]; then
+elif [ "$1" = "Release" ]; then
     echo "Building with Release configuration"
 
     cmake .. -DCMAKE_BUILD_TYPE=Release

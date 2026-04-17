@@ -12,19 +12,19 @@ if not exist "build" (
     mkdir build
 )
 
-if not %2 == Debug if not %2 == Release (
-    echo %2 is not a valid option
+if not %1 == Debug if not %1 == Release (
+    echo %1 is not a valid option
     exit /B 1
 )
 
 cd build
 
-if %2 == Debug (
+if %1 == Debug (
     echo Building with Debug configuration
 
     cmake .. -G "Ninja" -DCMAKE_TOOLCHAIN_FILE="%3" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DVCPKG_TARGET_TRIPLET=x64-mingw-static
     cmake --build . --config Debug
-) else if %2 == Release (
+) else if %1 == Release (
     echo Building with Release configuration
 
     cmake .. -G "Ninja" -DCMAKE_TOOLCHAIN_FILE="%3" -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DVCPKG_TARGET_TRIPLET=x64-mingw-static
