@@ -25,11 +25,11 @@
 var NAVTREE =
 [
   [ "LocalCVE", "index.html", [
-    [ "Changelog", "d4/d40/md_CHANGELOG.html", [
-      [ "[Unreleased]", "d4/d40/md_CHANGELOG.html#autotoc_md2", [
-        [ "Added", "d4/d40/md_CHANGELOG.html#autotoc_md3", null ],
-        [ "Changed", "d4/d40/md_CHANGELOG.html#autotoc_md4", null ],
-        [ "Removed", "d4/d40/md_CHANGELOG.html#autotoc_md5", null ]
+    [ "Changelog", "da/dee/md_docs_2CHANGELOG.html", [
+      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md1", [
+        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md2", null ],
+        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md3", null ],
+        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md4", null ]
       ] ]
     ] ]
   ] ]
@@ -37,7 +37,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"d4/d40/md_CHANGELOG.html"
+"da/dee/md_docs_2CHANGELOG.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
