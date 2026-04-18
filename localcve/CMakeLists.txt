@@ -1,4 +1,4 @@
-project(cli)
+project(localcve)
 
 # Set sources
 file(
@@ -7,27 +7,45 @@ file(
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c"
 )
 
-# Set C standard
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+# Find packages
+find_package(SQLite3 REQUIRED)
 
-# Set CXX standard
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Create library
+add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES})
+add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-# Add executable
-add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
+# Some properties
+set_target_properties(
+    ${PROJECT_NAME} PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
+)
 
-# Set executable name
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME localcve)
+# Install stuff
+install(
+    TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}targets
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+install(
+    EXPORT ${PROJECT_NAME}targets
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION lib/cmake/${PROJECT_NAME}
+)
+
+install(
+    DIRECTORY include/
+    DESTINATION include
+)
 
 # Target includes
 target_include_directories(
-    ${PROJECT_NAME}
-    PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${PROJECT_NAME} PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
 )
 
 # Link libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE backend::backend)
+target_link_libraries(${PROJECT_NAME} PRIVATE SQLite::SQLite3)

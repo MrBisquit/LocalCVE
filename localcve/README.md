@@ -1,9 +1,8 @@
-# LocalCVE CLI Frontend
-This is a CLI that allows you to interact with the LocalCVE backend,
-it contains features that allows you to effectively, and efficiently
-do everything you need.
+# LocalCVE Backend
+This is a static library that contains everything needed to read from,
+and write to the SQLite database, and interpret the CVE files.
 
-This uses the backend static library.
+You can include this in your own project.
 
 The best source of documentation for this is the
 [Doxygen reference documentation](https://localcve-ref.wtdawson.info/).
