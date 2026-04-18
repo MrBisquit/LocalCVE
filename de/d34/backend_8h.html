@@ -66,6 +66,86 @@ $(function(){initNavTree('de/d34/backend_8h.html','../../',''); });
 <div class="textblock"><code>#include &lt;sqlite3.h&gt;</code><br />
 </div>
 <p><a href="../../de/d34/backend_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a147faac5134fafbfa302160cfa24826c" id="r_a147faac5134fafbfa302160cfa24826c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a147faac5134fafbfa302160cfa24826c">LC_OK</a>&#160;&#160;&#160;(0x000001)</td></tr>
+<tr class="memdesc:a147faac5134fafbfa302160cfa24826c"><td class="mdescLeft">&#160;</td><td class="mdescRight">No errors.  <br /></td></tr>
+<tr class="memitem:adff039b5de4390f6c13887a119fa3069" id="r_adff039b5de4390f6c13887a119fa3069"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>&#160;&#160;&#160;(0x100000)</td></tr>
+<tr class="memdesc:adff039b5de4390f6c13887a119fa3069"><td class="mdescLeft">&#160;</td><td class="mdescRight">There are probably errors.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aeea731cf324e9c424300de574f18e504" id="r_aeea731cf324e9c424300de574f18e504"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeea731cf324e9c424300de574f18e504">localcve_prepare</a> (void)</td></tr>
+<tr class="memdesc:aeea731cf324e9c424300de574f18e504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various setup.  <br /></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="adff039b5de4390f6c13887a119fa3069" name="adff039b5de4390f6c13887a119fa3069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff039b5de4390f6c13887a119fa3069">&#9670;&#160;</a></span>LC_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_ERROR&#160;&#160;&#160;(0x100000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>There are probably errors. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/d34/backend_8h_source.html#l00009">9</a> of file <a class="el" href="../../de/d34/backend_8h_source.html">backend.h</a>.</p>
+
+</div>
+</div>
+<a id="a147faac5134fafbfa302160cfa24826c" name="a147faac5134fafbfa302160cfa24826c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a147faac5134fafbfa302160cfa24826c">&#9670;&#160;</a></span>LC_OK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_OK&#160;&#160;&#160;(0x000001)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>No errors. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../de/d34/backend_8h_source.html#l00007">7</a> of file <a class="el" href="../../de/d34/backend_8h_source.html">backend.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00003">main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aeea731cf324e9c424300de574f18e504" name="aeea731cf324e9c424300de574f18e504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeea731cf324e9c424300de574f18e504">&#9670;&#160;</a></span>localcve_prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int localcve_prepare </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Various setup. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt"><a class="el" href="#a147faac5134fafbfa302160cfa24826c" title="No errors.">LC_OK</a></span> or <span class="tt"><a class="el" href="#adff039b5de4390f6c13887a119fa3069" title="There are probably errors.">LC_ERROR</a></span> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d4e/backend_8c_source.html#l00003">3</a> of file <a class="el" href="../../db/d4e/backend_8c_source.html">backend.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                       {</div>
+<div class="line"><span class="lineno">    4</span> </div>
+<div class="line"><span class="lineno">    5</span>}</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00003">main()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

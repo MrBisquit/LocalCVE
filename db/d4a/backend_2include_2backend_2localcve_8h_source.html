@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LocalCVE: localcve/include/localcve/localcve.h Source File</title>
+<title>LocalCVE: backend/include/backend/localcve.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -55,7 +55,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d2/db1/localcve_8h_source.html','../../',''); });
+$(function(){initNavTree('db/d4a/backend_2include_2backend_2localcve_8h_source.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -63,20 +63,27 @@ $(function(){initNavTree('d2/db1/localcve_8h_source.html','../../',''); });
   <div class="headertitle"><div class="title">localcve.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d2/db1/localcve_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LOCALCVE_CLI_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LOCALCVE_CLI_H</span></div>
+<a href="../../db/d4a/backend_2include_2backend_2localcve_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LOCALCVE_LOCALCVE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LOCALCVE_LOCALCVE_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d34/backend_8h.html">backend/backend.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;sqlite3.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="abackend_8h_html"><div class="ttname"><a href="../../de/d34/backend_8h.html">backend.h</a></div></div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="../../dd/d68/structlocalcve.html">    6</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../dd/d68/structlocalcve.html#a70fd90f0d7087a2bb1f7d28cf108c50e">    7</a></span>    sqlite3* <a class="code hl_variable" href="../../dd/d68/structlocalcve.html#a70fd90f0d7087a2bb1f7d28cf108c50e">db</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>} <a class="code hl_struct" href="../../dd/d68/structlocalcve.html">localcve</a>;</div>
+</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructlocalcve_html"><div class="ttname"><a href="../../dd/d68/structlocalcve.html">localcve</a></div><div class="ttdef"><b>Definition</b> <a href="#l00006">localcve.h:6</a></div></div>
+<div class="ttc" id="astructlocalcve_html_a70fd90f0d7087a2bb1f7d28cf108c50e"><div class="ttname"><a href="../../dd/d68/structlocalcve.html#a70fd90f0d7087a2bb1f7d28cf108c50e">localcve::db</a></div><div class="ttdeci">sqlite3 * db</div><div class="ttdef"><b>Definition</b> <a href="#l00007">localcve.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_5d4ef2ecf0675da2cb480b94cc7f6b98.html">localcve</a></li><li class="navelem"><a href="../../dir_6659fd0b62860d71d47d3fffa587bcd9.html">include</a></li><li class="navelem"><a href="../../dir_8fea8e27083bf07bafd362d99e99c445.html">localcve</a></li><li class="navelem"><a href="../../d2/db1/localcve_8h.html">localcve.h</a></li>
+    <li class="navelem"><a href="../../dir_8c739bbef76d64b22d6b0911c526dd76.html">backend</a></li><li class="navelem"><a href="../../dir_afc1e89bdcbaba0f1e323dc5f755439c.html">include</a></li><li class="navelem"><a href="../../dir_2e29742dd5fdc0cbcfc17881b64b63aa.html">backend</a></li><li class="navelem"><a href="../../db/d4a/backend_2include_2backend_2localcve_8h.html">localcve.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>
