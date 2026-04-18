@@ -9,6 +9,7 @@ file(
 
 # Find packages
 find_package(SQLite3 REQUIRED)
+find_package(libgit2 CONFIG REQUIRED)
 
 # Create library
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES})
@@ -49,3 +50,4 @@ target_include_directories(
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE SQLite::SQLite3)
+target_link_libraries(${PROJECT_NAME} PRIVATE libgit2::libgit2package)

@@ -1,6 +1,12 @@
 # LocalCVE
 The CVE database, but local.
 
+[Read the docs](docs/README.md)
+&bullet;
+[View the website](https://localcve-ref.wtdawson.info/)
+&bullet;
+[View the repo](https://github.com/MrBisquit/LocalCVE)
+
 This contains libraries, tools, and other things designed to do the following:
 
 - Convert the JSON files from [https://github.com/CVEProject/cvelistV5](https://github.com/CVEProject/cvelistV5)
