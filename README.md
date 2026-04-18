@@ -20,6 +20,7 @@ This contains libraries, tools, and other things designed to do the following:
 ## Usage
 There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.
 
+<a id="limitations"></a> <!-- Doxygen bug on line 12 -->
 ## Limitations
 This relies on the `delta.json` file within the git repository so that it does not constantly scan
 through all the files.
