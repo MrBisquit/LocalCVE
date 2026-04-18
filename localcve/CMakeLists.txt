@@ -1,8 +1,5 @@
 project(cli)
 
-# Set executable name
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME localcve)
-
 # Set sources
 file(
     GLOB_RECURSE ${PROJECT_NAME}_SOURCES
@@ -22,8 +19,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add executable
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 
+# Set executable name
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME localcve)
+
 # Target includes
-target_include_directories(${PROJECT_NAME} include)
+target_include_directories(
+    ${PROJECT_NAME}
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
 # Link libraries
-target_link_libraries(${PROJECT_NAME} backend)
+target_link_libraries(${PROJECT_NAME} PRIVATE backend::backend)

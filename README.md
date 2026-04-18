@@ -11,6 +11,7 @@ This contains libraries, tools, and other things designed to do the following:
     the whole directory instead to see if there have been any other changes,
     [find out why](#limitations)
 - Monitor the database (so you know when one of your dependencies has a reported vulnerability within the hour)
+- Link into other databases, such as the [GitHub advisotry database](https://github.com/github/advisory-database/)
 
 ## Usage
 There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.
