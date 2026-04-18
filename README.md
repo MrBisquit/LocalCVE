@@ -13,6 +13,10 @@ This contains libraries, tools, and other things designed to do the following:
 - Monitor the database (so you know when one of your dependencies has a reported vulnerability within the hour)
 - Link into other databases, such as the [GitHub advisotry database](https://github.com/github/advisory-database/)
 
+> [!NOTE]
+> Please note that git operations are handled by the `localcve` backend library, since it needs to see the difference
+> between the files.
+
 ## Usage
 There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.
 
