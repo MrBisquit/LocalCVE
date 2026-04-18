@@ -1,10 +1,10 @@
 # LocalCVE
 The CVE database, but local.
 
-[Read the docs](docs/README.md)
-&bullet;
+[Read the docs]()
+|
 [View the website](https://localcve-ref.wtdawson.info/)
-&bullet;
+|
 [View the repo](https://github.com/MrBisquit/LocalCVE)
 
 This contains libraries, tools, and other things designed to do the following:
