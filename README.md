@@ -1,7 +1,7 @@
 # LocalCVE
 The CVE database, but local.
 
-[Read the docs]()
+[Read the docs](docs/README.md)
 |
 [View the website](https://localcve-ref.wtdawson.info/)
 |

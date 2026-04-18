@@ -116,8 +116,7 @@ SEARCHENGINE            = NO
 FULL_PATH_NAMES         = YES
 
 OUTPUT_DIRECTORY        = docs
-INPUT                   = localcve, cli, README.md
-FILE_PATHS              = docs
+INPUT                   = localcve, cli, docs/README.md, docs, README.md
 EXCLUDE                 = build
 RECURSIVE               = YES
 
