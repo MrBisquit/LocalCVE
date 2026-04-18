@@ -1,5 +1,3 @@
-@mainpage LocalCVE
-
 # LocalCVE
 The CVE database, but local.
 
