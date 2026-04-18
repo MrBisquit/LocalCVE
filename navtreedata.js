@@ -25,8 +25,18 @@
 var NAVTREE =
 [
   [ "LocalCVE", "index.html", [
-    [ "Usage", "index.html#autotoc_md3", null ],
-    [ "Limitations", "index.html#autotoc_md4", null ],
+    [ "Usage", "index.html#autotoc_md11", null ],
+    [ "Limitations", "index.html#autotoc_md12", null ],
+    [ "Changelog", "da/dee/md_docs_2CHANGELOG.html", [
+      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md4", [
+        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md5", null ],
+        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md6", null ],
+        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md7", null ]
+      ] ]
+    ] ],
+    [ "Database", "d7/d55/md_docs_2database.html", [
+      [ "Tables", "d7/d55/md_docs_2database.html#autotoc_md9", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

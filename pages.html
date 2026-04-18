@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LocalCVE: LocalCVE</title>
+<title>LocalCVE: Related Pages</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -55,39 +55,20 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('index.html','',''); });
+$(function(){initNavTree('pages.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
-<div><div class="header">
-  <div class="headertitle"><div class="title">LocalCVE </div></div>
+<div class="header">
+  <div class="headertitle"><div class="title">Related Pages</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<p>The CVE database, but local.</p>
-<p><a class="el" href="dir_49e56c817e5e54854c35e136979f97ca.html">Read the docs</a> | <a href="https://localcve-ref.wtdawson.info/">View the website</a> | <a href="https://github.com/MrBisquit/LocalCVE">View the repo</a></p>
-<p>This contains libraries, tools, and other things designed to do the following:</p>
-<ul>
-<li>Convert the JSON files from <a href="https://github.com/CVEProject/cvelistV5">https://github.com/CVEProject/cvelistV5</a> into an sqlite3 database</li>
-<li>Search through the database</li>
-<li>Update the database with new changes<ul>
-<li>If the time between the last update surpasses an hour, it may scan the whole directory instead to see if there have been any other changes, <a class="el" href="#limitations">find out why</a></li>
-</ul>
-</li>
-<li>Monitor the database (so you know when one of your dependencies has a reported vulnerability within the hour)</li>
-<li>Link into other databases, such as the <a href="https://github.com/github/advisory-database/">GitHub advisotry database</a></li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>Please note that git operations are handled by the <span class="tt"><a class="el" href="dd/d68/structlocalcve.html">localcve</a></span> backend library, since it needs to see the difference between the files.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
-Usage</h1>
-<p>There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.</p>
-<p><a class="anchor" id="limitations"></a> </p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Limitations</h1>
-<p>This relies on the <span class="tt">delta.json</span> file within the git repository so that it does not constantly scan through all the files.</p>
-<p>It may in future be able to check through the <span class="tt">deltaLog.json</span> file, however, for now, this will just use the <span class="tt">delta.json</span> file, and if it has been longer than an hour since the last check, it will look through all the files to check if their last modification date was after the database record for it. </p>
-</div></div><!-- PageDoc -->
-<a href="doxygen_crawl.html"></a>
+<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
+<table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="da/dee/md_docs_2CHANGELOG.html" target="_self">Changelog</a></td><td class="desc"></td></tr>
+<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="d7/d55/md_docs_2database.html" target="_self">Database</a></td><td class="desc"></td></tr>
+</table>
+</div><!-- directory -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
