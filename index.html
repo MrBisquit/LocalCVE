@@ -78,11 +78,11 @@ $(function(){initNavTree('index.html','',''); });
 <li>Link into other databases, such as the <a href="https://github.com/github/advisory-database/">GitHub advisotry database</a></li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Please note that git operations are handled by the <span class="tt"><a class="el" href="dd/d68/structlocalcve.html">localcve</a></span> backend library, since it needs to see the difference between the files.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Usage</h1>
 <p>There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.</p>
 <p><a class="anchor" id="limitations"></a> </p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Limitations</h1>
 <p>This relies on the <span class="tt">delta.json</span> file within the git repository so that it does not constantly scan through all the files.</p>
 <p>It may in future be able to check through the <span class="tt">deltaLog.json</span> file, however, for now, this will just use the <span class="tt">delta.json</span> file, and if it has been longer than an hour since the last check, it will look through all the files to check if their last modification date was after the database record for it. </p>

@@ -68,8 +68,18 @@ $(function(){initNavTree('dir_49e56c817e5e54854c35e136979f97ca.html','',''); });
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 LocalCVE documentation</h1>
 <ul>
-<li><a class="el" href="d7/d55/md_docs_2database.html">Database documentation</a> </li>
+<li><a class="el" href="d7/d55/md_docs_2database.html">Database documentation</a></li>
+<li><a class="el" href="#folder-structure">Folder stucture</a></li>
 </ul>
+<p><a class="anchor" id="folder-structure"></a> </p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Folder structure</h2>
+<div class="fragment"><div class="line">root</div>
+<div class="line">|-- cve             Contains the CVE git repo</div>
+<div class="line">|-- ghsa            Contains the GHSA git repo</div>
+<div class="line">|-- data.db         Contains all the indexed data</div>
+<div class="line">\-- config.cfg      Contains configuration data</div>
+</div><!-- fragment --><p>The <span class="tt">cve</span>, and <span class="tt">ghsa</span> folders <em>can</em> be cleaned up after they have been indexed, and added to the database to save on storage space, however, this does mean that next time you need to update your database, you will need to clone it again, <b>and then reindex all of the data</b>. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

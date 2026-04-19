@@ -25,18 +25,19 @@
 var NAVTREE =
 [
   [ "LocalCVE", "index.html", [
-    [ "Usage", "index.html#autotoc_md11", null ],
-    [ "Limitations", "index.html#autotoc_md12", null ],
+    [ "Usage", "index.html#autotoc_md12", null ],
+    [ "Limitations", "index.html#autotoc_md13", null ],
     [ "Changelog", "da/dee/md_docs_2CHANGELOG.html", [
-      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md4", [
-        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md5", null ],
-        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md6", null ],
-        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md7", null ]
+      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md5", [
+        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md6", null ],
+        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md7", null ],
+        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md8", null ]
       ] ]
     ] ],
     [ "Database", "d7/d55/md_docs_2database.html", [
-      [ "Tables", "d7/d55/md_docs_2database.html#autotoc_md9", null ]
+      [ "Tables", "d7/d55/md_docs_2database.html#autotoc_md10", null ]
     ] ],
+    [ "Todo List", "dd/da0/todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -50,6 +51,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]

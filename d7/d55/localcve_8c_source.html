@@ -67,34 +67,56 @@ $(function(){initNavTree('d7/d55/localcve_8c_source.html','../../',''); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="../../d2/db1/localcve_8h.html#aeea731cf324e9c424300de574f18e504">    3</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d55/localcve_8c.html#ad2cb9a5b6e4219ae1cc9bd38d9f7262e">localcve_prepare</a>() {</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="keywordflow">if</span>(git_libgit2_init() &lt; 0) {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    }</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
 </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d2/db1/localcve_8h.html#a7c2170f94cfe22691f49f2298ad36503">    9</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d55/localcve_8c.html#a7c2170f94cfe22691f49f2298ad36503">localcve_init</a>(<a class="code hl_struct" href="../../dd/d68/structlocalcve.html">localcve</a>** lCVE, <a class="code hl_struct" href="../../d1/d13/structlocalcve__args.html">localcve_args</a> args) {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">if</span>(sqlite3_open_v2(</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        args.<a class="code hl_variable" href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">path</a>,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        &amp;((*lCVE)-&gt;db),</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        NULL</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    ) != SQLITE_OK) {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="../../d2/db1/localcve_8h.html#abfbef4c2b131bbedecb80a32c08c3080">   11</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d55/localcve_8c.html#adddd9b8b193c06e43cd67ffa2c94276d">localcve_clean</a>() {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">if</span>(git_libgit2_shutdown() &lt; 0) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d2/db1/localcve_8h.html#a7c2170f94cfe22691f49f2298ad36503">   19</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d55/localcve_8c.html#a7c2170f94cfe22691f49f2298ad36503">localcve_init</a>(<a class="code hl_struct" href="../../dd/d68/structlocalcve.html">localcve</a>** lCVE, <a class="code hl_struct" href="../../d1/d13/structlocalcve__args.html">localcve_args</a> args) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span>(sqlite3_open_v2(</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        args.<a class="code hl_variable" href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">path</a>,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        &amp;((*lCVE)-&gt;db),</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        NULL</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    ) != SQLITE_OK) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    };</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 </div>
-<div class="ttc" id="alocalcve_8c_html_a7c2170f94cfe22691f49f2298ad36503"><div class="ttname"><a href="../../d7/d55/localcve_8c.html#a7c2170f94cfe22691f49f2298ad36503">localcve_init</a></div><div class="ttdeci">int localcve_init(localcve **lCVE, localcve_args args)</div><div class="ttdoc">Initialises LocalCVE.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">localcve.c:9</a></div></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d2/db1/localcve_8h.html#aedc00c97257f7f14c6339047354ec75a">   32</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d55/localcve_8c.html#aedc00c97257f7f14c6339047354ec75a">localcve_is_error</a>(<span class="keywordtype">int</span> code) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// Basically just checks if the code contains LC_ERROR, or LC_OK</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> code &amp; <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> ? <a class="code hl_define" href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> : code &amp; <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> ? <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> : <a class="code hl_define" href="../../d2/db1/localcve_8h.html#a526f6913e03aff97cc3e923131263a19">LC_UNKNOWN</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+</div>
+<div class="ttc" id="alocalcve_8c_html_a7c2170f94cfe22691f49f2298ad36503"><div class="ttname"><a href="../../d7/d55/localcve_8c.html#a7c2170f94cfe22691f49f2298ad36503">localcve_init</a></div><div class="ttdeci">int localcve_init(localcve **lCVE, localcve_args args)</div><div class="ttdoc">Initialises LocalCVE.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">localcve.c:19</a></div></div>
 <div class="ttc" id="alocalcve_8c_html_ad2cb9a5b6e4219ae1cc9bd38d9f7262e"><div class="ttname"><a href="../../d7/d55/localcve_8c.html#ad2cb9a5b6e4219ae1cc9bd38d9f7262e">localcve_prepare</a></div><div class="ttdeci">int localcve_prepare()</div><div class="ttdoc">Various setup.</div><div class="ttdef"><b>Definition</b> <a href="#l00003">localcve.c:3</a></div></div>
+<div class="ttc" id="alocalcve_8c_html_adddd9b8b193c06e43cd67ffa2c94276d"><div class="ttname"><a href="../../d7/d55/localcve_8c.html#adddd9b8b193c06e43cd67ffa2c94276d">localcve_clean</a></div><div class="ttdeci">int localcve_clean()</div><div class="ttdoc">Clean things like libgit2 up.</div><div class="ttdef"><b>Definition</b> <a href="#l00011">localcve.c:11</a></div></div>
+<div class="ttc" id="alocalcve_8c_html_aedc00c97257f7f14c6339047354ec75a"><div class="ttname"><a href="../../d7/d55/localcve_8c.html#aedc00c97257f7f14c6339047354ec75a">localcve_is_error</a></div><div class="ttdeci">int localcve_is_error(int code)</div><div class="ttdoc">Checks to see if the returned code is an error code.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">localcve.c:32</a></div></div>
 <div class="ttc" id="alocalcve_8h_html"><div class="ttname"><a href="../../d2/db1/localcve_8h.html">localcve.h</a></div></div>
 <div class="ttc" id="alocalcve_8h_html_a147faac5134fafbfa302160cfa24826c"><div class="ttname"><a href="../../d2/db1/localcve_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a></div><div class="ttdeci">#define LC_OK</div><div class="ttdoc">No errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00009">localcve.h:9</a></div></div>
+<div class="ttc" id="alocalcve_8h_html_a526f6913e03aff97cc3e923131263a19"><div class="ttname"><a href="../../d2/db1/localcve_8h.html#a526f6913e03aff97cc3e923131263a19">LC_UNKNOWN</a></div><div class="ttdeci">#define LC_UNKNOWN</div><div class="ttdoc">Retured by localcve_iserror when it is unable to work out if the code is an error or not.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00014">localcve.h:14</a></div></div>
 <div class="ttc" id="alocalcve_8h_html_adff039b5de4390f6c13887a119fa3069"><div class="ttname"><a href="../../d2/db1/localcve_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a></div><div class="ttdeci">#define LC_ERROR</div><div class="ttdoc">There are probably errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00011">localcve.h:11</a></div></div>
-<div class="ttc" id="astructlocalcve__args_html"><div class="ttname"><a href="../../d1/d13/structlocalcve__args.html">localcve_args</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00017">localcve.h:17</a></div></div>
-<div class="ttc" id="astructlocalcve__args_html_ae72a59393a60accd5c8ca9501a9788cd"><div class="ttname"><a href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">localcve_args::path</a></div><div class="ttdeci">char * path</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00018">localcve.h:18</a></div></div>
-<div class="ttc" id="astructlocalcve_html"><div class="ttname"><a href="../../dd/d68/structlocalcve.html">localcve</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00013">localcve.h:13</a></div></div>
+<div class="ttc" id="astructlocalcve__args_html"><div class="ttname"><a href="../../d1/d13/structlocalcve__args.html">localcve_args</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00029">localcve.h:29</a></div></div>
+<div class="ttc" id="astructlocalcve__args_html_ae72a59393a60accd5c8ca9501a9788cd"><div class="ttname"><a href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">localcve_args::path</a></div><div class="ttdeci">char * path</div><div class="ttdoc">The base path for the repository stuff.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00031">localcve.h:31</a></div></div>
+<div class="ttc" id="astructlocalcve_html"><div class="ttname"><a href="../../dd/d68/structlocalcve.html">localcve</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00025">localcve.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

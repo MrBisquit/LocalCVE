@@ -69,11 +69,54 @@ $(function(){initNavTree('d1/d13/structlocalcve__args.html','../../','dd/dce/str
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae72a59393a60accd5c8ca9501a9788cd" id="r_ae72a59393a60accd5c8ca9501a9788cd"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae72a59393a60accd5c8ca9501a9788cd">path</a></td></tr>
+<tr class="memdesc:ae72a59393a60accd5c8ca9501a9788cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base path for the repository stuff.  <br /></td></tr>
+<tr class="memitem:aea33d4a9b432af20532285f3f34efd65" id="r_aea33d4a9b432af20532285f3f34efd65"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea33d4a9b432af20532285f3f34efd65">CVE_git</a></td></tr>
+<tr class="memdesc:aea33d4a9b432af20532285f3f34efd65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provider (as a git repo) for CVE data.  <br /></td></tr>
+<tr class="memitem:aba04b1bfc4eaabdc4fcf0515e6c56ae1" id="r_aba04b1bfc4eaabdc4fcf0515e6c56ae1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba04b1bfc4eaabdc4fcf0515e6c56ae1">GHSA_git</a></td></tr>
+<tr class="memdesc:aba04b1bfc4eaabdc4fcf0515e6c56ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provider (as a git repo) for GHSA data.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00017">17</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00029">29</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aea33d4a9b432af20532285f3f34efd65" name="aea33d4a9b432af20532285f3f34efd65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea33d4a9b432af20532285f3f34efd65">&#9670;&#160;</a></span>CVE_git</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* localcve_args::CVE_git</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provider (as a git repo) for CVE data. </p>
+<p>E.g. <a href="https://github.com/CVEProject/cvelistV5.git">https://github.com/CVEProject/cvelistV5.git</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00035">35</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
+
+</div>
+</div>
+<a id="aba04b1bfc4eaabdc4fcf0515e6c56ae1" name="aba04b1bfc4eaabdc4fcf0515e6c56ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba04b1bfc4eaabdc4fcf0515e6c56ae1">&#9670;&#160;</a></span>GHSA_git</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* localcve_args::GHSA_git</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provider (as a git repo) for GHSA data. </p>
+<p>E.g. <a href="https://github.com/github/advisories.git">https://github.com/github/advisories.git</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00039">39</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
+
+</div>
+</div>
 <a id="ae72a59393a60accd5c8ca9501a9788cd" name="ae72a59393a60accd5c8ca9501a9788cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae72a59393a60accd5c8ca9501a9788cd">&#9670;&#160;</a></span>path</h2>
 
@@ -86,9 +129,11 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00018">18</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
+<p>The base path for the repository stuff. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../d7/d55/localcve_8c_source.html#l00009">localcve_init()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/db1/localcve_8h_source.html#l00031">31</a> of file <a class="el" href="../../d2/db1/localcve_8h_source.html">localcve.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">localcve_init()</a>.</p>
 
 </div>
 </div>
