@@ -31,11 +31,11 @@ typedef struct {
     char* path;
 
     /// @brief Provider (as a git repo) for CVE data
-    /// @example https://github.com/CVEProject/cvelistV5.git
+    /// @details E.g. https://github.com/CVEProject/cvelistV5.git
     char* CVE_git;
 
     /// @brief Provider (as a git repo) for GHSA data
-    /// @example https://github.com/github/advisories.git
+    /// @details E.g. https://github.com/github/advisories.git
     char* GHSA_git;
 } localcve_args;
 
