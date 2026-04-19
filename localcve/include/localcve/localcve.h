@@ -5,38 +5,17 @@
 #include <sqlite3.h>
 #include <git2.h>
 
-/// @brief No errors
-#define LC_OK               (0xA00000)
-/// @brief There are probably errors
-#define LC_ERROR            (0xE00000)
-/// @brief Retured by `localcve_iserror` when it is unable
-///        to work out if the code is an error or not
-#define LC_UNKNOWN          (0xF00000)
-
-#define LC_STATUS_READY     (0x0000A0)
-#define LC_STATUS_EMPTY     (0x0000A1)
-
-#if defined(WIN32) || defined(WIN64)
-#define LC_SEP   "\\"
-#else
-#define LC_SEP   "/"
-#endif
+#include <localcve/defs.h>
+#include <localcve/config.h>
 
 typedef struct {
     sqlite3* db;
+    localcve_config config;
 } localcve;
 
 typedef struct {
     /// @brief The base path for the repository stuff
     char* path;
-
-    /// @brief Provider (as a git repo) for CVE data
-    /// @details E.g. https://github.com/CVEProject/cvelistV5.git
-    char* CVE_git;
-
-    /// @brief Provider (as a git repo) for GHSA data
-    /// @details E.g. https://github.com/github/advisories.git
-    char* GHSA_git;
 } localcve_args;
 
 /// @brief Various setup
