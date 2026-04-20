@@ -13,7 +13,6 @@
 ///        when it shouldn't have been
 #define LC_ERR_UNEXP_PTR_NULL   (0x010000)
 /// @brief A value was not expected
-/// @example internal/config.h:12
 #define LC_ERR_UNEXP_VALUE      (0x011000)
 
 /// @brief The database/config is ready to go
