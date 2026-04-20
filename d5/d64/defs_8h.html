@@ -76,17 +76,58 @@ Macros</h2></td></tr>
 <tr class="memdesc:a526f6913e03aff97cc3e923131263a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retured by <span class="tt">localcve_iserror</span> when it is unable to work out if the code is an error or not.  <br /></td></tr>
 <tr class="memitem:add4d8a7830920803319f95783616c387" id="r_add4d8a7830920803319f95783616c387"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a>&#160;&#160;&#160;(0x010000)</td></tr>
 <tr class="memdesc:add4d8a7830920803319f95783616c387"><td class="mdescLeft">&#160;</td><td class="mdescRight">A NULL pointer was probably parsed as a parameter when it shouldn't have been.  <br /></td></tr>
+<tr class="memitem:ae9021ded1bf13dfbd216a699c8fb2c8f" id="r_ae9021ded1bf13dfbd216a699c8fb2c8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9021ded1bf13dfbd216a699c8fb2c8f">LC_ERR_UNEXP_VALUE</a>&#160;&#160;&#160;(0x011000)</td></tr>
+<tr class="memdesc:ae9021ded1bf13dfbd216a699c8fb2c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A value was not expected.  <br /></td></tr>
 <tr class="memitem:a17e73ddd03aaa40d903357e8f5a089a6" id="r_a17e73ddd03aaa40d903357e8f5a089a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17e73ddd03aaa40d903357e8f5a089a6">LC_STATUS_READY</a>&#160;&#160;&#160;(0x0000A0)</td></tr>
-<tr class="memdesc:a17e73ddd03aaa40d903357e8f5a089a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database is ready to go.  <br /></td></tr>
+<tr class="memdesc:a17e73ddd03aaa40d903357e8f5a089a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database/config is ready to go.  <br /></td></tr>
 <tr class="memitem:a4e9ff6cf7e6d95814a14bb8d47e11987" id="r_a4e9ff6cf7e6d95814a14bb8d47e11987"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e9ff6cf7e6d95814a14bb8d47e11987">LC_STATUS_EMPTY</a>&#160;&#160;&#160;(0x0000A1)</td></tr>
-<tr class="memdesc:a4e9ff6cf7e6d95814a14bb8d47e11987"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database is empty.  <br /></td></tr>
+<tr class="memdesc:a4e9ff6cf7e6d95814a14bb8d47e11987"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database/config is empty.  <br /></td></tr>
 <tr class="memitem:a224f49b2945d6a0fca3b3ae606d66647" id="r_a224f49b2945d6a0fca3b3ae606d66647"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a224f49b2945d6a0fca3b3ae606d66647">LC_STATUS_CORRUPTED</a>&#160;&#160;&#160;(0x0000B0)</td></tr>
-<tr class="memdesc:a224f49b2945d6a0fca3b3ae606d66647"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database is unreadable (corrupted).  <br /></td></tr>
+<tr class="memdesc:a224f49b2945d6a0fca3b3ae606d66647"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database/config is unreadable (corrupted).  <br /></td></tr>
 <tr class="memitem:acd98ca6794bba40b1535eb5ef75b8efd" id="r_acd98ca6794bba40b1535eb5ef75b8efd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd98ca6794bba40b1535eb5ef75b8efd">LC_STATUS_LOCKED</a>&#160;&#160;&#160;(0x0000C0)</td></tr>
 <tr class="memdesc:acd98ca6794bba40b1535eb5ef75b8efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lockfile is present, the database is unavailable for ACID reasons.  <br /></td></tr>
 <tr class="memitem:a3ca09c242e124472cb317354e6b7b9ca" id="r_a3ca09c242e124472cb317354e6b7b9ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ca09c242e124472cb317354e6b7b9ca">LC_SEP</a>&#160;&#160;&#160;&quot;/&quot;</td></tr>
+<tr class="memitem:ab2d69f3dd197ae2587dfb7c8ad92eea0" id="r_ab2d69f3dd197ae2587dfb7c8ad92eea0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d69f3dd197ae2587dfb7c8ad92eea0">LC_DEFAULT_CVE_PATH</a>&#160;&#160;&#160;(&quot;https://github.com/CVEProject/cvelistV5.git\0&quot;)</td></tr>
+<tr class="memitem:a222c6a36e529f083c1afc97e8e3a1022" id="r_a222c6a36e529f083c1afc97e8e3a1022"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a222c6a36e529f083c1afc97e8e3a1022">LC_DEFAULT_GHSA_PATH</a>&#160;&#160;&#160;(&quot;https://github.com/github/advisories.git\0&quot;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a278e353bb702d74ff24c72f8b71a56ff" id="r_a278e353bb702d74ff24c72f8b71a56ff"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a278e353bb702d74ff24c72f8b71a56ff">localcve_default_cve_path</a></td></tr>
+<tr class="memitem:a9d3856e43caed227adbc81f4bfe7cc18" id="r_a9d3856e43caed227adbc81f4bfe7cc18"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d3856e43caed227adbc81f4bfe7cc18">localcve_default_ghsa_path</a></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="ab2d69f3dd197ae2587dfb7c8ad92eea0" name="ab2d69f3dd197ae2587dfb7c8ad92eea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d69f3dd197ae2587dfb7c8ad92eea0">&#9670;&#160;</a></span>LC_DEFAULT_CVE_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_DEFAULT_CVE_PATH&#160;&#160;&#160;(&quot;https://github.com/CVEProject/cvelistV5.git\0&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00035">35</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+
+</div>
+</div>
+<a id="a222c6a36e529f083c1afc97e8e3a1022" name="a222c6a36e529f083c1afc97e8e3a1022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a222c6a36e529f083c1afc97e8e3a1022">&#9670;&#160;</a></span>LC_DEFAULT_GHSA_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_DEFAULT_GHSA_PATH&#160;&#160;&#160;(&quot;https://github.com/github/advisories.git\0&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00036">36</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+
+</div>
+</div>
 <a id="add4d8a7830920803319f95783616c387" name="add4d8a7830920803319f95783616c387"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add4d8a7830920803319f95783616c387">&#9670;&#160;</a></span>LC_ERR_UNEXP_PTR_NULL</h2>
 
@@ -103,7 +144,27 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">14</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, and <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00055">lc_impl_cfg_check()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, and <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>.</p>
+
+</div>
+</div>
+<a id="ae9021ded1bf13dfbd216a699c8fb2c8f" name="ae9021ded1bf13dfbd216a699c8fb2c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9021ded1bf13dfbd216a699c8fb2c8f">&#9670;&#160;</a></span>LC_ERR_UNEXP_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_ERR_UNEXP_VALUE&#160;&#160;&#160;(0x011000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A value was not expected. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">16</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00055">lc_impl_cfg_check()</a>.</p>
 
 </div>
 </div>
@@ -123,7 +184,7 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00007">7</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00011">localcve_clean()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">localcve_init()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">localcve_is_error()</a>, and <a class="el" href="../../d7/d55/localcve_8c_source.html#l00003">localcve_prepare()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00055">lc_impl_cfg_check()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00011">localcve_clean()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">localcve_init()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">localcve_is_error()</a>, and <a class="el" href="../../d7/d55/localcve_8c_source.html#l00003">localcve_prepare()</a>.</p>
 
 </div>
 </div>
@@ -143,7 +204,7 @@ Macros</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00005">5</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00011">localcve_clean()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">localcve_init()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">localcve_is_error()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00003">localcve_prepare()</a>, and <a class="el" href="../../d0/d29/main_8c_source.html#l00003">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00055">lc_impl_cfg_check()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00073">lc_impl_cfg_defaults()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00003">lc_impl_read_cfg_stream()</a>, <a class="el" href="../../d3/d95/config_8c_source.html#l00031">lc_impl_write_cfg_stream()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00011">localcve_clean()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">localcve_init()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">localcve_is_error()</a>, <a class="el" href="../../d7/d55/localcve_8c_source.html#l00003">localcve_prepare()</a>, and <a class="el" href="../../d0/d29/main_8c_source.html#l00003">main()</a>.</p>
 
 </div>
 </div>
@@ -159,7 +220,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00029">29</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00031">31</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 </div>
 </div>
@@ -175,9 +236,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The database is unreadable (corrupted). </p>
+<p>The database/config is unreadable (corrupted). </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00021">21</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00023">23</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 </div>
 </div>
@@ -193,9 +254,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The database is empty. </p>
+<p>The database/config is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00019">19</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00021">21</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 </div>
 </div>
@@ -213,7 +274,7 @@ Macros</h2></td></tr>
 
 <p>A lockfile is present, the database is unavailable for ACID reasons. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00024">24</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00026">26</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 </div>
 </div>
@@ -229,9 +290,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The database is ready to go. </p>
+<p>The database/config is ready to go. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00017">17</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00019">19</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 </div>
 </div>
@@ -252,6 +313,59 @@ Macros</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="../../d5/d64/defs_8h_source.html#l00010">10</a> of file <a class="el" href="../../d5/d64/defs_8h_source.html">defs.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">localcve_is_error()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a278e353bb702d74ff24c72f8b71a56ff" name="a278e353bb702d74ff24c72f8b71a56ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a278e353bb702d74ff24c72f8b71a56ff">&#9670;&#160;</a></span>localcve_default_cve_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* localcve_default_cve_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d44/defs_8c_source.html#l00003">3</a> of file <a class="el" href="../../d0/d44/defs_8c_source.html">defs.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00073">lc_impl_cfg_defaults()</a>.</p>
+
+</div>
+</div>
+<a id="a9d3856e43caed227adbc81f4bfe7cc18" name="a9d3856e43caed227adbc81f4bfe7cc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3856e43caed227adbc81f4bfe7cc18">&#9670;&#160;</a></span>localcve_default_ghsa_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* localcve_default_ghsa_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d44/defs_8c_source.html#l00004">4</a> of file <a class="el" href="../../d0/d44/defs_8c_source.html">defs.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d3/d95/config_8c_source.html#l00073">lc_impl_cfg_defaults()</a>.</p>
 
 </div>
 </div>

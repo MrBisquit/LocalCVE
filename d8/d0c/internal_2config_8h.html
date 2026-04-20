@@ -65,6 +65,8 @@ $(function(){initNavTree('d8/d0c/internal_2config_8h.html','../../',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;malloc.h&gt;</code><br />
+<code>#include &lt;memory.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../d5/d64/defs_8h_source.html">localcve/defs.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../db/d16/config_8h_source.html">localcve/config.h</a>&gt;</code><br />
 </div>
@@ -74,8 +76,97 @@ $(function(){initNavTree('d8/d0c/internal_2config_8h.html','../../',''); });
 Functions</h2></td></tr>
 <tr class="memitem:a5f186590de39eaf293c075ed1f185267" id="r_a5f186590de39eaf293c075ed1f185267"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f186590de39eaf293c075ed1f185267">lc_impl_read_cfg_stream</a> (FILE *stream, <a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> **config)</td></tr>
 <tr class="memitem:adee9f3db5f9fbf7a68bd50e37a674757" id="r_adee9f3db5f9fbf7a68bd50e37a674757"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adee9f3db5f9fbf7a68bd50e37a674757">lc_impl_write_cfg_stream</a> (FILE *stream, <a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> *config)</td></tr>
+<tr class="memitem:a02635a68a02259b31e9fda8a0d20f4fa" id="r_a02635a68a02259b31e9fda8a0d20f4fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02635a68a02259b31e9fda8a0d20f4fa">lc_impl_cfg_check</a> (<a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> *config)</td></tr>
+<tr class="memitem:a058656bf2434bc227e02d77fb8f671ae" id="r_a058656bf2434bc227e02d77fb8f671ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058656bf2434bc227e02d77fb8f671ae">lc_impl_cfg_defaults</a> (<a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> *config)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a02635a68a02259b31e9fda8a0d20f4fa" name="a02635a68a02259b31e9fda8a0d20f4fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02635a68a02259b31e9fda8a0d20f4fa">&#9670;&#160;</a></span>lc_impl_cfg_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_impl_cfg_check </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> *</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d95/config_8c_source.html#l00055">55</a> of file <a class="el" href="../../d3/d95/config_8c_source.html">config.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>                                               {</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span>(config == NULL)</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> | <a class="code hl_define" href="../../d5/d64/defs_8h.html#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a>;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="comment">// Things like the data path, cve git, and ghsa git strings CANNOT be empty or NULL</span></div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span>(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a7387475ad35267e96ebe24d9fc312b1e">data_path</a> == NULL ||</div>
+<div class="line"><span class="lineno">   61</span>        config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">cve_git</a> == NULL ||</div>
+<div class="line"><span class="lineno">   62</span>        config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">ghsa_git</a> == NULL)</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> | <a class="code hl_define" href="../../d5/d64/defs_8h.html#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a>;</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span>(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">data_path_length</a> == 0 ||</div>
+<div class="line"><span class="lineno">   66</span>        config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a> == 0 ||</div>
+<div class="line"><span class="lineno">   67</span>        config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a> == 0)</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> | <a class="code hl_define" href="../../d5/d64/defs_8h.html#ae9021ded1bf13dfbd216a699c8fb2c8f">LC_ERR_UNEXP_VALUE</a>;</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   71</span>}</div>
+<div class="ttc" id="adefs_8h_html_a147faac5134fafbfa302160cfa24826c"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a></div><div class="ttdeci">#define LC_OK</div><div class="ttdoc">No errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00005">defs.h:5</a></div></div>
+<div class="ttc" id="adefs_8h_html_add4d8a7830920803319f95783616c387"><div class="ttname"><a href="../../d5/d64/defs_8h.html#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a></div><div class="ttdeci">#define LC_ERR_UNEXP_PTR_NULL</div><div class="ttdoc">A NULL pointer was probably parsed as a parameter when it shouldn&#39;t have been.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00014">defs.h:14</a></div></div>
+<div class="ttc" id="adefs_8h_html_adff039b5de4390f6c13887a119fa3069"><div class="ttname"><a href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a></div><div class="ttdeci">#define LC_ERROR</div><div class="ttdoc">There are probably errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00007">defs.h:7</a></div></div>
+<div class="ttc" id="adefs_8h_html_ae9021ded1bf13dfbd216a699c8fb2c8f"><div class="ttname"><a href="../../d5/d64/defs_8h.html#ae9021ded1bf13dfbd216a699c8fb2c8f">LC_ERR_UNEXP_VALUE</a></div><div class="ttdeci">#define LC_ERR_UNEXP_VALUE</div><div class="ttdoc">A value was not expected.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00016">defs.h:16</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_a36ec0f32f87f75465416ab8284a71117"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">localcve_config::cve_git</a></div><div class="ttdeci">char * cve_git</div><div class="ttdoc">Provider (as a git repo) for CVE data.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00013">config.h:13</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_a3c9ac77e972a6c10a3a4e6cb003dee6c"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">localcve_config::cve_git_length</a></div><div class="ttdeci">uint16_t cve_git_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00010">config.h:10</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_a7387475ad35267e96ebe24d9fc312b1e"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a7387475ad35267e96ebe24d9fc312b1e">localcve_config::data_path</a></div><div class="ttdeci">char * data_path</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00008">config.h:8</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_a93e13e3e7b787ef069e065664cbed1f8"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">localcve_config::ghsa_git_length</a></div><div class="ttdeci">uint16_t ghsa_git_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00015">config.h:15</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_a96e7867a71e8446f375be381eddbbdc0"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">localcve_config::ghsa_git</a></div><div class="ttdeci">char * ghsa_git</div><div class="ttdoc">Provider (as a git repo) for GHSA data.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00018">config.h:18</a></div></div>
+<div class="ttc" id="astructlocalcve__config_html_abbe386ff9f7883be69a83060a6a33a2f"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">localcve_config::data_path_length</a></div><div class="ttdeci">uint16_t data_path_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00007">config.h:7</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../db/d16/config_8h_source.html#l00013">localcve_config::cve_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00010">localcve_config::cve_git_length</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00008">localcve_config::data_path</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00007">localcve_config::data_path_length</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00018">localcve_config::ghsa_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00015">localcve_config::ghsa_git_length</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_ERR_UNEXP_PTR_NULL</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERR_UNEXP_VALUE</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00007">LC_ERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00005">LC_OK</a>.</p>
+
+</div>
+</div>
+<a id="a058656bf2434bc227e02d77fb8f671ae" name="a058656bf2434bc227e02d77fb8f671ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058656bf2434bc227e02d77fb8f671ae">&#9670;&#160;</a></span>lc_impl_cfg_defaults()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_impl_cfg_defaults </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d52/structlocalcve__config.html">localcve_config</a> *</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000009">Todo</a></b></dt><dd>Test that this doesn't just crash and burn </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d95/config_8c_source.html#l00073">73</a> of file <a class="el" href="../../d3/d95/config_8c_source.html">config.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>                                                  {</div>
+<div class="line"><span class="lineno">   74</span>    <span class="comment">// This sort of assumes that the memory is already allocated</span></div>
+<div class="line"><span class="lineno">   75</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   76</span><span class="comment">    /// @todo Test that this doesn&#39;t just crash and burn</span></div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <span class="comment">// Can&#39;t exactly set the value for the data path, since that&#39;s user-determined</span></div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>    memcpy(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">cve_git</a>, <a class="code hl_variable" href="../../d5/d64/defs_8h.html#a278e353bb702d74ff24c72f8b71a56ff">localcve_default_cve_path</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * strlen(<a class="code hl_variable" href="../../d5/d64/defs_8h.html#a278e353bb702d74ff24c72f8b71a56ff">localcve_default_cve_path</a>));</div>
+<div class="line"><span class="lineno">   81</span>    config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a> = strlen(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">cve_git</a>);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    memcpy(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">ghsa_git</a>, <a class="code hl_variable" href="../../d5/d64/defs_8h.html#a9d3856e43caed227adbc81f4bfe7cc18">localcve_default_ghsa_path</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * strlen(<a class="code hl_variable" href="../../d5/d64/defs_8h.html#a9d3856e43caed227adbc81f4bfe7cc18">localcve_default_ghsa_path</a>));</div>
+<div class="line"><span class="lineno">   84</span>    config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a> = strlen(config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">ghsa_git</a>);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+<div class="ttc" id="adefs_8h_html_a278e353bb702d74ff24c72f8b71a56ff"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a278e353bb702d74ff24c72f8b71a56ff">localcve_default_cve_path</a></div><div class="ttdeci">const char * localcve_default_cve_path</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d44/defs_8c_source.html#l00003">defs.c:3</a></div></div>
+<div class="ttc" id="adefs_8h_html_a9d3856e43caed227adbc81f4bfe7cc18"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a9d3856e43caed227adbc81f4bfe7cc18">localcve_default_ghsa_path</a></div><div class="ttdeci">const char * localcve_default_ghsa_path</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d44/defs_8c_source.html#l00004">defs.c:4</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../db/d16/config_8h_source.html#l00013">localcve_config::cve_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00010">localcve_config::cve_git_length</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00018">localcve_config::ghsa_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00015">localcve_config::ghsa_git_length</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00005">LC_OK</a>, <a class="el" href="../../d0/d44/defs_8c_source.html#l00003">localcve_default_cve_path</a>, and <a class="el" href="../../d0/d44/defs_8c_source.html#l00004">localcve_default_ghsa_path</a>.</p>
+
+</div>
+</div>
 <a id="a5f186590de39eaf293c075ed1f185267" name="a5f186590de39eaf293c075ed1f185267"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f186590de39eaf293c075ed1f185267">&#9670;&#160;</a></span>lc_impl_read_cfg_stream()</h2>
 
@@ -94,7 +185,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>Error handling (<span class="tt"><a class="el" href="../../d3/d95/config_8c.html#a5f186590de39eaf293c075ed1f185267">lc_impl_read_cfg_stream</a></span>) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000003">Todo</a></b></dt><dd>Error handling for <span class="tt"><a class="el" href="../../d3/d95/config_8c.html#a5f186590de39eaf293c075ed1f185267">lc_impl_read_cfg_stream</a></span> </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd></dd></dl>
 <dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000005">Todo</a></b></dt><dd>Write tests for <span class="tt"><a class="el" href="../../d3/d95/config_8c.html#a5f186590de39eaf293c075ed1f185267">lc_impl_read_cfg_stream</a></span> </dd></dl>
 
@@ -106,7 +197,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">    7</span>    <span class="keywordflow">if</span>(*config == NULL)</div>
 <div class="line"><span class="lineno">    8</span>        *config = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../df/d52/structlocalcve__config.html">localcve_config</a>));</div>
 <div class="line"><span class="lineno">    9</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   10</span><span class="comment">    /// @todo Error handling (`lc_impl_read_cfg_stream`)</span></div>
+<div class="line"><span class="lineno">   10</span><span class="comment">    /// @todo Error handling for `lc_impl_read_cfg_stream`</span></div>
 <div class="line"><span class="lineno">   11</span><span class="comment">    /// @todo Write tests for `lc_impl_read_cfg_stream`</span></div>
 <div class="line"><span class="lineno">   12</span> </div>
 <div class="line"><span class="lineno">   13</span>    <span class="comment">// Go to the beginning of the file, I somehow always forget what SEEK_SET does</span></div>
@@ -126,9 +217,6 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   27</span> </div>
 <div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
 <div class="line"><span class="lineno">   29</span>}</div>
-<div class="ttc" id="adefs_8h_html_a147faac5134fafbfa302160cfa24826c"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a></div><div class="ttdeci">#define LC_OK</div><div class="ttdoc">No errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00005">defs.h:5</a></div></div>
-<div class="ttc" id="adefs_8h_html_add4d8a7830920803319f95783616c387"><div class="ttname"><a href="../../d5/d64/defs_8h.html#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a></div><div class="ttdeci">#define LC_ERR_UNEXP_PTR_NULL</div><div class="ttdoc">A NULL pointer was probably parsed as a parameter when it shouldn&#39;t have been.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00014">defs.h:14</a></div></div>
-<div class="ttc" id="adefs_8h_html_adff039b5de4390f6c13887a119fa3069"><div class="ttname"><a href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a></div><div class="ttdeci">#define LC_ERROR</div><div class="ttdoc">There are probably errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00007">defs.h:7</a></div></div>
 <div class="ttc" id="astructlocalcve__config_html"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html">localcve_config</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00006">config.h:6</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_ERR_UNEXP_PTR_NULL</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00007">LC_ERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00005">LC_OK</a>.</p>
@@ -153,34 +241,34 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000006">Todo</a></b></dt><dd>Error handling for <span class="tt"><a class="el" href="../../d3/d95/config_8c.html#adee9f3db5f9fbf7a68bd50e37a674757">lc_impl_write_cfg_stream</a></span> </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000007">Todo</a></b></dt><dd></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000008">Todo</a></b></dt><dd>Write tests for <span class="tt"><a class="el" href="../../d3/d95/config_8c.html#adee9f3db5f9fbf7a68bd50e37a674757">lc_impl_write_cfg_stream</a></span> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d95/config_8c_source.html#l00031">31</a> of file <a class="el" href="../../d3/d95/config_8c_source.html">config.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   31</span>                                                                    {</div>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span>(stream == NULL || config == NULL)</div>
 <div class="line"><span class="lineno">   33</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> | <a class="code hl_define" href="../../d5/d64/defs_8h.html#add4d8a7830920803319f95783616c387">LC_ERR_UNEXP_PTR_NULL</a>;</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    fseek(stream, 0, SEEK_SET);</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    <span class="comment">// Write the data path</span></div>
-<div class="line"><span class="lineno">   38</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">data_path_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
-<div class="line"><span class="lineno">   39</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a7387475ad35267e96ebe24d9fc312b1e">data_path</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">data_path_length</a>, stream);</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    <span class="comment">// Write the cve git string</span></div>
-<div class="line"><span class="lineno">   42</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
-<div class="line"><span class="lineno">   43</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">cve_git</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a>, stream);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    <span class="comment">// Write the ghsa git string</span></div>
-<div class="line"><span class="lineno">   46</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
-<div class="line"><span class="lineno">   47</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">ghsa_git</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a>, stream);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><span class="lineno">   50</span>}</div>
-<div class="ttc" id="astructlocalcve__config_html_a36ec0f32f87f75465416ab8284a71117"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">localcve_config::cve_git</a></div><div class="ttdeci">char * cve_git</div><div class="ttdoc">Provider (as a git repo) for CVE data.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00013">config.h:13</a></div></div>
-<div class="ttc" id="astructlocalcve__config_html_a3c9ac77e972a6c10a3a4e6cb003dee6c"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">localcve_config::cve_git_length</a></div><div class="ttdeci">uint16_t cve_git_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00010">config.h:10</a></div></div>
-<div class="ttc" id="astructlocalcve__config_html_a7387475ad35267e96ebe24d9fc312b1e"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a7387475ad35267e96ebe24d9fc312b1e">localcve_config::data_path</a></div><div class="ttdeci">char * data_path</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00008">config.h:8</a></div></div>
-<div class="ttc" id="astructlocalcve__config_html_a93e13e3e7b787ef069e065664cbed1f8"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">localcve_config::ghsa_git_length</a></div><div class="ttdeci">uint16_t ghsa_git_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00015">config.h:15</a></div></div>
-<div class="ttc" id="astructlocalcve__config_html_a96e7867a71e8446f375be381eddbbdc0"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">localcve_config::ghsa_git</a></div><div class="ttdeci">char * ghsa_git</div><div class="ttdoc">Provider (as a git repo) for GHSA data.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00018">config.h:18</a></div></div>
-<div class="ttc" id="astructlocalcve__config_html_abbe386ff9f7883be69a83060a6a33a2f"><div class="ttname"><a href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">localcve_config::data_path_length</a></div><div class="ttdeci">uint16_t data_path_length</div><div class="ttdef"><b>Definition</b> <a href="../../db/d16/config_8h_source.html#l00007">config.h:7</a></div></div>
+<div class="line"><span class="lineno">   34</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   35</span><span class="comment">    /// @todo Error handling for `lc_impl_write_cfg_stream`</span></div>
+<div class="line"><span class="lineno">   36</span><span class="comment">    /// @todo Write tests for `lc_impl_write_cfg_stream`</span></div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    fseek(stream, 0, SEEK_SET);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <span class="comment">// Write the data path</span></div>
+<div class="line"><span class="lineno">   41</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">data_path_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
+<div class="line"><span class="lineno">   42</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a7387475ad35267e96ebe24d9fc312b1e">data_path</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#abbe386ff9f7883be69a83060a6a33a2f">data_path_length</a>, stream);</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    <span class="comment">// Write the cve git string</span></div>
+<div class="line"><span class="lineno">   45</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
+<div class="line"><span class="lineno">   46</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a36ec0f32f87f75465416ab8284a71117">cve_git</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a3c9ac77e972a6c10a3a4e6cb003dee6c">cve_git_length</a>, stream);</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="comment">// Write the ghsa git string</span></div>
+<div class="line"><span class="lineno">   49</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a>, <span class="keyword">sizeof</span>(uint16_t), 1, stream);</div>
+<div class="line"><span class="lineno">   50</span>    fwrite(&amp;config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a96e7867a71e8446f375be381eddbbdc0">ghsa_git</a>, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), config-&gt;<a class="code hl_variable" href="../../df/d52/structlocalcve__config.html#a93e13e3e7b787ef069e065664cbed1f8">ghsa_git_length</a>, stream);</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   53</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../db/d16/config_8h_source.html#l00013">localcve_config::cve_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00010">localcve_config::cve_git_length</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00008">localcve_config::data_path</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00007">localcve_config::data_path_length</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00018">localcve_config::ghsa_git</a>, <a class="el" href="../../db/d16/config_8h_source.html#l00015">localcve_config::ghsa_git_length</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_ERR_UNEXP_PTR_NULL</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00007">LC_ERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00005">LC_OK</a>.</p>
 
