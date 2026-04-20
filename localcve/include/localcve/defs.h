@@ -12,12 +12,15 @@
 /// @brief A NULL pointer was probably parsed as a parameter
 ///        when it shouldn't have been
 #define LC_ERR_UNEXP_PTR_NULL   (0x010000)
+/// @brief A value was not expected
+/// @example internal/config.h:12
+#define LC_ERR_UNEXP_VALUE      (0x011000)
 
-/// @brief The database is ready to go
+/// @brief The database/config is ready to go
 #define LC_STATUS_READY         (0x0000A0)
-/// @brief The database is empty
+/// @brief The database/config is empty
 #define LC_STATUS_EMPTY         (0x0000A1)
-/// @brief The database is unreadable (corrupted)
+/// @brief The database/config is unreadable (corrupted)
 #define LC_STATUS_CORRUPTED     (0x0000B0)
 /// @brief A lockfile is present, the database is unavailable
 ///        for ACID reasons
@@ -28,5 +31,12 @@
 #else
 #define LC_SEP   "/"
 #endif
+
+// Default values
+#define LC_DEFAULT_CVE_PATH     ("https://github.com/CVEProject/cvelistV5.git\0")
+#define LC_DEFAULT_GHSA_PATH    ("https://github.com/github/advisories.git\0")
+
+extern const char* localcve_default_cve_path;
+extern const char* localcve_default_ghsa_path;
 
 #endif

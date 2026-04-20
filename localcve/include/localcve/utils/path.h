@@ -1,0 +1,4 @@
+#ifndef LOCALCVE_UTILS_PATH_H
+#define LOCALCVE_UTILS_PATH_H
+
+#endif

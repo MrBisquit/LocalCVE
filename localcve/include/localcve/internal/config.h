@@ -3,10 +3,14 @@
 
 #include <stdio.h>
 #include <malloc.h>
+#include <memory.h>
+#include <string.h>
 #include <localcve/defs.h>
 #include <localcve/config.h>
 
 int lc_impl_read_cfg_stream(FILE* stream, localcve_config** config);
 int lc_impl_write_cfg_stream(FILE* stream, localcve_config* config);
+int lc_impl_cfg_check(localcve_config* config);
+int lc_impl_cfg_defaults(localcve_config* config);
 
 #endif
