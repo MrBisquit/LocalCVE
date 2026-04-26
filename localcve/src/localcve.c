@@ -29,6 +29,16 @@ int localcve_init(localcve** lCVE, localcve_args args) {
     return LC_OK;
 }
 
+int localcve_setup(localcve* lCVE) {
+
+    return LC_OK;
+}
+
+int localcve_status(localcve* lCVE) {
+
+    return LC_OK;
+}
+
 int localcve_is_error(int code) {
     // Basically just checks if the code contains LC_ERROR, or LC_OK
     return code & LC_ERROR ? LC_ERROR : code & LC_OK ? LC_OK : LC_UNKNOWN;

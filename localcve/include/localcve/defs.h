@@ -1,6 +1,15 @@
 #ifndef LOCALCVE_DEFS_H
 #define LOCALCVE_DEFS_H
 
+#define LC_STR_HELPER(x) #x
+#define LC_STR(x) LC_STR_HELPER(x)
+
+#define LC_VER_MAJOR            1
+#define LC_VER_MINOR            0
+#define LC_VER_PATCH            0
+
+#define LC_VER_STRING           LC_STR(LC_VER_MAJOR) "." LC_STR(LC_VER_MINOR) "." LC_STR(LC_VER_PATCH)
+
 /// @brief No errors
 #define LC_OK                   (0xA00000)
 /// @brief There are probably errors

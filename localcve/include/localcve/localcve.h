@@ -11,6 +11,10 @@
 typedef struct {
     sqlite3* db;
     localcve_config config;
+
+    char* db_path;
+    char* cve_path;
+    char* ghsa_path;
 } localcve;
 
 typedef struct {
