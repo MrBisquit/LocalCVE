@@ -11,7 +11,13 @@ var defs_8h =
     [ "LC_STATUS_EMPTY", "d5/d64/defs_8h.html#a4e9ff6cf7e6d95814a14bb8d47e11987", null ],
     [ "LC_STATUS_LOCKED", "d5/d64/defs_8h.html#acd98ca6794bba40b1535eb5ef75b8efd", null ],
     [ "LC_STATUS_READY", "d5/d64/defs_8h.html#a17e73ddd03aaa40d903357e8f5a089a6", null ],
+    [ "LC_STR", "d5/d64/defs_8h.html#ae05c63b64e1901490d3f1c2c21c4c099", null ],
+    [ "LC_STR_HELPER", "d5/d64/defs_8h.html#ab2d3f4c0ffc214f758b572ded334bdbf", null ],
     [ "LC_UNKNOWN", "d5/d64/defs_8h.html#a526f6913e03aff97cc3e923131263a19", null ],
+    [ "LC_VER_MAJOR", "d5/d64/defs_8h.html#a006e2aa5f30370f5b73c88cc6d4be51c", null ],
+    [ "LC_VER_MINOR", "d5/d64/defs_8h.html#a741f3c69519e2a65fc68072d373d3e56", null ],
+    [ "LC_VER_PATCH", "d5/d64/defs_8h.html#ad9aabc0fa6429c57ad4333e341a368d3", null ],
+    [ "LC_VER_STRING", "d5/d64/defs_8h.html#a76ea03dc5ab505af91ebc2cf4463361a", null ],
     [ "localcve_default_cve_path", "d5/d64/defs_8h.html#a278e353bb702d74ff24c72f8b71a56ff", null ],
     [ "localcve_default_ghsa_path", "d5/d64/defs_8h.html#a9d3856e43caed227adbc81f4bfe7cc18", null ]
 ];

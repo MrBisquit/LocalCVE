@@ -63,9 +63,579 @@ $(function(){initNavTree('dc/db0/cli_8h.html','../../',''); });
   <div class="headertitle"><div class="title">cli.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="../../d2/db1/localcve_8h_source.html">localcve/localcve.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../d2/db1/localcve_8h_source.html">localcve/localcve.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../de/db7/ansi__console__small_8h_source.html">cli/ansi_console_small.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../de/d3c/macros_8h_source.html">cli/macros.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../dd/d9f/cmd_8h_source.html">cli/cmd.h</a>&gt;</code><br />
 </div>
 <p><a href="../../dc/db0/cli_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:lc_5Fcli_5Fcmd" id="r_lc_5Fcli_5Fcmd"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a995e0b62339192bc923251b63a066fca" id="r_a995e0b62339192bc923251b63a066fca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995e0b62339192bc923251b63a066fca">LC_CLI_VER_MAJOR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:acfa0b58e511820a8ade29af76c6616c3" id="r_acfa0b58e511820a8ade29af76c6616c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfa0b58e511820a8ade29af76c6616c3">LC_CLI_VER_MINOR</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a7edb8810b8d098b7ebaab174496729bf" id="r_a7edb8810b8d098b7ebaab174496729bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7edb8810b8d098b7ebaab174496729bf">LC_CLI_VER_PATCH</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a596b2e35469e36b0940200498a93579d" id="r_a596b2e35469e36b0940200498a93579d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a596b2e35469e36b0940200498a93579d">LC_CLI_VER_STRING</a></td></tr>
+<tr class="memitem:aff4ab022f0708fbd635befa543ca57fb" id="r_aff4ab022f0708fbd635befa543ca57fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff4ab022f0708fbd635befa543ca57fb">LC_CLI_CMD_NORM</a>&#160;&#160;&#160;(0x00)</td></tr>
+<tr class="memitem:af55b8d11018d7c82dfad27c741a85ce9" id="r_af55b8d11018d7c82dfad27c741a85ce9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af55b8d11018d7c82dfad27c741a85ce9">LC_CLI_CMD_NODB</a>&#160;&#160;&#160;(0x10)</td></tr>
+<tr class="memitem:a5ac9f1426ce2692e7dfa2a04accfd6c3" id="r_a5ac9f1426ce2692e7dfa2a04accfd6c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ac9f1426ce2692e7dfa2a04accfd6c3">LC_CLI_CMD_ERR</a>&#160;&#160;&#160;(0x20)</td></tr>
+<tr class="memitem:a5786e5f2955fdae3244f57d6a10b9b35" id="r_a5786e5f2955fdae3244f57d6a10b9b35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5786e5f2955fdae3244f57d6a10b9b35">LC_CLI_FLG_NONE</a>&#160;&#160;&#160;(0x00)</td></tr>
+<tr class="memitem:a3b4f36297b213ed253c516b7127dd456" id="r_a3b4f36297b213ed253c516b7127dd456"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4f36297b213ed253c516b7127dd456">LC_CLI_FLG_NODB</a>&#160;&#160;&#160;(0x01)</td></tr>
+<tr class="memitem:aebf2c7e7d519cf0c3109e61ab0faa3fd" id="r_aebf2c7e7d519cf0c3109e61ab0faa3fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">LC_CLI_CMD_FOUND</a>&#160;&#160;&#160;(0x0AF000)</td></tr>
+<tr class="memitem:ad82a51cf0c338a9797715f970a67d049" id="r_ad82a51cf0c338a9797715f970a67d049"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad82a51cf0c338a9797715f970a67d049">LC_CLI_CMD_NOTFOUND</a>&#160;&#160;&#160;(0x0AE000)</td></tr>
+<tr class="memitem:a7124c9e46b4efc22449db55887fe3d65" id="r_a7124c9e46b4efc22449db55887fe3d65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a>&#160;&#160;&#160;(0xA00000)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a6674dd1e1fdf062feae4b9e9e1969e37" id="r_a6674dd1e1fdf062feae4b9e9e1969e37"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> { <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33">LC_CLI_CMD_HELP</a> = 0x10
+, <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19">LC_CLI_CMD_VERSION</a> = 0x11
+, <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c">LC_CLI_CMD_SETUP</a> = 0x00
+, <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d">LC_CLI_CMD_SYNC</a> = 0x01
+, <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed">LC_CLI_CMD_STATUS</a> = 0x02
+, <br />
+&#160;&#160;<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291">LC_CLI_CMD_UNKNOWN</a> = 0x20
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6dd496399db77cea850621f2692c549a" id="r_a6dd496399db77cea850621f2692c549a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dd496399db77cea850621f2692c549a">lc_cli_cmd_match</a> (const char *str, <a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> **cmd, int flags)</td></tr>
+<tr class="memitem:a66f0cc4132d126b4fb5f5416fc56fa77" id="r_a66f0cc4132d126b4fb5f5416fc56fa77"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f0cc4132d126b4fb5f5416fc56fa77">lc_cli_cmd_find</a> (<a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> *cmd, <a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a> **ptr)</td></tr>
+<tr class="memitem:aff74555947c15abb0ca34cc7051ab077" id="r_aff74555947c15abb0ca34cc7051ab077"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff74555947c15abb0ca34cc7051ab077">lc_cli_exec</a> (<a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a> *ptr, int argc, const char *const argv[])</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1114a481124ff60c08755027648dd00f" id="r_a1114a481124ff60c08755027648dd00f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1114a481124ff60c08755027648dd00f">lc_cli_last</a></td></tr>
+<tr class="memitem:a742d18caa49a0ec1d0f0bea11386d3c3" id="r_a742d18caa49a0ec1d0f0bea11386d3c3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a> []</td></tr>
+<tr class="memitem:a111e201faad2f3cd571f52b964f3ff24" id="r_a111e201faad2f3cd571f52b964f3ff24"><td class="memItemLeft" align="right" valign="top">const size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a5ac9f1426ce2692e7dfa2a04accfd6c3" name="a5ac9f1426ce2692e7dfa2a04accfd6c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac9f1426ce2692e7dfa2a04accfd6c3">&#9670;&#160;</a></span>LC_CLI_CMD_ERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_CMD_ERR&#160;&#160;&#160;(0x20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00046">46</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="aebf2c7e7d519cf0c3109e61ab0faa3fd" name="aebf2c7e7d519cf0c3109e61ab0faa3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">&#9670;&#160;</a></span>LC_CLI_CMD_FOUND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_CMD_FOUND&#160;&#160;&#160;(0x0AF000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00051">51</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dd/def/cli_8c_source.html#l00036">lc_cli_cmd_find()</a>, <a class="el" href="../../dd/def/cli_8c_source.html#l00003">lc_cli_cmd_match()</a>, and <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="af55b8d11018d7c82dfad27c741a85ce9" name="af55b8d11018d7c82dfad27c741a85ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af55b8d11018d7c82dfad27c741a85ce9">&#9670;&#160;</a></span>LC_CLI_CMD_NODB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_CMD_NODB&#160;&#160;&#160;(0x10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00045">45</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="aff4ab022f0708fbd635befa543ca57fb" name="aff4ab022f0708fbd635befa543ca57fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4ab022f0708fbd635befa543ca57fb">&#9670;&#160;</a></span>LC_CLI_CMD_NORM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_CMD_NORM&#160;&#160;&#160;(0x00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00044">44</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="ad82a51cf0c338a9797715f970a67d049" name="ad82a51cf0c338a9797715f970a67d049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82a51cf0c338a9797715f970a67d049">&#9670;&#160;</a></span>LC_CLI_CMD_NOTFOUND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_CMD_NOTFOUND&#160;&#160;&#160;(0x0AE000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00052">52</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dd/def/cli_8c_source.html#l00036">lc_cli_cmd_find()</a>, and <a class="el" href="../../dd/def/cli_8c_source.html#l00003">lc_cli_cmd_match()</a>.</p>
+
+</div>
+</div>
+<a id="a3b4f36297b213ed253c516b7127dd456" name="a3b4f36297b213ed253c516b7127dd456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4f36297b213ed253c516b7127dd456">&#9670;&#160;</a></span>LC_CLI_FLG_NODB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_FLG_NODB&#160;&#160;&#160;(0x01)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00049">49</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dd/def/cli_8c_source.html#l00003">lc_cli_cmd_match()</a>, and <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="a5786e5f2955fdae3244f57d6a10b9b35" name="a5786e5f2955fdae3244f57d6a10b9b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5786e5f2955fdae3244f57d6a10b9b35">&#9670;&#160;</a></span>LC_CLI_FLG_NONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_FLG_NONE&#160;&#160;&#160;(0x00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00048">48</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="a7124c9e46b4efc22449db55887fe3d65" name="a7124c9e46b4efc22449db55887fe3d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7124c9e46b4efc22449db55887fe3d65">&#9670;&#160;</a></span>LC_CLI_RET_NOERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_RET_NOERROR&#160;&#160;&#160;(0xA00000)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00054">54</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../db/d9f/help_8c_source.html#l00003">lc_cli_cmd_help()</a>, <a class="el" href="../../dd/def/cli_8c_source.html#l00047">lc_cli_exec()</a>, and <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="a995e0b62339192bc923251b63a066fca" name="a995e0b62339192bc923251b63a066fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995e0b62339192bc923251b63a066fca">&#9670;&#160;</a></span>LC_CLI_VER_MAJOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_VER_MAJOR&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00011">11</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="acfa0b58e511820a8ade29af76c6616c3" name="acfa0b58e511820a8ade29af76c6616c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa0b58e511820a8ade29af76c6616c3">&#9670;&#160;</a></span>LC_CLI_VER_MINOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_VER_MINOR&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00012">12</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="a7edb8810b8d098b7ebaab174496729bf" name="a7edb8810b8d098b7ebaab174496729bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edb8810b8d098b7ebaab174496729bf">&#9670;&#160;</a></span>LC_CLI_VER_PATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_VER_PATCH&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00013">13</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+
+</div>
+</div>
+<a id="a596b2e35469e36b0940200498a93579d" name="a596b2e35469e36b0940200498a93579d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596b2e35469e36b0940200498a93579d">&#9670;&#160;</a></span>LC_CLI_VER_STRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LC_CLI_VER_STRING</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                <a class="code hl_define" href="../../d5/d64/defs_8h.html#ae05c63b64e1901490d3f1c2c21c4c099">LC_STR</a>(<a class="code hl_define" href="#a995e0b62339192bc923251b63a066fca">LC_CLI_VER_MAJOR</a>) <span class="stringliteral">&quot;.&quot;</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#ae05c63b64e1901490d3f1c2c21c4c099">LC_STR</a>(<a class="code hl_define" href="#acfa0b58e511820a8ade29af76c6616c3">LC_CLI_VER_MINOR</a>) \</div>
+<div class="line">                                <span class="stringliteral">&quot;.&quot;</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#ae05c63b64e1901490d3f1c2c21c4c099">LC_STR</a>(<a class="code hl_define" href="#a7edb8810b8d098b7ebaab174496729bf">LC_CLI_VER_PATCH</a>)</div>
+<div class="ttc" id="acli_8h_html_a7edb8810b8d098b7ebaab174496729bf"><div class="ttname"><a href="#a7edb8810b8d098b7ebaab174496729bf">LC_CLI_VER_PATCH</a></div><div class="ttdeci">#define LC_CLI_VER_PATCH</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00013">cli.h:13</a></div></div>
+<div class="ttc" id="acli_8h_html_a995e0b62339192bc923251b63a066fca"><div class="ttname"><a href="#a995e0b62339192bc923251b63a066fca">LC_CLI_VER_MAJOR</a></div><div class="ttdeci">#define LC_CLI_VER_MAJOR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00011">cli.h:11</a></div></div>
+<div class="ttc" id="acli_8h_html_acfa0b58e511820a8ade29af76c6616c3"><div class="ttname"><a href="#acfa0b58e511820a8ade29af76c6616c3">LC_CLI_VER_MINOR</a></div><div class="ttdeci">#define LC_CLI_VER_MINOR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00012">cli.h:12</a></div></div>
+<div class="ttc" id="adefs_8h_html_ae05c63b64e1901490d3f1c2c21c4c099"><div class="ttname"><a href="../../d5/d64/defs_8h.html#ae05c63b64e1901490d3f1c2c21c4c099">LC_STR</a></div><div class="ttdeci">#define LC_STR(x)</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00005">defs.h:5</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00015">15</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span><span class="preprocessor">#define LC_CLI_VER_STRING       LC_STR(LC_CLI_VER_MAJOR) &quot;.&quot; LC_STR(LC_CLI_VER_MINOR) \</span></div>
+<div class="line"><span class="lineno">   16</span><span class="preprocessor">                                &quot;.&quot; LC_STR(LC_CLI_VER_PATCH)</span></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="a6674dd1e1fdf062feae4b9e9e1969e37" name="a6674dd1e1fdf062feae4b9e9e1969e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37">&#9670;&#160;</a></span>LC_CLI_CMD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33" name="a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33"></a>LC_CLI_CMD_HELP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19" name="a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19"></a>LC_CLI_CMD_VERSION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c" name="a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c"></a>LC_CLI_CMD_SETUP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d" name="a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d"></a>LC_CLI_CMD_SYNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed" name="a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed"></a>LC_CLI_CMD_STATUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291" name="a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291"></a>LC_CLI_CMD_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="../../dc/db0/cli_8h_source.html#l00020">20</a> of file <a class="el" href="../../dc/db0/cli_8h_source.html">cli.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>             {</div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33">LC_CLI_CMD_HELP</a>             = 0x10,</div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19">LC_CLI_CMD_VERSION</a>          = 0x11,</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c">LC_CLI_CMD_SETUP</a>            = 0x00,</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d">LC_CLI_CMD_SYNC</a>             = 0x01,</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed">LC_CLI_CMD_STATUS</a>           = 0x02,</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291">LC_CLI_CMD_UNKNOWN</a>          = 0x20</div>
+<div class="line"><span class="lineno">   29</span>} <a class="code hl_enumeration" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a>;</div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a></div><div class="ttdeci">LC_CLI_CMD</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00020">cli.h:20</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c">LC_CLI_CMD_SETUP</a></div><div class="ttdeci">@ LC_CLI_CMD_SETUP</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00024">cli.h:24</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed">LC_CLI_CMD_STATUS</a></div><div class="ttdeci">@ LC_CLI_CMD_STATUS</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00026">cli.h:26</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d">LC_CLI_CMD_SYNC</a></div><div class="ttdeci">@ LC_CLI_CMD_SYNC</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00025">cli.h:25</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33">LC_CLI_CMD_HELP</a></div><div class="ttdeci">@ LC_CLI_CMD_HELP</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00021">cli.h:21</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291">LC_CLI_CMD_UNKNOWN</a></div><div class="ttdeci">@ LC_CLI_CMD_UNKNOWN</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00028">cli.h:28</a></div></div>
+<div class="ttc" id="acli_8h_html_a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19"><div class="ttname"><a href="#a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19">LC_CLI_CMD_VERSION</a></div><div class="ttdeci">@ LC_CLI_CMD_VERSION</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00022">cli.h:22</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a66f0cc4132d126b4fb5f5416fc56fa77" name="a66f0cc4132d126b4fb5f5416fc56fa77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f0cc4132d126b4fb5f5416fc56fa77">&#9670;&#160;</a></span>lc_cli_cmd_find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_cli_cmd_find </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> *</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a> **</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dd/def/cli_8c_source.html#l00036">36</a> of file <a class="el" href="../../dd/def/cli_8c_source.html">cli.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>                                                       {</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code hl_variable" href="#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a>; i++) {</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span>(<a class="code hl_variable" href="#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].cmd == *cmd) {</div>
+<div class="line"><span class="lineno">   39</span>            *ptr = &amp;<a class="code hl_variable" href="#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i];</div>
+<div class="line"><span class="lineno">   40</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">LC_CLI_CMD_FOUND</a>;</div>
+<div class="line"><span class="lineno">   41</span>        }</div>
+<div class="line"><span class="lineno">   42</span>    }</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#ad82a51cf0c338a9797715f970a67d049">LC_CLI_CMD_NOTFOUND</a>;</div>
+<div class="line"><span class="lineno">   45</span>}</div>
+<div class="ttc" id="acli_8h_html_a111e201faad2f3cd571f52b964f3ff24"><div class="ttname"><a href="#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a></div><div class="ttdeci">const size_t lc_cmds_size</div><div class="ttdef"><b>Definition</b> <a href="../../da/d32/cmd_8c_source.html#l00018">cmd.c:18</a></div></div>
+<div class="ttc" id="acli_8h_html_a742d18caa49a0ec1d0f0bea11386d3c3"><div class="ttname"><a href="#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a></div><div class="ttdeci">const lc_cli_cmd lc_cmds[]</div><div class="ttdef"><b>Definition</b> <a href="../../da/d32/cmd_8c_source.html#l00003">cmd.c:3</a></div></div>
+<div class="ttc" id="acli_8h_html_ad82a51cf0c338a9797715f970a67d049"><div class="ttname"><a href="#ad82a51cf0c338a9797715f970a67d049">LC_CLI_CMD_NOTFOUND</a></div><div class="ttdeci">#define LC_CLI_CMD_NOTFOUND</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00052">cli.h:52</a></div></div>
+<div class="ttc" id="acli_8h_html_aebf2c7e7d519cf0c3109e61ab0faa3fd"><div class="ttname"><a href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">LC_CLI_CMD_FOUND</a></div><div class="ttdeci">#define LC_CLI_CMD_FOUND</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00051">cli.h:51</a></div></div>
+<div class="ttc" id="adefs_8h_html_a147faac5134fafbfa302160cfa24826c"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a></div><div class="ttdeci">#define LC_OK</div><div class="ttdoc">No errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00014">defs.h:14</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00051">LC_CLI_CMD_FOUND</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00052">LC_CLI_CMD_NOTFOUND</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00003">lc_cmds</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00018">lc_cmds_size</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="a6dd496399db77cea850621f2692c549a" name="a6dd496399db77cea850621f2692c549a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd496399db77cea850621f2692c549a">&#9670;&#160;</a></span>lc_cli_cmd_match()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_cli_cmd_match </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> **</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>flags</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dd/def/cli_8c_source.html#l00003">3</a> of file <a class="el" href="../../dd/def/cli_8c_source.html">cli.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                                                                   {</div>
+<div class="line"><span class="lineno">    4</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">struct </span>{</div>
+<div class="line"><span class="lineno">    5</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* name;</div>
+<div class="line"><span class="lineno">    6</span>        <a class="code hl_enumeration" href="#a6674dd1e1fdf062feae4b9e9e1969e37">LC_CLI_CMD</a> cmd;</div>
+<div class="line"><span class="lineno">    7</span> </div>
+<div class="line"><span class="lineno">    8</span>        <span class="keywordtype">int</span> nodb;</div>
+<div class="line"><span class="lineno">    9</span>    } table[] = {</div>
+<div class="line"><span class="lineno">   10</span>        { <span class="stringliteral">&quot;help&quot;</span>,       <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33">LC_CLI_CMD_HELP</a>,    0x1 },</div>
+<div class="line"><span class="lineno">   11</span>        { <span class="stringliteral">&quot;version&quot;</span>,    <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37afe66536c7ba8b2de3a7c3d47764e9f19">LC_CLI_CMD_VERSION</a>, 0x1 },</div>
+<div class="line"><span class="lineno">   12</span> </div>
+<div class="line"><span class="lineno">   13</span>        { <span class="stringliteral">&quot;setup&quot;</span>,      <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c">LC_CLI_CMD_SETUP</a>,   0x0 },</div>
+<div class="line"><span class="lineno">   14</span>        { <span class="stringliteral">&quot;sync&quot;</span>,       <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d">LC_CLI_CMD_SYNC</a>,    0x0 },</div>
+<div class="line"><span class="lineno">   15</span>        { <span class="stringliteral">&quot;status&quot;</span>,     <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed">LC_CLI_CMD_STATUS</a>,  0x0 }</div>
+<div class="line"><span class="lineno">   16</span>    };</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> table_size = <span class="keyword">sizeof</span>(table) / <span class="keyword">sizeof</span>(*table);</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; table_size; i++) {</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">if</span>(strcmp(str, table[i].name) == 0)</div>
+<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">if</span>(flags &amp; <a class="code hl_define" href="#a3b4f36297b213ed253c516b7127dd456">LC_CLI_FLG_NODB</a>)</div>
+<div class="line"><span class="lineno">   22</span>                <span class="keywordflow">if</span>(table[i].nodb == 0x1) {</div>
+<div class="line"><span class="lineno">   23</span>                    *cmd = &amp;(table[i].cmd);</div>
+<div class="line"><span class="lineno">   24</span>                    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">LC_CLI_CMD_FOUND</a>;</div>
+<div class="line"><span class="lineno">   25</span>                } <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   26</span>                    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#ad82a51cf0c338a9797715f970a67d049">LC_CLI_CMD_NOTFOUND</a>;</div>
+<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   28</span>                *cmd = &amp;(table[i].cmd);</div>
+<div class="line"><span class="lineno">   29</span>                <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#aebf2c7e7d519cf0c3109e61ab0faa3fd">LC_CLI_CMD_FOUND</a>;</div>
+<div class="line"><span class="lineno">   30</span>            }</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> | <a class="code hl_define" href="#ad82a51cf0c338a9797715f970a67d049">LC_CLI_CMD_NOTFOUND</a>;</div>
+<div class="line"><span class="lineno">   34</span>}</div>
+<div class="ttc" id="acli_8h_html_a3b4f36297b213ed253c516b7127dd456"><div class="ttname"><a href="#a3b4f36297b213ed253c516b7127dd456">LC_CLI_FLG_NODB</a></div><div class="ttdeci">#define LC_CLI_FLG_NODB</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00049">cli.h:49</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00051">LC_CLI_CMD_FOUND</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00021">LC_CLI_CMD_HELP</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00052">LC_CLI_CMD_NOTFOUND</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00024">LC_CLI_CMD_SETUP</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00026">LC_CLI_CMD_STATUS</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00025">LC_CLI_CMD_SYNC</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00022">LC_CLI_CMD_VERSION</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00049">LC_CLI_FLG_NODB</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="aff74555947c15abb0ca34cc7051ab077" name="aff74555947c15abb0ca34cc7051ab077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff74555947c15abb0ca34cc7051ab077">&#9670;&#160;</a></span>lc_cli_exec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_cli_exec </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a> *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../dd/def/cli_8c_source.html#l00047">47</a> of file <a class="el" href="../../dd/def/cli_8c_source.html">cli.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>                                                                     {</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordtype">int</span> ret = <a class="code hl_define" href="#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">if</span>(ptr == NULL) {</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_define" href="../../de/d3c/macros_8h.html#affe72c95696346d9e26e81e1448bd3e4">LC_CLI_PRT_ERR_T</a>(<span class="stringliteral">&quot;Command is NULL&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
+<div class="line"><span class="lineno">   54</span>    }</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">switch</span>((ret = ptr-&gt;<a class="code hl_variable" href="../../de/dc6/structlc__cli__cmd.html#a1555b454e60912c36b94307f456b198e">func</a>(argc, argv))) {</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   58</span>            <a class="code hl_define" href="../../de/d3c/macros_8h.html#a9590c785081652e075bceec1cb957bc1">LC_CLI_PRT_WRN</a>(<span class="stringliteral">&quot;Unknown return code&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+<div class="ttc" id="acli_8h_html_a7124c9e46b4efc22449db55887fe3d65"><div class="ttname"><a href="#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a></div><div class="ttdeci">#define LC_CLI_RET_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00054">cli.h:54</a></div></div>
+<div class="ttc" id="adefs_8h_html_adff039b5de4390f6c13887a119fa3069"><div class="ttname"><a href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a></div><div class="ttdeci">#define LC_ERROR</div><div class="ttdoc">There are probably errors.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00016">defs.h:16</a></div></div>
+<div class="ttc" id="amacros_8h_html_a9590c785081652e075bceec1cb957bc1"><div class="ttname"><a href="../../de/d3c/macros_8h.html#a9590c785081652e075bceec1cb957bc1">LC_CLI_PRT_WRN</a></div><div class="ttdeci">#define LC_CLI_PRT_WRN(m)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d3c/macros_8h_source.html#l00021">macros.h:21</a></div></div>
+<div class="ttc" id="amacros_8h_html_affe72c95696346d9e26e81e1448bd3e4"><div class="ttname"><a href="../../de/d3c/macros_8h.html#affe72c95696346d9e26e81e1448bd3e4">LC_CLI_PRT_ERR_T</a></div><div class="ttdeci">#define LC_CLI_PRT_ERR_T(m)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d3c/macros_8h_source.html#l00027">macros.h:27</a></div></div>
+<div class="ttc" id="astructlc__cli__cmd_html_a1555b454e60912c36b94307f456b198e"><div class="ttname"><a href="../../de/dc6/structlc__cli__cmd.html#a1555b454e60912c36b94307f456b198e">lc_cli_cmd::func</a></div><div class="ttdeci">int(* func)(int, const char *const *)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00034">cli.h:34</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00034">lc_cli_cmd::func</a>, <a class="el" href="../../de/d3c/macros_8h_source.html#l00027">LC_CLI_PRT_ERR_T</a>, <a class="el" href="../../de/d3c/macros_8h_source.html#l00021">LC_CLI_PRT_WRN</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00054">LC_CLI_RET_NOERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERROR</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a1114a481124ff60c08755027648dd00f" name="a1114a481124ff60c08755027648dd00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1114a481124ff60c08755027648dd00f">&#9670;&#160;</a></span>lc_cli_last</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_cli_last</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<h1 class="doxsection"><a class="anchor" id="lcvecli-usage"></a>
+Usage</h1>
+<p>localcve [subcommand] (...args) help Provides usage information (cmd) Optional command parameter for command-specific information version Provides version information</p>
+<hr  />
+<p>localcve [path] [subcommand] (...args) setup Sets up the database sync status</p>
+<p>[path] can either be a path, or "-" to use the default path </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d0/d29/main_8c_source.html#l00021">21</a> of file <a class="el" href="../../d0/d29/main_8c_source.html">main.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00023">main()</a>.</p>
+
+</div>
+</div>
+<a id="a742d18caa49a0ec1d0f0bea11386d3c3" name="a742d18caa49a0ec1d0f0bea11386d3c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a742d18caa49a0ec1d0f0bea11386d3c3">&#9670;&#160;</a></span>lc_cmds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../de/dc6/structlc__cli__cmd.html">lc_cli_cmd</a> lc_cmds[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d32/cmd_8c_source.html#l00003">3</a> of file <a class="el" href="../../da/d32/cmd_8c_source.html">cmd.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                             {</div>
+<div class="line"><span class="lineno">    4</span>    {</div>
+<div class="line"><span class="lineno">    5</span>        <a class="code hl_enumvalue" href="#a6674dd1e1fdf062feae4b9e9e1969e37a9231287190376930fbaa8745aa900a33">LC_CLI_CMD_HELP</a>,</div>
+<div class="line"><span class="lineno">    6</span> </div>
+<div class="line"><span class="lineno">    7</span>        <a class="code hl_function" href="../../dd/d9f/cmd_8h.html#a33e06d9be4c1b36e4fe2b3c969c5f73c">lc_cli_cmd_help</a>,</div>
+<div class="line"><span class="lineno">    8</span> </div>
+<div class="line"><span class="lineno">    9</span>        <span class="stringliteral">&quot;help&quot;</span>,</div>
+<div class="line"><span class="lineno">   10</span>        <span class="stringliteral">&quot;Provides usage information&quot;</span>,</div>
+<div class="line"><span class="lineno">   11</span> </div>
+<div class="line"><span class="lineno">   12</span>        <span class="stringliteral">&quot;--command,-c &lt;str&gt;&quot;</span>,</div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span>        0x0</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span>};</div>
+<div class="ttc" id="acmd_8h_html_a33e06d9be4c1b36e4fe2b3c969c5f73c"><div class="ttname"><a href="../../dd/d9f/cmd_8h.html#a33e06d9be4c1b36e4fe2b3c969c5f73c">lc_cli_cmd_help</a></div><div class="ttdeci">int lc_cli_cmd_help(int argc, const char *const *argv)</div><div class="ttdef"><b>Definition</b> <a href="../../db/d9f/help_8c_source.html#l00003">help.c:3</a></div></div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="../../dd/def/cli_8c_source.html#l00036">lc_cli_cmd_find()</a>.</p>
+
+</div>
+</div>
+<a id="a111e201faad2f3cd571f52b964f3ff24" name="a111e201faad2f3cd571f52b964f3ff24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111e201faad2f3cd571f52b964f3ff24">&#9670;&#160;</a></span>lc_cmds_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t lc_cmds_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../da/d32/cmd_8c_source.html#l00018">18</a> of file <a class="el" href="../../da/d32/cmd_8c_source.html">cmd.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dd/def/cli_8c_source.html#l00036">lc_cli_cmd_find()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

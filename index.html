@@ -74,15 +74,19 @@ $(function(){initNavTree('index.html','',''); });
 <li>If the time between the last update surpasses an hour, it may scan the whole directory instead to see if there have been any other changes, <a class="el" href="#limitations">find out why</a></li>
 </ul>
 </li>
-<li>Monitor the database (so you know when one of your dependencies has a reported vulnerability within the hour)</li>
+<li>Monitor the database (so you know when one of your dependencies has a reported vulnerability within the hour)<ul>
+<li>Create a watchlist</li>
+<li>Allows you to push information to some kind of endpoint/webhook</li>
+</ul>
+</li>
 <li>Link into other databases, such as the <a href="https://github.com/github/advisory-database/">GitHub advisotry database</a></li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Please note that git operations are handled by the <span class="tt"><a class="el" href="dd/d68/structlocalcve.html">localcve</a></span> backend library, since it needs to see the difference between the files.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 Usage</h1>
 <p>There are a few different ways to use LocalCVE, but before you do that, you need to set up your database.</p>
 <p><a class="anchor" id="limitations"></a> </p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 Limitations</h1>
 <p>This relies on the <span class="tt">delta.json</span> file within the git repository so that it does not constantly scan through all the files.</p>
 <p>It may in future be able to check through the <span class="tt">deltaLog.json</span> file, however, for now, this will just use the <span class="tt">delta.json</span> file, and if it has been longer than an hour since the last check, it will look through all the files to check if their last modification date was after the database record for it. </p>

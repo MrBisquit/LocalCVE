@@ -25,17 +25,17 @@
 var NAVTREE =
 [
   [ "LocalCVE", "index.html", [
-    [ "Usage", "index.html#autotoc_md13", null ],
-    [ "Limitations", "index.html#autotoc_md14", null ],
+    [ "Usage", "index.html#autotoc_md14", null ],
+    [ "Limitations", "index.html#autotoc_md15", null ],
     [ "Changelog", "da/dee/md_docs_2CHANGELOG.html", [
-      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md6", [
-        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md7", null ],
-        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md8", null ],
-        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md9", null ]
+      [ "[Unreleased]", "da/dee/md_docs_2CHANGELOG.html#autotoc_md7", [
+        [ "Added", "da/dee/md_docs_2CHANGELOG.html#autotoc_md8", null ],
+        [ "Changed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md9", null ],
+        [ "Removed", "da/dee/md_docs_2CHANGELOG.html#autotoc_md10", null ]
       ] ]
     ] ],
     [ "Database", "d7/d55/md_docs_2database.html", [
-      [ "Tables", "d7/d55/md_docs_2database.html#autotoc_md11", null ]
+      [ "Tables", "d7/d55/md_docs_2database.html#autotoc_md12", null ]
     ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Classes", "annotated.html", [
@@ -53,6 +53,8 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -61,7 +63,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"dir_49e56c817e5e54854c35e136979f97ca.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
