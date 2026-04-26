@@ -9,7 +9,19 @@ const lc_cli_cmd lc_cmds[] = {
         "help",
         "Provides usage information",
 
-        "--command,-c <str>",
+        "--command/-c <str>",
+
+        0x0
+    },
+    {
+        LC_CLI_CMD_VERSION,
+
+        NULL,
+
+        "version",
+        "Provides specific version information",
+
+        "No args",
 
         0x0
     }

@@ -7,6 +7,7 @@
 #include <cli/ansi_console_small.h>
 #include <cli/macros.h>
 #include <cli/cmd.h>
+#include <cli/args.h>
 
 #define LC_CLI_VER_MAJOR        1
 #define LC_CLI_VER_MINOR        0
