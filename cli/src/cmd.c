@@ -16,7 +16,7 @@ const lc_cli_cmd lc_cmds[] = {
     {
         LC_CLI_CMD_VERSION,
 
-        NULL,
+        lc_cli_cmd_version,
 
         "version",
         "Provides specific version information",

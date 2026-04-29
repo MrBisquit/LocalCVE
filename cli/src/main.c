@@ -59,7 +59,16 @@ int main(int argc, const char* const argv[]) {
     }
 
     if((lc_cli_last = lc_cli_cmd_match(argv[1], &cmd, LC_CLI_FLG_NONE)) & LC_CLI_CMD_FOUND) {
-        
+        if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) & LC_CLI_CMD_FOUND) {
+            if((lc_cli_last = lc_cli_exec(match, argc, argv)) == LC_CLI_RET_NOERROR) {
+                return 0;
+            } else {
+                LC_CLI_PRT_INF_UR("lc_cli_exec", lc_cli_last, LC_CLI_RET_NOERROR);
+                return 1;
+            }
+        } else {
+            LC_CLI_PRT_WRN("Command recognised, but couldn't be found\n");
+        }
     }
 
     if((lc_cli_last = localcve_clean()) != LC_OK) {

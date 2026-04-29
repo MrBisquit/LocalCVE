@@ -54,6 +54,12 @@ typedef struct {
 
 #define LC_CLI_RET_NOERROR      (0xA00000)
 
+#define LC_CLI_ARGS_NOERROR     (0x0A0000)
+#define LC_CLI_ARGS_UNK_ARG     (0xE00000)
+#define LC_CLI_ARGS_UNK_ERR     (0xEEEEEE)
+#define LC_CLI_ARGS_PARSE_ERR   (0xE00001)
+#define LC_CLI_ARGS_TFA_ERR     (0xE00002) // Too Few Arguments
+
 extern const lc_cli_cmd lc_cmds[];
 extern const size_t lc_cmds_size;
 

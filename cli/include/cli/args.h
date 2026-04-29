@@ -62,14 +62,15 @@ typedef struct {
     const char* small;                  // E.g. "h"
 
     LC_CLI_ARG_VALUE val;
+    LC_CLI_ARG_TYPE type;
 } LC_CLI_ARG;
 
-int lc_cli_arg_parse_str(LC_CLI_ARG_STR** arg);
-int lc_cli_arg_parse_int(LC_CLI_ARG_INT** arg);
-int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT** arg);
-int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG** arg);
-int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE** arg);
+int lc_cli_arg_parse_str(LC_CLI_ARG_STR* arg, const char* next);
+int lc_cli_arg_parse_int(LC_CLI_ARG_INT* arg, const char* next);
+int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT* arg, const char* next);
+int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next);
+int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE* arg, const char* next);
 
-int lc_cli_arg_parse(LC_CLI_ARG* args, int argc, const char* const* argv, int start);
+int lc_cli_arg_parse(LC_CLI_ARG* args, size_t c, int argc, const char* const* argv, int start);
 
 #endif

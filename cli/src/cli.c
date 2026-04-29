@@ -54,6 +54,14 @@ int lc_cli_exec(lc_cli_cmd* ptr, int argc, const char* const argv[]) {
     }
 
     switch((ret = ptr->func(argc, argv))) {
+        case LC_CLI_ARGS_UNK_ARG:
+            printf(
+                LC_CLI_ERR("Unknown argument(s). Use \"%s help -c %s\" for usage information.") "\n",
+                argv[0], argv[1]
+            );
+            break;
+        case LC_CLI_RET_NOERROR:
+            break;
         default:
             LC_CLI_PRT_WRN("Unknown return code");
     }
