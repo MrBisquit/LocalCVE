@@ -8,7 +8,9 @@
 #include <localcve/defs.h>
 
 char* lc_utils_path_combine(char* a, char* b);
-int lc_utils_has_lead_sep(char* str);
-int lc_utils_has_trail_sep(char* str);
+//int lc_utils_has_lead_sep(char* str);
+//int lc_utils_has_trail_sep(char* str);
+
+int lc_utils_path_is_default(char* path);
 
 #endif

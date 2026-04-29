@@ -1,6 +1,12 @@
 #include <cli/cli.h>
 
 int lc_cli_cmd_help(int argc, const char* const* argv) {
+    if(argc == -1) {
+        printf("No command-specific usage information.");
+
+        return LC_CLI_RET_NOERROR;
+    }
+
     LC_CLI_ARG args[] = {
         {
             "command",
@@ -32,6 +38,7 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
     #define CCR CONSOLE_COLOR_RESET
     #define FG_BLUE CONSOLE_FG_BRIGHT_BLUE
     #define FG_WHITE CONSOLE_FG_BRIGHT_WHITE
+    #define FG_YELLOW CONSOLE_FG_BRIGHT_YELLOW
 
     if(args[0].val.STR.val_len == 0) {
         printf("LocalCVE CLI version " LC_CLI_VER_STRING
@@ -53,17 +60,25 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
             printf(CC(FG_WHITE) "\tArgs:" CCR " %s\n", lc_cmds[i].arg_string);
             printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n", argv[0],
                 lc_cmds[i].name, lc_cmds[i].arg_string);
+            if(lc_cmds[i].func == NULL)
+                printf(CC(FG_YELLOW) "\tNOT IMPLEMENTED" CCR "\n");
         }
     } else {
         for(size_t i = 0; i < lc_cmds_size; i++) {
             if(strcmp(lc_cmds[i].name, args[0].val.STR.val) == 0) {
                 printf("Usage for " CC(FG_WHITE) "%s" CCR " command:\n", lc_cmds[i].name);
-                
+
                 printf(CC(FG_WHITE) "\tNODB:" CCR " %s\n", lc_cmds[i].requires_db == 0 ? "Yes" : "No");
                 printf(CC(FG_WHITE) "\tDescription:" CCR " %s\n", lc_cmds[i].desc);
                 printf(CC(FG_WHITE) "\tArgs:" CCR " %s\n", lc_cmds[i].arg_string);
-                printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n", argv[0],
+                printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n\n", argv[0],
                     lc_cmds[i].name, lc_cmds[i].arg_string);
+                if(lc_cmds[i].func == NULL)
+                    printf(CC(FG_YELLOW) "\tNOT IMPLEMENTED" CCR "\n");
+
+                printf(CC(FG_WHITE) "Command-specific usage:\n" CCR);
+                lc_cmds[i].func(-1, NULL);
+                printf("\n");
 
                 return LC_CLI_RET_NOERROR;
             }

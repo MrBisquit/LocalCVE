@@ -24,6 +24,55 @@ const lc_cli_cmd lc_cmds[] = {
         "No args",
 
         0x0
+    },
+
+    {
+        LC_CLI_CMD_SETUP,
+
+        NULL,
+
+        "setup",
+        "Sets up LocalCVE in a directory",
+
+        "No args",
+
+        0x1
+    },
+    {
+        LC_CLI_CMD_SYNC,
+
+        NULL,
+
+        "sync",
+        "Synchronises the database",
+
+        "No args",
+
+        0x1
+    },
+    {
+        LC_CLI_CMD_STATUS,
+
+        NULL,
+
+        "status",
+        "Gets the status of the database",
+
+        "No args",
+
+        0x1
+    },
+    {
+        LC_CLI_CMD_CONFIG,
+
+        NULL,
+
+        "config",
+        "Gets/sets config values",
+
+        "--find/-f <str>, --list/-l, --key/-k <str>, --value/-v <str>",
+
+        0x1
     }
 };
 

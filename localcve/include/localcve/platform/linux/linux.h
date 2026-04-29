@@ -1,0 +1,4 @@
+#ifndef LOCALCVE_PLATFORM_LINUX_H
+#define LOCALCVE_PLATFORM_LINUX_H
+
+#endif

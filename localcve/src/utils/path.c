@@ -26,3 +26,13 @@ char* lc_utils_path_combine(char* a, char* b) {
 
     return buffer;
 }
+
+int lc_utils_path_is_default(char* path) {
+    return strlen(path) == 1 && path[0] == '-' ? 0x1 : 0x0;
+}
+
+int lc_utils_generate_default(char** path) {
+    // Generate the default path
+
+    
+}

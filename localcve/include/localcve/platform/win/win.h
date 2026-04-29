@@ -1,0 +1,4 @@
+#ifndef LOCALCVE_PLATFORM_WIN_H
+#define LOCALCVE_PLATFORM_WIN_H
+
+#endif

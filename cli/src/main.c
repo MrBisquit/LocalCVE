@@ -12,8 +12,9 @@
 
     localcve [path] [subcommand] (...args)
         setup       Sets up the database
-        sync
-        status
+        sync        Synchronises the database
+        status      Gets the status of the database
+        config      Gets/sets configuration
 
     [path] can either be a path, or "-" to use the default path
 */

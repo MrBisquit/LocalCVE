@@ -1,6 +1,12 @@
 #include <cli/cli.h>
 
 int lc_cli_cmd_version(int argc, const char* const* argv) {
+    if(argc == -1) {
+        printf("No command-specific usage information.");
+
+        return LC_CLI_RET_NOERROR;
+    }
+    
     #define CC(c) CONSOLE_COLOR(c)
     #define CCR CONSOLE_COLOR_RESET
     #define WHITE CONSOLE_FG_BRIGHT_WHITE

@@ -25,6 +25,7 @@ typedef enum {
     LC_CLI_CMD_SETUP            = 0x00,
     LC_CLI_CMD_SYNC             = 0x01,
     LC_CLI_CMD_STATUS           = 0x02,
+    LC_CLI_CMD_CONFIG           = 0x03,
 
     LC_CLI_CMD_UNKNOWN          = 0x20
 } LC_CLI_CMD;

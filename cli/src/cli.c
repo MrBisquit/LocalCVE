@@ -12,7 +12,8 @@ int lc_cli_cmd_match(const char* str, LC_CLI_CMD** cmd, int flags) {
 
         { "setup",      LC_CLI_CMD_SETUP,   0x0 },
         { "sync",       LC_CLI_CMD_SYNC,    0x0 },
-        { "status",     LC_CLI_CMD_STATUS,  0x0 }
+        { "status",     LC_CLI_CMD_STATUS,  0x0 },
+        { "config",     LC_CLI_CMD_CONFIG,  0x0 }
     };
     static const size_t table_size = sizeof(table) / sizeof(*table);
 
@@ -49,6 +50,12 @@ int lc_cli_exec(lc_cli_cmd* ptr, int argc, const char* const argv[]) {
 
     if(ptr == NULL) {
         LC_CLI_PRT_ERR_T("Command is NULL");
+
+        return LC_ERROR;
+    }
+
+    if(ptr->func == NULL) {
+        LC_CLI_PRT_ERR_T("Command func ptr is NULL");
 
         return LC_ERROR;
     }
