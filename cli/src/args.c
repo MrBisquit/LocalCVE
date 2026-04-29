@@ -21,14 +21,6 @@ int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE* arg, const char* next) {
 }
 
 int lc_cli_arg_parse(LC_CLI_ARG* args, size_t c, int argc, const char* const* argv, int start) {
-    /**
-        \section args How args work
-        \paragraph
-            This iterates through all of the provided arguments, tries to find the
-            corresponding argument, and if it cannot find it, returns an
-            LC_CLI_ARGS_UK_ARG error
-    */
-
     for(size_t i = start; i < argc; i++) {
         // Check if it starts with a dash
         if(argv[i][0] != '-')
