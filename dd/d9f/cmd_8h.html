@@ -69,6 +69,7 @@ $(function(){initNavTree('dd/d9f/cmd_8h.html','../../',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a33e06d9be4c1b36e4fe2b3c969c5f73c" id="r_a33e06d9be4c1b36e4fe2b3c969c5f73c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e06d9be4c1b36e4fe2b3c969c5f73c">lc_cli_cmd_help</a> (int argc, const char *const *argv)</td></tr>
+<tr class="memitem:ae3c45dd2dc5afa9abc07d0a7ab7f3e66" id="r_ae3c45dd2dc5afa9abc07d0a7ab7f3e66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3c45dd2dc5afa9abc07d0a7ab7f3e66">lc_cli_cmd_version</a> (int argc, const char *const *argv)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a33e06d9be4c1b36e4fe2b3c969c5f73c" name="a33e06d9be4c1b36e4fe2b3c969c5f73c"></a>
@@ -104,52 +105,113 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   13</span>                    0,</div>
 <div class="line"><span class="lineno">   14</span>                    NULL</div>
 <div class="line"><span class="lineno">   15</span>                }</div>
-<div class="line"><span class="lineno">   16</span>            }</div>
-<div class="line"><span class="lineno">   17</span>        }</div>
-<div class="line"><span class="lineno">   18</span>    };</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">if</span>(strcmp(argv[1], <span class="stringliteral">&quot;help&quot;</span>) == 0)</div>
-<div class="line"><span class="lineno">   21</span>        <a class="code hl_function" href="../../db/d77/args_8h.html#a96b3f372d9a25f03a752cafca5cd7526">lc_cli_arg_parse</a>(args, argc, argv, 2);</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   23</span>        <a class="code hl_function" href="../../db/d77/args_8h.html#a96b3f372d9a25f03a752cafca5cd7526">lc_cli_arg_parse</a>(args, argc, argv, 3);</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">if</span>(args[0].val.STR.val_len == 0) {</div>
-<div class="line"><span class="lineno">   26</span>        printf(<span class="stringliteral">&quot;LocalCVE CLI version &quot;</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a596b2e35469e36b0940200498a93579d">LC_CLI_VER_STRING</a></div>
-<div class="line"><span class="lineno">   27</span>            <span class="stringliteral">&quot;\nLocalCVE backend version &quot;</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a76ea03dc5ab505af91ebc2cf4463361a">LC_VER_STRING</a> <span class="stringliteral">&quot;\n\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>        printf(<span class="stringliteral">&quot;For commands that are marked as \&quot;NODB\&quot;, you do not need to specify &quot;</span></div>
-<div class="line"><span class="lineno">   30</span>            <span class="stringliteral">&quot;a path to use.\n\n&quot;</span></div>
-<div class="line"><span class="lineno">   31</span>            <span class="stringliteral">&quot;Base command usage (NODB):\n&quot;</span></div>
-<div class="line"><span class="lineno">   32</span>            <span class="stringliteral">&quot;\tlocalcve [subcommand] (...args)\n&quot;</span></div>
-<div class="line"><span class="lineno">   33</span>            <span class="stringliteral">&quot;Base command usage:\n&quot;</span></div>
-<div class="line"><span class="lineno">   34</span>            <span class="stringliteral">&quot;\tlocalcve [path] [subcommand] (...args)\n\n&quot;</span></div>
-<div class="line"><span class="lineno">   35</span>            <span class="stringliteral">&quot;For the path, either specify a valid path, or \&quot;-\&quot; to use the default path.\n\n&quot;</span></div>
-<div class="line"><span class="lineno">   36</span>            <span class="stringliteral">&quot;Subcommands:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a>; i++) {</div>
-<div class="line"><span class="lineno">   39</span>            printf(<span class="stringliteral">&quot;%s (0x%X)\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].name, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].cmd);</div>
-<div class="line"><span class="lineno">   40</span>            printf(<span class="stringliteral">&quot;\tNODB: %s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].requires_db == 0 ? <span class="stringliteral">&quot;Yes&quot;</span> : <span class="stringliteral">&quot;No&quot;</span>);</div>
-<div class="line"><span class="lineno">   41</span>            printf(<span class="stringliteral">&quot;\tDescription:%s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].desc);</div>
-<div class="line"><span class="lineno">   42</span>            printf(<span class="stringliteral">&quot;\tArgs: %s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].arg_string);</div>
-<div class="line"><span class="lineno">   43</span>            printf(<span class="stringliteral">&quot;\tExample: %s %s (%s)\n\n&quot;</span>, argv[0], <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].name, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].arg_string);</div>
-<div class="line"><span class="lineno">   44</span>        }</div>
-<div class="line"><span class="lineno">   45</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   46</span>        </div>
-<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   16</span>            },</div>
+<div class="line"><span class="lineno">   17</span>            <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a></div>
+<div class="line"><span class="lineno">   18</span>        }</div>
+<div class="line"><span class="lineno">   19</span>    };</div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordtype">size_t</span> args_count = <span class="keyword">sizeof</span>(args) / <span class="keyword">sizeof</span>(*args);</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">int</span> ret = <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span>(strcmp(argv[1], <span class="stringliteral">&quot;help&quot;</span>) == 0)</div>
+<div class="line"><span class="lineno">   24</span>        ret = <a class="code hl_function" href="../../db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a>(args, args_count, argc, argv, 2);</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   26</span>        ret = <a class="code hl_function" href="../../db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a>(args, args_count, argc, argv, 3);</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">if</span>(ret != <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>)</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span><span class="preprocessor">    #define CC(c) CONSOLE_COLOR(c)</span></div>
+<div class="line"><span class="lineno">   32</span><span class="preprocessor">    #define CCR CONSOLE_COLOR_RESET</span></div>
+<div class="line"><span class="lineno">   33</span><span class="preprocessor">    #define FG_BLUE CONSOLE_FG_BRIGHT_BLUE</span></div>
+<div class="line"><span class="lineno">   34</span><span class="preprocessor">    #define FG_WHITE CONSOLE_FG_BRIGHT_WHITE</span></div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span>(args[0].val.STR.val_len == 0) {</div>
+<div class="line"><span class="lineno">   37</span>        printf(<span class="stringliteral">&quot;LocalCVE CLI version &quot;</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a596b2e35469e36b0940200498a93579d">LC_CLI_VER_STRING</a></div>
+<div class="line"><span class="lineno">   38</span>            <span class="stringliteral">&quot;\nLocalCVE backend version &quot;</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a76ea03dc5ab505af91ebc2cf4463361a">LC_VER_STRING</a> <span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>        printf(<span class="stringliteral">&quot;For commands that are marked as \&quot;NODB\&quot;, you do not need to specify &quot;</span></div>
+<div class="line"><span class="lineno">   41</span>            <span class="stringliteral">&quot;a path to use.\n\n&quot;</span></div>
+<div class="line"><span class="lineno">   42</span>            <span class="stringliteral">&quot;Base command usage (NODB):\n&quot;</span></div>
+<div class="line"><span class="lineno">   43</span>            <a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tlocalcve [subcommand] (...args)\n&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a></div>
+<div class="line"><span class="lineno">   44</span>            <span class="stringliteral">&quot;Base command usage:\n&quot;</span></div>
+<div class="line"><span class="lineno">   45</span>            <a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tlocalcve [path] [subcommand] (...args)\n\n&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a></div>
+<div class="line"><span class="lineno">   46</span>            <span class="stringliteral">&quot;For the path, either specify a valid path, or \&quot;-\&quot; to use the default path.\n\n&quot;</span></div>
+<div class="line"><span class="lineno">   47</span>            <span class="stringliteral">&quot;Subcommands:\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a>;</div>
-<div class="line"><span class="lineno">   50</span>}</div>
-<div class="ttc" id="aargs_8h_html_a96b3f372d9a25f03a752cafca5cd7526"><div class="ttname"><a href="../../db/d77/args_8h.html#a96b3f372d9a25f03a752cafca5cd7526">lc_cli_arg_parse</a></div><div class="ttdeci">int lc_cli_arg_parse(LC_CLI_ARG *args, int argc, const char *const *argv, int start)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00023">args.c:23</a></div></div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a>; i++) {</div>
+<div class="line"><span class="lineno">   50</span>            printf(<a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;%s&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; (0x%X)\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].name, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].cmd);</div>
+<div class="line"><span class="lineno">   51</span>            printf(<a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tNODB:&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; %s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].requires_db == 0 ? <span class="stringliteral">&quot;Yes&quot;</span> : <span class="stringliteral">&quot;No&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span>            printf(<a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tDescription:&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; %s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].desc);</div>
+<div class="line"><span class="lineno">   53</span>            printf(<a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tArgs:&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; %s\n&quot;</span>, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].arg_string);</div>
+<div class="line"><span class="lineno">   54</span>            printf(<a class="code hl_define" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>) <span class="stringliteral">&quot;\tExample:&quot;</span> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; %s %s (%s)\n&quot;</span>, argv[0],</div>
+<div class="line"><span class="lineno">   55</span>                <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].name, <a class="code hl_variable" href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a>[i].arg_string);</div>
+<div class="line"><span class="lineno">   56</span>        }</div>
+<div class="line"><span class="lineno">   57</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   58</span>        </div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+<div class="ttc" id="aargs_8h_html_a4e959e6f7661be8180aed8194c5f0b55"><div class="ttname"><a href="../../db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a></div><div class="ttdeci">int lc_cli_arg_parse(LC_CLI_ARG *args, size_t c, int argc, const char *const *argv, int start)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00023">args.c:23</a></div></div>
+<div class="ttc" id="aargs_8h_html_ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce"><div class="ttname"><a href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a></div><div class="ttdeci">@ LC_CLI_ARG_TYPE_STR</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00005">args.h:5</a></div></div>
 <div class="ttc" id="acli_8h_html_a111e201faad2f3cd571f52b964f3ff24"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a111e201faad2f3cd571f52b964f3ff24">lc_cmds_size</a></div><div class="ttdeci">const size_t lc_cmds_size</div><div class="ttdef"><b>Definition</b> <a href="../../da/d32/cmd_8c_source.html#l00030">cmd.c:30</a></div></div>
 <div class="ttc" id="acli_8h_html_a596b2e35469e36b0940200498a93579d"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a596b2e35469e36b0940200498a93579d">LC_CLI_VER_STRING</a></div><div class="ttdeci">#define LC_CLI_VER_STRING</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00016">cli.h:16</a></div></div>
 <div class="ttc" id="acli_8h_html_a7124c9e46b4efc22449db55887fe3d65"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a></div><div class="ttdeci">#define LC_CLI_RET_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00055">cli.h:55</a></div></div>
 <div class="ttc" id="acli_8h_html_a742d18caa49a0ec1d0f0bea11386d3c3"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3">lc_cmds</a></div><div class="ttdeci">const lc_cli_cmd lc_cmds[]</div><div class="ttdef"><b>Definition</b> <a href="../../da/d32/cmd_8c_source.html#l00003">cmd.c:3</a></div></div>
+<div class="ttc" id="acli_8h_html_ae6e449b4947eb67e9386de142229868c"><div class="ttname"><a href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a></div><div class="ttdeci">#define LC_CLI_ARGS_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00057">cli.h:57</a></div></div>
 <div class="ttc" id="adefs_8h_html_a76ea03dc5ab505af91ebc2cf4463361a"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a76ea03dc5ab505af91ebc2cf4463361a">LC_VER_STRING</a></div><div class="ttdeci">#define LC_VER_STRING</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00011">defs.h:11</a></div></div>
+<div class="ttc" id="ahelp_8c_html_a7fbb956b9e769a1020c2eff1f6743857"><div class="ttname"><a href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a></div><div class="ttdeci">#define FG_WHITE</div></div>
+<div class="ttc" id="ahelp_8c_html_aa332ecbafbebd9aad0ff23698458a497"><div class="ttname"><a href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a></div><div class="ttdeci">#define CC(c)</div></div>
+<div class="ttc" id="ahelp_8c_html_ad4bf7893b2451e38ffd105d563b0a18d"><div class="ttname"><a href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a></div><div class="ttdeci">#define CCR</div></div>
 <div class="ttc" id="astructLC__CLI__ARG__STR_html"><div class="ttname"><a href="../../d8/d2b/structLC__CLI__ARG__STR.html">LC_CLI_ARG_STR</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00012">args.h:12</a></div></div>
 <div class="ttc" id="astructLC__CLI__ARG_html"><div class="ttname"><a href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00060">args.h:60</a></div></div>
 <div class="ttc" id="aunionLC__CLI__ARG__VALUE_html"><div class="ttname"><a href="../../de/ddc/unionLC__CLI__ARG__VALUE.html">LC_CLI_ARG_VALUE</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00051">args.h:51</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00055">LC_CLI_RET_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00016">LC_CLI_VER_STRING</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00003">lc_cmds</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00030">lc_cmds_size</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00011">LC_VER_STRING</a>.</p>
+<p class="reference">References <a class="el" href="../../db/d9f/help_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>, <a class="el" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a>, <a class="el" href="../../db/d9f/help_8c.html#a7fbb956b9e769a1020c2eff1f6743857">FG_WHITE</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00005">LC_CLI_ARG_TYPE_STR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00055">LC_CLI_RET_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00016">LC_CLI_VER_STRING</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00003">lc_cmds</a>, <a class="el" href="../../da/d32/cmd_8c_source.html#l00030">lc_cmds_size</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00011">LC_VER_STRING</a>.</p>
+
+</div>
+</div>
+<a id="ae3c45dd2dc5afa9abc07d0a7ab7f3e66" name="ae3c45dd2dc5afa9abc07d0a7ab7f3e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c45dd2dc5afa9abc07d0a7ab7f3e66">&#9670;&#160;</a></span>lc_cli_cmd_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_cli_cmd_version </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d2/d0b/version_8c_source.html#l00003">3</a> of file <a class="el" href="../../d2/d0b/version_8c_source.html">version.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    3</span>                                                          {</div>
+<div class="line"><span class="lineno">    4</span><span class="preprocessor">    #define CC(c) CONSOLE_COLOR(c)</span></div>
+<div class="line"><span class="lineno">    5</span><span class="preprocessor">    #define CCR CONSOLE_COLOR_RESET</span></div>
+<div class="line"><span class="lineno">    6</span><span class="preprocessor">    #define WHITE CONSOLE_FG_BRIGHT_WHITE</span></div>
+<div class="line"><span class="lineno">    7</span> </div>
+<div class="line"><span class="lineno">    8</span>    printf(<span class="stringliteral">&quot;LocalCVE CLI\t\t&quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) <a class="code hl_define" href="../../dc/db0/cli_8h.html#a596b2e35469e36b0940200498a93579d">LC_CLI_VER_STRING</a> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a></div>
+<div class="line"><span class="lineno">    9</span>        <span class="stringliteral">&quot;\nLocalCVE backend\t&quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) <a class="code hl_define" href="../../d5/d64/defs_8h.html#a76ea03dc5ab505af91ebc2cf4463361a">LC_VER_STRING</a> <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   10</span> </div>
+<div class="line"><span class="lineno">   11</span>    printf(<span class="stringliteral">&quot;Dependencies:\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   12</span>    printf(<span class="stringliteral">&quot;\tsqlite\t\t&quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) SQLITE_VERSION <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; (&quot;</span> <a class="code hl_define" href="../../de/db7/ansi__console__small_8h.html#a18d295a837ac71add5578860b55e5502">STR</a>(SQLITE_VERSION_NUMBER) <span class="stringliteral">&quot;)\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   13</span>    printf(<span class="stringliteral">&quot;\tlibgit2\t\t&quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) LIBGIT2_VERSION <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>    printf(<span class="stringliteral">&quot;Built on &quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) __DATE__ <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot; at &quot;</span> <a class="code hl_define" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>(<a class="code hl_define" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>) __TIME__ <a class="code hl_define" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a> <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a7124c9e46b4efc22449db55887fe3d65">LC_CLI_RET_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   18</span>}</div>
+<div class="ttc" id="aansi__console__small_8h_html_a18d295a837ac71add5578860b55e5502"><div class="ttname"><a href="../../de/db7/ansi__console__small_8h.html#a18d295a837ac71add5578860b55e5502">STR</a></div><div class="ttdeci">#define STR(x)</div><div class="ttdef"><b>Definition</b> <a href="../../de/db7/ansi__console__small_8h_source.html#l00116">ansi_console_small.h:116</a></div></div>
+<div class="ttc" id="aversion_8c_html_a87b537f5fa5c109d3c05c13d6b18f382"><div class="ttname"><a href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a></div><div class="ttdeci">#define WHITE</div></div>
+<div class="ttc" id="aversion_8c_html_aa332ecbafbebd9aad0ff23698458a497"><div class="ttname"><a href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a></div><div class="ttdeci">#define CC(c)</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="../../d2/d0b/version_8c.html#aa332ecbafbebd9aad0ff23698458a497">CC</a>, <a class="el" href="../../db/d9f/help_8c.html#ad4bf7893b2451e38ffd105d563b0a18d">CCR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00055">LC_CLI_RET_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00016">LC_CLI_VER_STRING</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00011">LC_VER_STRING</a>, <a class="el" href="../../de/db7/ansi__console__small_8h_source.html#l00116">STR</a>, and <a class="el" href="../../d2/d0b/version_8c.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>.</p>
 
 </div>
 </div>

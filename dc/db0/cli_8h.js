@@ -1,6 +1,11 @@
 var cli_8h =
 [
     [ "lc_cli_cmd", "de/dc6/structlc__cli__cmd.html", "de/dc6/structlc__cli__cmd" ],
+    [ "LC_CLI_ARGS_NOERROR", "dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c", null ],
+    [ "LC_CLI_ARGS_PARSE_ERR", "dc/db0/cli_8h.html#aaf65d34b73f6ef73823849d7ec92df7e", null ],
+    [ "LC_CLI_ARGS_TFA_ERR", "dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68", null ],
+    [ "LC_CLI_ARGS_UNK_ARG", "dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602", null ],
+    [ "LC_CLI_ARGS_UNK_ERR", "dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65", null ],
     [ "LC_CLI_CMD_ERR", "dc/db0/cli_8h.html#a5ac9f1426ce2692e7dfa2a04accfd6c3", null ],
     [ "LC_CLI_CMD_FOUND", "dc/db0/cli_8h.html#aebf2c7e7d519cf0c3109e61ab0faa3fd", null ],
     [ "LC_CLI_CMD_NODB", "dc/db0/cli_8h.html#af55b8d11018d7c82dfad27c741a85ce9", null ],

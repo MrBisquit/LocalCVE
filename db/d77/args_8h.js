@@ -14,10 +14,10 @@ var args_8h =
       [ "LC_CLI_ARG_TYPE_FLG", "db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacae5593f04227fac9506f978716da2e943", null ],
       [ "LC_CLI_ARG_TYPE_PRE", "db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca60a16163ba9009b28edcf54c1abfcc32", null ]
     ] ],
-    [ "lc_cli_arg_parse", "db/d77/args_8h.html#a96b3f372d9a25f03a752cafca5cd7526", null ],
-    [ "lc_cli_arg_parse_flg", "db/d77/args_8h.html#a0f2a4da3f9d674eda428da7206558173", null ],
-    [ "lc_cli_arg_parse_flt", "db/d77/args_8h.html#a5fee276bf41179b0749d3ff700ec0b87", null ],
-    [ "lc_cli_arg_parse_int", "db/d77/args_8h.html#aab39a4bc4fc7dd7f79503b12303fcd29", null ],
-    [ "lc_cli_arg_parse_pre", "db/d77/args_8h.html#a3b6623be9bea24076994198c1045e6b5", null ],
-    [ "lc_cli_arg_parse_str", "db/d77/args_8h.html#ae9207c8c1b4c8d410b14ab1a28bc1164", null ]
+    [ "lc_cli_arg_parse", "db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55", null ],
+    [ "lc_cli_arg_parse_flg", "db/d77/args_8h.html#a73c747768db1fb04ad450a89160fb678", null ],
+    [ "lc_cli_arg_parse_flt", "db/d77/args_8h.html#a46be0698958f30010816490781659254", null ],
+    [ "lc_cli_arg_parse_int", "db/d77/args_8h.html#a229e43c9e6c1e8c0a3fc05127c359c46", null ],
+    [ "lc_cli_arg_parse_pre", "db/d77/args_8h.html#a5465f71932152eec38fdf1c54c46897c", null ],
+    [ "lc_cli_arg_parse_str", "db/d77/args_8h.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8", null ]
 ];
