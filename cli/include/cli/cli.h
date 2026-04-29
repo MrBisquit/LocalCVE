@@ -53,6 +53,7 @@ typedef struct {
 #define LC_CLI_CMD_NOTFOUND     (0x0AE000)
 
 #define LC_CLI_RET_NOERROR      (0xA00000)
+#define LC_CLI_RET_ERROR        (0xE00000)
 
 #define LC_CLI_ARGS_NOERROR     (0x0A0000)
 #define LC_CLI_ARGS_UNK_ARG     (0xE00000)

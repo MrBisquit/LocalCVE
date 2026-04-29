@@ -1,6 +1,11 @@
 #include <cli/cli.h>
 
 int lc_cli_arg_parse_str(LC_CLI_ARG_STR* arg, const char* next) {
+    if(strlen(next) > 0) {
+        arg->val = malloc(sizeof(next));
+        strcpy(arg->val, next);
+        arg->val_len = strlen(next);
+    }
     return LC_CLI_ARGS_NOERROR;
 }
 

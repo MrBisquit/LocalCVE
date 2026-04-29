@@ -55,7 +55,22 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
                 lc_cmds[i].name, lc_cmds[i].arg_string);
         }
     } else {
-        
+        for(size_t i = 0; i < lc_cmds_size; i++) {
+            if(strcmp(lc_cmds[i].name, args[0].val.STR.val) == 0) {
+                printf("Usage for " CC(FG_WHITE) "%s" CCR " command:\n", lc_cmds[i].name);
+                
+                printf(CC(FG_WHITE) "\tNODB:" CCR " %s\n", lc_cmds[i].requires_db == 0 ? "Yes" : "No");
+                printf(CC(FG_WHITE) "\tDescription:" CCR " %s\n", lc_cmds[i].desc);
+                printf(CC(FG_WHITE) "\tArgs:" CCR " %s\n", lc_cmds[i].arg_string);
+                printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n", argv[0],
+                    lc_cmds[i].name, lc_cmds[i].arg_string);
+
+                return LC_CLI_RET_NOERROR;
+            }
+        }
+
+        LC_CLI_PRT_WRN_T("Failed to find command, check that it exists");
+        return LC_CLI_RET_ERROR;
     }
 
     return LC_CLI_RET_NOERROR;
