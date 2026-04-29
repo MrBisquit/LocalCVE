@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"de/db7/ansi__console__small_8h.html#a8933ffabcf924480f75df55a146b5a7a":[6,0,0,0,0,0,19],
 "de/db7/ansi__console__small_8h.html#a8c0c11cf0e2d3cfba6f310532591d5b6":[6,0,0,0,0,0,46],
 "de/db7/ansi__console__small_8h.html#a91d26c7913a2aa2837559602faf30048":[6,0,0,0,0,0,59],
 "de/db7/ansi__console__small_8h.html#a9361446c7eaace62806f80a7283634b7":[6,0,0,0,0,0,49],

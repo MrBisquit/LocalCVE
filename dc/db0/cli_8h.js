@@ -13,6 +13,7 @@ var cli_8h =
     [ "LC_CLI_CMD_NOTFOUND", "dc/db0/cli_8h.html#ad82a51cf0c338a9797715f970a67d049", null ],
     [ "LC_CLI_FLG_NODB", "dc/db0/cli_8h.html#a3b4f36297b213ed253c516b7127dd456", null ],
     [ "LC_CLI_FLG_NONE", "dc/db0/cli_8h.html#a5786e5f2955fdae3244f57d6a10b9b35", null ],
+    [ "LC_CLI_RET_ERROR", "dc/db0/cli_8h.html#a0d96af2c8f44daa03a4bd7e99c0683fa", null ],
     [ "LC_CLI_RET_NOERROR", "dc/db0/cli_8h.html#a7124c9e46b4efc22449db55887fe3d65", null ],
     [ "LC_CLI_VER_MAJOR", "dc/db0/cli_8h.html#a995e0b62339192bc923251b63a066fca", null ],
     [ "LC_CLI_VER_MINOR", "dc/db0/cli_8h.html#acfa0b58e511820a8ade29af76c6616c3", null ],

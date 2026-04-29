@@ -172,98 +172,98 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00023">23</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                                               {</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start; i &lt; argc; i++) {</div>
-<div class="line"><span class="lineno">   25</span>        <span class="comment">// Check if it starts with a dash</span></div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span>(argv[i][0] != <span class="charliteral">&#39;-&#39;</span>)</div>
-<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a>;</div>
-<div class="line"><span class="lineno">   28</span>        </div>
-<div class="line"><span class="lineno">   29</span>        <span class="comment">// Check if it&#39;s a long string</span></div>
-<div class="line"><span class="lineno">   30</span>        <span class="keywordtype">int</span> lng = argv[i][1] == <span class="charliteral">&#39;-&#39;</span> ? 1 : 0;</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordtype">char</span>* arg = malloc(strlen(argv[i]) - (lng ? 2 : 1) + 1);</div>
-<div class="line"><span class="lineno">   33</span>        strcpy(arg, argv[i] + (lng ? 2 : 1));</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>        <a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* _arg = NULL;</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00028">28</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>                                                                                               {</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start; i &lt; argc; i++) {</div>
+<div class="line"><span class="lineno">   30</span>        <span class="comment">// Check if it starts with a dash</span></div>
+<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">if</span>(argv[i][0] != <span class="charliteral">&#39;-&#39;</span>)</div>
+<div class="line"><span class="lineno">   32</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a>;</div>
+<div class="line"><span class="lineno">   33</span>        </div>
+<div class="line"><span class="lineno">   34</span>        <span class="comment">// Check if it&#39;s a long string</span></div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordtype">int</span> lng = argv[i][1] == <span class="charliteral">&#39;-&#39;</span> ? 1 : 0;</div>
 <div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>        <span class="comment">// Now try to find it</span></div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; c; j++) {</div>
-<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">if</span>(lng) {</div>
-<div class="line"><span class="lineno">   40</span>                <span class="keywordflow">if</span>(strcmp(args[j].name, arg) == 0) {</div>
-<div class="line"><span class="lineno">   41</span>                    _arg = &amp;args[j];</div>
-<div class="line"><span class="lineno">   42</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   43</span>                }</div>
-<div class="line"><span class="lineno">   44</span>            }</div>
-<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   46</span>                <span class="keywordflow">if</span>(strcmp(args[j].small, arg) == 0) {</div>
-<div class="line"><span class="lineno">   47</span>                    _arg = &amp;args[j];</div>
-<div class="line"><span class="lineno">   48</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   49</span>                }</div>
-<div class="line"><span class="lineno">   50</span>            }</div>
-<div class="line"><span class="lineno">   51</span>        }</div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>        free(arg);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">if</span>(_arg == NULL) {</div>
-<div class="line"><span class="lineno">   56</span>            <a class="code hl_define" href="../../de/d3c/macros_8h.html#ae201a83c11f4c70ec4d098ada6d9d7ca">LC_CLI_PRT_WRN_T</a>(<span class="stringliteral">&quot;Failed to find argument, expect unexpected behaviour&quot;</span>);</div>
-<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
-<div class="line"><span class="lineno">   58</span>        }</div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordtype">char</span>* arg = malloc(strlen(argv[i]) - (lng ? 2 : 1) + 1);</div>
+<div class="line"><span class="lineno">   38</span>        strcpy(arg, argv[i] + (lng ? 2 : 1));</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* _arg = NULL;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>        <span class="comment">// Now try to find it</span></div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; c; j++) {</div>
+<div class="line"><span class="lineno">   44</span>            <span class="keywordflow">if</span>(lng) {</div>
+<div class="line"><span class="lineno">   45</span>                <span class="keywordflow">if</span>(strcmp(args[j].name, arg) == 0) {</div>
+<div class="line"><span class="lineno">   46</span>                    _arg = &amp;args[j];</div>
+<div class="line"><span class="lineno">   47</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   48</span>                }</div>
+<div class="line"><span class="lineno">   49</span>            }</div>
+<div class="line"><span class="lineno">   50</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   51</span>                <span class="keywordflow">if</span>(strcmp(args[j].small, arg) == 0) {</div>
+<div class="line"><span class="lineno">   52</span>                    _arg = &amp;args[j];</div>
+<div class="line"><span class="lineno">   53</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   54</span>                }</div>
+<div class="line"><span class="lineno">   55</span>            }</div>
+<div class="line"><span class="lineno">   56</span>        }</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>        free(arg);</div>
 <div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>        <span class="comment">// Then parse stuff</span></div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordtype">int</span> ret = <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">switch</span>(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a98ee9d38c1c41a63b9cd1ce9ec5d9919">type</a>) {</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a>:</div>
-<div class="line"><span class="lineno">   64</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8">lc_cli_arg_parse_str</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ac1e45844e0398f4faccf9d4050248926">STR</a>), argv[i + 1]);</div>
-<div class="line"><span class="lineno">   67</span>                i++;</div>
-<div class="line"><span class="lineno">   68</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca03558ac21832c5f83a68ff01d53e0ff8">LC_CLI_ARG_TYPE_INT</a>:</div>
-<div class="line"><span class="lineno">   70</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#a7818f14fca93d0f7d6315e4c58818036">INT</a>), argv[i + 1]);</div>
-<div class="line"><span class="lineno">   73</span>                i++;</div>
-<div class="line"><span class="lineno">   74</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   75</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca4c2c81b084e5ecea4f1f1f9864ab95b6">LC_CLI_ARG_TYPE_FLT</a>:</div>
-<div class="line"><span class="lineno">   76</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ab7d1d2ee8f58927be7972a2a2ee31d9d">FLT</a>), argv[i + 1]);</div>
-<div class="line"><span class="lineno">   79</span>                i++;</div>
-<div class="line"><span class="lineno">   80</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdacae5593f04227fac9506f978716da2e943">LC_CLI_ARG_TYPE_FLG</a>:</div>
-<div class="line"><span class="lineno">   82</span>                <span class="keywordflow">if</span>(i + 1 &lt; argc &amp;&amp; argv[i + 1][0] != <span class="charliteral">&#39;-&#39;</span>) {</div>
-<div class="line"><span class="lineno">   83</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), argv[i + 1]);</div>
-<div class="line"><span class="lineno">   84</span>                    i++;</div>
-<div class="line"><span class="lineno">   85</span>                } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   86</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), NULL);</div>
-<div class="line"><span class="lineno">   87</span>                }</div>
-<div class="line"><span class="lineno">   88</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   89</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca60a16163ba9009b28edcf54c1abfcc32">LC_CLI_ARG_TYPE_PRE</a>:</div>
-<div class="line"><span class="lineno">   90</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#afc2c2e84bb3a51a0b5bb88d0b90e2bcd">PRE</a>), argv[i + 1]);</div>
-<div class="line"><span class="lineno">   93</span>                i++;</div>
-<div class="line"><span class="lineno">   94</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   95</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   96</span>                <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
-<div class="line"><span class="lineno">   97</span>        }</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">if</span>(ret != <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>)</div>
-<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><span class="lineno">  101</span>    }</div>
-<div class="line"><span class="lineno">  102</span>    </div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">  104</span>}</div>
-<div class="ttc" id="aargs_8c_html_a229e43c9e6c1e8c0a3fc05127c359c46"><div class="ttname"><a href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a></div><div class="ttdeci">int lc_cli_arg_parse_int(LC_CLI_ARG_INT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00007">args.c:7</a></div></div>
-<div class="ttc" id="aargs_8c_html_a46be0698958f30010816490781659254"><div class="ttname"><a href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a></div><div class="ttdeci">int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00011">args.c:11</a></div></div>
-<div class="ttc" id="aargs_8c_html_a5465f71932152eec38fdf1c54c46897c"><div class="ttname"><a href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a></div><div class="ttdeci">int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00019">args.c:19</a></div></div>
-<div class="ttc" id="aargs_8c_html_a73c747768db1fb04ad450a89160fb678"><div class="ttname"><a href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a></div><div class="ttdeci">int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00015">args.c:15</a></div></div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">if</span>(_arg == NULL) {</div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_define" href="../../de/d3c/macros_8h.html#ae201a83c11f4c70ec4d098ada6d9d7ca">LC_CLI_PRT_WRN_T</a>(<span class="stringliteral">&quot;Failed to find argument, expect unexpected behaviour&quot;</span>);</div>
+<div class="line"><span class="lineno">   62</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
+<div class="line"><span class="lineno">   63</span>        }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>        <span class="comment">// Then parse stuff</span></div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordtype">int</span> ret = <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">switch</span>(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a98ee9d38c1c41a63b9cd1ce9ec5d9919">type</a>) {</div>
+<div class="line"><span class="lineno">   68</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a>:</div>
+<div class="line"><span class="lineno">   69</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8">lc_cli_arg_parse_str</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ac1e45844e0398f4faccf9d4050248926">STR</a>), argv[i + 1]);</div>
+<div class="line"><span class="lineno">   72</span>                i++;</div>
+<div class="line"><span class="lineno">   73</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca03558ac21832c5f83a68ff01d53e0ff8">LC_CLI_ARG_TYPE_INT</a>:</div>
+<div class="line"><span class="lineno">   75</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#a7818f14fca93d0f7d6315e4c58818036">INT</a>), argv[i + 1]);</div>
+<div class="line"><span class="lineno">   78</span>                i++;</div>
+<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca4c2c81b084e5ecea4f1f1f9864ab95b6">LC_CLI_ARG_TYPE_FLT</a>:</div>
+<div class="line"><span class="lineno">   81</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ab7d1d2ee8f58927be7972a2a2ee31d9d">FLT</a>), argv[i + 1]);</div>
+<div class="line"><span class="lineno">   84</span>                i++;</div>
+<div class="line"><span class="lineno">   85</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdacae5593f04227fac9506f978716da2e943">LC_CLI_ARG_TYPE_FLG</a>:</div>
+<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">if</span>(i + 1 &lt; argc &amp;&amp; argv[i + 1][0] != <span class="charliteral">&#39;-&#39;</span>) {</div>
+<div class="line"><span class="lineno">   88</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), argv[i + 1]);</div>
+<div class="line"><span class="lineno">   89</span>                    i++;</div>
+<div class="line"><span class="lineno">   90</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   91</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), NULL);</div>
+<div class="line"><span class="lineno">   92</span>                }</div>
+<div class="line"><span class="lineno">   93</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   94</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="#ab2695965cb15d63e8a99f4704a98bdaca60a16163ba9009b28edcf54c1abfcc32">LC_CLI_ARG_TYPE_PRE</a>:</div>
+<div class="line"><span class="lineno">   95</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#afc2c2e84bb3a51a0b5bb88d0b90e2bcd">PRE</a>), argv[i + 1]);</div>
+<div class="line"><span class="lineno">   98</span>                i++;</div>
+<div class="line"><span class="lineno">   99</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  101</span>                <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
+<div class="line"><span class="lineno">  102</span>        }</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">if</span>(ret != <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>)</div>
+<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><span class="lineno">  106</span>    }</div>
+<div class="line"><span class="lineno">  107</span>    </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">  109</span>}</div>
+<div class="ttc" id="aargs_8c_html_a229e43c9e6c1e8c0a3fc05127c359c46"><div class="ttname"><a href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a></div><div class="ttdeci">int lc_cli_arg_parse_int(LC_CLI_ARG_INT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00012">args.c:12</a></div></div>
+<div class="ttc" id="aargs_8c_html_a46be0698958f30010816490781659254"><div class="ttname"><a href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a></div><div class="ttdeci">int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00016">args.c:16</a></div></div>
+<div class="ttc" id="aargs_8c_html_a5465f71932152eec38fdf1c54c46897c"><div class="ttname"><a href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a></div><div class="ttdeci">int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00024">args.c:24</a></div></div>
+<div class="ttc" id="aargs_8c_html_a73c747768db1fb04ad450a89160fb678"><div class="ttname"><a href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a></div><div class="ttdeci">int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00020">args.c:20</a></div></div>
 <div class="ttc" id="aargs_8c_html_afe357eb4fd3bf8230c6ffb5bb47b7bb8"><div class="ttname"><a href="../../dc/d86/args_8c.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8">lc_cli_arg_parse_str</a></div><div class="ttdeci">int lc_cli_arg_parse_str(LC_CLI_ARG_STR *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="../../dc/d86/args_8c_source.html#l00003">args.c:3</a></div></div>
-<div class="ttc" id="acli_8h_html_a10495e25ffab679f1fc82bd877340602"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a></div><div class="ttdeci">#define LC_CLI_ARGS_UNK_ARG</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00058">cli.h:58</a></div></div>
-<div class="ttc" id="acli_8h_html_a9d4e9c89f156f96dccaf0b77a1cbbe68"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a></div><div class="ttdeci">#define LC_CLI_ARGS_TFA_ERR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00061">cli.h:61</a></div></div>
-<div class="ttc" id="acli_8h_html_ae6e449b4947eb67e9386de142229868c"><div class="ttname"><a href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a></div><div class="ttdeci">#define LC_CLI_ARGS_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00057">cli.h:57</a></div></div>
-<div class="ttc" id="acli_8h_html_af5243ac71bd8162a41d7a902e70a8a65"><div class="ttname"><a href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a></div><div class="ttdeci">#define LC_CLI_ARGS_UNK_ERR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00059">cli.h:59</a></div></div>
+<div class="ttc" id="acli_8h_html_a10495e25ffab679f1fc82bd877340602"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a></div><div class="ttdeci">#define LC_CLI_ARGS_UNK_ARG</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00059">cli.h:59</a></div></div>
+<div class="ttc" id="acli_8h_html_a9d4e9c89f156f96dccaf0b77a1cbbe68"><div class="ttname"><a href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a></div><div class="ttdeci">#define LC_CLI_ARGS_TFA_ERR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00062">cli.h:62</a></div></div>
+<div class="ttc" id="acli_8h_html_ae6e449b4947eb67e9386de142229868c"><div class="ttname"><a href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a></div><div class="ttdeci">#define LC_CLI_ARGS_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00058">cli.h:58</a></div></div>
+<div class="ttc" id="acli_8h_html_af5243ac71bd8162a41d7a902e70a8a65"><div class="ttname"><a href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a></div><div class="ttdeci">#define LC_CLI_ARGS_UNK_ERR</div><div class="ttdef"><b>Definition</b> <a href="../../dc/db0/cli_8h_source.html#l00060">cli.h:60</a></div></div>
 <div class="ttc" id="amacros_8h_html_ae201a83c11f4c70ec4d098ada6d9d7ca"><div class="ttname"><a href="../../de/d3c/macros_8h.html#ae201a83c11f4c70ec4d098ada6d9d7ca">LC_CLI_PRT_WRN_T</a></div><div class="ttdeci">#define LC_CLI_PRT_WRN_T(m)</div><div class="ttdef"><b>Definition</b> <a href="../../de/d3c/macros_8h_source.html#l00026">macros.h:26</a></div></div>
 <div class="ttc" id="astructLC__CLI__ARG_html"><div class="ttname"><a href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00060">args.h:60</a></div></div>
 <div class="ttc" id="astructLC__CLI__ARG_html_a193dde75aee55e0bbfd6ddde6f30609d"><div class="ttname"><a href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">LC_CLI_ARG::val</a></div><div class="ttdeci">LC_CLI_ARG_VALUE val</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00064">args.h:64</a></div></div>
@@ -274,7 +274,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="aunionLC__CLI__ARG__VALUE_html_ae43e2444ec3f0847fc12fb3f96926b06"><div class="ttname"><a href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">LC_CLI_ARG_VALUE::FLG</a></div><div class="ttdeci">LC_CLI_ARG_FLG FLG</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00056">args.h:56</a></div></div>
 <div class="ttc" id="aunionLC__CLI__ARG__VALUE_html_afc2c2e84bb3a51a0b5bb88d0b90e2bcd"><div class="ttname"><a href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#afc2c2e84bb3a51a0b5bb88d0b90e2bcd">LC_CLI_ARG_VALUE::PRE</a></div><div class="ttdeci">LC_CLI_ARG_PRE PRE</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00057">args.h:57</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../db/d77/args_8h_source.html#l00056">LC_CLI_ARG_VALUE::FLG</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00055">LC_CLI_ARG_VALUE::FLT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00054">LC_CLI_ARG_VALUE::INT</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00015">lc_cli_arg_parse_flg()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00011">lc_cli_arg_parse_flt()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00007">lc_cli_arg_parse_int()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00019">lc_cli_arg_parse_pre()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00003">lc_cli_arg_parse_str()</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00008">LC_CLI_ARG_TYPE_FLG</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00007">LC_CLI_ARG_TYPE_FLT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00006">LC_CLI_ARG_TYPE_INT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00009">LC_CLI_ARG_TYPE_PRE</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00005">LC_CLI_ARG_TYPE_STR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00061">LC_CLI_ARGS_TFA_ERR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_UNK_ARG</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00059">LC_CLI_ARGS_UNK_ERR</a>, <a class="el" href="../../de/d3c/macros_8h_source.html#l00026">LC_CLI_PRT_WRN_T</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00057">LC_CLI_ARG_VALUE::PRE</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00053">LC_CLI_ARG_VALUE::STR</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00065">LC_CLI_ARG::type</a>, and <a class="el" href="../../db/d77/args_8h_source.html#l00064">LC_CLI_ARG::val</a>.</p>
+<p class="reference">References <a class="el" href="../../db/d77/args_8h_source.html#l00056">LC_CLI_ARG_VALUE::FLG</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00055">LC_CLI_ARG_VALUE::FLT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00054">LC_CLI_ARG_VALUE::INT</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00020">lc_cli_arg_parse_flg()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00016">lc_cli_arg_parse_flt()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00012">lc_cli_arg_parse_int()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00024">lc_cli_arg_parse_pre()</a>, <a class="el" href="../../dc/d86/args_8c_source.html#l00003">lc_cli_arg_parse_str()</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00008">LC_CLI_ARG_TYPE_FLG</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00007">LC_CLI_ARG_TYPE_FLT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00006">LC_CLI_ARG_TYPE_INT</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00009">LC_CLI_ARG_TYPE_PRE</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00005">LC_CLI_ARG_TYPE_STR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00062">LC_CLI_ARGS_TFA_ERR</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00059">LC_CLI_ARGS_UNK_ARG</a>, <a class="el" href="../../dc/db0/cli_8h_source.html#l00060">LC_CLI_ARGS_UNK_ERR</a>, <a class="el" href="../../de/d3c/macros_8h_source.html#l00026">LC_CLI_PRT_WRN_T</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00057">LC_CLI_ARG_VALUE::PRE</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00053">LC_CLI_ARG_VALUE::STR</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00065">LC_CLI_ARG::type</a>, and <a class="el" href="../../db/d77/args_8h_source.html#l00064">LC_CLI_ARG::val</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../db/d9f/help_8c_source.html#l00003">lc_cli_cmd_help()</a>.</p>
 
@@ -299,14 +299,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00015">15</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                {</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">   17</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00020">20</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                {</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   22</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00028">lc_cli_arg_parse()</a>.</p>
 
 </div>
 </div>
@@ -329,14 +329,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00011">11</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                {</div>
-<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">   13</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00016">16</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                                {</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   18</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00028">lc_cli_arg_parse()</a>.</p>
 
 </div>
 </div>
@@ -359,14 +359,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00007">7</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    7</span>                                                                {</div>
-<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">    9</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00012">12</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                {</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   14</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00028">lc_cli_arg_parse()</a>.</p>
 
 </div>
 </div>
@@ -389,14 +389,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00019">19</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                                {</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00024">24</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                                                {</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   26</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00028">lc_cli_arg_parse()</a>.</p>
 
 </div>
 </div>
@@ -421,12 +421,19 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/d86/args_8c_source.html#l00003">3</a> of file <a class="el" href="../../dc/d86/args_8c_source.html">args.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    3</span>                                                                {</div>
-<div class="line"><span class="lineno">    4</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><span class="lineno">    5</span>}</div>
+<div class="line"><span class="lineno">    4</span>    <span class="keywordflow">if</span>(strlen(next) &gt; 0) {</div>
+<div class="line"><span class="lineno">    5</span>        arg-&gt;<a class="code hl_variable" href="../../d8/d2b/structLC__CLI__ARG__STR.html#ab154c869f8823643626bf325cf647585">val</a> = malloc(<span class="keyword">sizeof</span>(next));</div>
+<div class="line"><span class="lineno">    6</span>        strcpy(arg-&gt;<a class="code hl_variable" href="../../d8/d2b/structLC__CLI__ARG__STR.html#ab154c869f8823643626bf325cf647585">val</a>, next);</div>
+<div class="line"><span class="lineno">    7</span>        arg-&gt;<a class="code hl_variable" href="../../d8/d2b/structLC__CLI__ARG__STR.html#a2c03a800af3b0904c6d0cab18a72e0e9">val_len</a> = strlen(next);</div>
+<div class="line"><span class="lineno">    8</span>    }</div>
+<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><span class="lineno">   10</span>}</div>
+<div class="ttc" id="astructLC__CLI__ARG__STR_html_a2c03a800af3b0904c6d0cab18a72e0e9"><div class="ttname"><a href="../../d8/d2b/structLC__CLI__ARG__STR.html#a2c03a800af3b0904c6d0cab18a72e0e9">LC_CLI_ARG_STR::val_len</a></div><div class="ttdeci">int val_len</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00015">args.h:15</a></div></div>
+<div class="ttc" id="astructLC__CLI__ARG__STR_html_ab154c869f8823643626bf325cf647585"><div class="ttname"><a href="../../d8/d2b/structLC__CLI__ARG__STR.html#ab154c869f8823643626bf325cf647585">LC_CLI_ARG_STR::val</a></div><div class="ttdeci">char * val</div><div class="ttdef"><b>Definition</b> <a href="../../db/d77/args_8h_source.html#l00016">args.h:16</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00057">LC_CLI_ARGS_NOERROR</a>.</p>
+<p class="reference">References <a class="el" href="../../dc/db0/cli_8h_source.html#l00058">LC_CLI_ARGS_NOERROR</a>, <a class="el" href="../../db/d77/args_8h_source.html#l00016">LC_CLI_ARG_STR::val</a>, and <a class="el" href="../../db/d77/args_8h_source.html#l00015">LC_CLI_ARG_STR::val_len</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00023">lc_cli_arg_parse()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../dc/d86/args_8c_source.html#l00028">lc_cli_arg_parse()</a>.</p>
 
 </div>
 </div>
