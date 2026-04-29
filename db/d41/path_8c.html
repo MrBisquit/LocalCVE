@@ -70,8 +70,34 @@ $(function(){initNavTree('db/d41/path_8c.html','../../',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa64af9be2753ebffcf2e073a74a9b126" id="r_aa64af9be2753ebffcf2e073a74a9b126"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64af9be2753ebffcf2e073a74a9b126">lc_utils_path_combine</a> (char *a, char *b)</td></tr>
+<tr class="memitem:a7fc78e26394a14300d406d3b380afdd3" id="r_a7fc78e26394a14300d406d3b380afdd3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a> (char *path)</td></tr>
+<tr class="memitem:aa55b8d9bc629dffe938b56d3b2f82405" id="r_aa55b8d9bc629dffe938b56d3b2f82405"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa55b8d9bc629dffe938b56d3b2f82405">lc_utils_generate_default</a> (char **path)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa55b8d9bc629dffe938b56d3b2f82405" name="aa55b8d9bc629dffe938b56d3b2f82405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55b8d9bc629dffe938b56d3b2f82405">&#9670;&#160;</a></span>lc_utils_generate_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_utils_generate_default </td>
+          <td>(</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/d41/path_8c_source.html#l00034">34</a> of file <a class="el" href="../../db/d41/path_8c_source.html">path.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                                           {</div>
+<div class="line"><span class="lineno">   35</span>    <span class="comment">// Generate the default path</span></div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>    </div>
+<div class="line"><span class="lineno">   38</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aa64af9be2753ebffcf2e073a74a9b126" name="aa64af9be2753ebffcf2e073a74a9b126"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa64af9be2753ebffcf2e073a74a9b126">&#9670;&#160;</a></span>lc_utils_path_combine()</h2>
 
@@ -122,6 +148,28 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00040">LC_SEP</a>.</p>
 
+</div>
+</div>
+<a id="a7fc78e26394a14300d406d3b380afdd3" name="a7fc78e26394a14300d406d3b380afdd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc78e26394a14300d406d3b380afdd3">&#9670;&#160;</a></span>lc_utils_path_is_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_utils_path_is_default </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/d41/path_8c_source.html#l00030">30</a> of file <a class="el" href="../../db/d41/path_8c_source.html">path.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                         {</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> strlen(path) == 1 &amp;&amp; path[0] == <span class="charliteral">&#39;-&#39;</span> ? 0x1 : 0x0;</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

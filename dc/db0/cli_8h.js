@@ -25,6 +25,7 @@ var cli_8h =
       [ "LC_CLI_CMD_SETUP", "dc/db0/cli_8h.html#a6674dd1e1fdf062feae4b9e9e1969e37a515974e8904fdfbab20ffbfa89f4326c", null ],
       [ "LC_CLI_CMD_SYNC", "dc/db0/cli_8h.html#a6674dd1e1fdf062feae4b9e9e1969e37a807525cabafb05897544fbe3a779450d", null ],
       [ "LC_CLI_CMD_STATUS", "dc/db0/cli_8h.html#a6674dd1e1fdf062feae4b9e9e1969e37a571491d8578c31bdf0f64cc919e192ed", null ],
+      [ "LC_CLI_CMD_CONFIG", "dc/db0/cli_8h.html#a6674dd1e1fdf062feae4b9e9e1969e37ad521a6f4c402062cd9d1e97d31aa0065", null ],
       [ "LC_CLI_CMD_UNKNOWN", "dc/db0/cli_8h.html#a6674dd1e1fdf062feae4b9e9e1969e37aa14187b068ff142911ddea7be0579291", null ]
     ] ],
     [ "lc_cli_cmd_find", "dc/db0/cli_8h.html#a66f0cc4132d126b4fb5f5416fc56fa77", null ],

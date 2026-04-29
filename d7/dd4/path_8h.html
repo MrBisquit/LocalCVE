@@ -74,44 +74,9 @@ $(function(){initNavTree('d7/dd4/path_8h.html','../../',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa64af9be2753ebffcf2e073a74a9b126" id="r_aa64af9be2753ebffcf2e073a74a9b126"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa64af9be2753ebffcf2e073a74a9b126">lc_utils_path_combine</a> (char *a, char *b)</td></tr>
-<tr class="memitem:a5a067ea63859b19b492adb3b47260a64" id="r_a5a067ea63859b19b492adb3b47260a64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a067ea63859b19b492adb3b47260a64">lc_utils_has_lead_sep</a> (char *str)</td></tr>
-<tr class="memitem:a2c77d26aa74eb9111ae9af3bc0cee54c" id="r_a2c77d26aa74eb9111ae9af3bc0cee54c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c77d26aa74eb9111ae9af3bc0cee54c">lc_utils_has_trail_sep</a> (char *str)</td></tr>
+<tr class="memitem:a7fc78e26394a14300d406d3b380afdd3" id="r_a7fc78e26394a14300d406d3b380afdd3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a> (char *path)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a5a067ea63859b19b492adb3b47260a64" name="a5a067ea63859b19b492adb3b47260a64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a067ea63859b19b492adb3b47260a64">&#9670;&#160;</a></span>lc_utils_has_lead_sep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int lc_utils_has_lead_sep </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2c77d26aa74eb9111ae9af3bc0cee54c" name="a2c77d26aa74eb9111ae9af3bc0cee54c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c77d26aa74eb9111ae9af3bc0cee54c">&#9670;&#160;</a></span>lc_utils_has_trail_sep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int lc_utils_has_trail_sep </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aa64af9be2753ebffcf2e073a74a9b126" name="aa64af9be2753ebffcf2e073a74a9b126"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa64af9be2753ebffcf2e073a74a9b126">&#9670;&#160;</a></span>lc_utils_path_combine()</h2>
 
@@ -162,6 +127,28 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00040">LC_SEP</a>.</p>
 
+</div>
+</div>
+<a id="a7fc78e26394a14300d406d3b380afdd3" name="a7fc78e26394a14300d406d3b380afdd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc78e26394a14300d406d3b380afdd3">&#9670;&#160;</a></span>lc_utils_path_is_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lc_utils_path_is_default </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../db/d41/path_8c_source.html#l00030">30</a> of file <a class="el" href="../../db/d41/path_8c_source.html">path.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                         {</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> strlen(path) == 1 &amp;&amp; path[0] == <span class="charliteral">&#39;-&#39;</span> ? 0x1 : 0x0;</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
