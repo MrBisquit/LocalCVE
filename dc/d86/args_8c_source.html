@@ -166,114 +166,117 @@ $(function(){initNavTree('dc/d86/args_8c_source.html','../../',''); });
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">int</span> is_false = <a class="code hl_function" href="../../dc/d86/args_8c.html#ae4aa5264eebfd66b8e09afe4fce5af78">__lc_cli_is_false</a>(next);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">if</span>(!is_true &amp;&amp; !is_false) {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a4ad403ede9ae85726143730b89d3cc1e">def</a> == 1 ? 0 : 1;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(is_true || is_false) {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = is_true ? 1 : is_false ? 0 : 2;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = 2;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ab18c0ecab3dadd338161a8f78cc8e85a">LC_CLI_ARGS_FLG_UNK</a>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
-</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = 2;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ab18c0ecab3dadd338161a8f78cc8e85a">LC_CLI_ARGS_FLG_UNK</a>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">if</span>(is_true || is_false) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = is_true ? 1 : is_false ? 0 : 2;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        arg-&gt;<a class="code hl_variable" href="../../d0/db4/structLC__CLI__ARG__FLG.html#a0ef6dcaee7c62d24ddde0cacf2778463">val</a> = 2;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ab18c0ecab3dadd338161a8f78cc8e85a">LC_CLI_ARGS_FLG_UNK</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../db/d77/args_8h.html#a5465f71932152eec38fdf1c54c46897c">  104</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(<a class="code hl_struct" href="../../de/ddc/structLC__CLI__ARG__PRE.html">LC_CLI_ARG_PRE</a>* arg, <span class="keyword">const</span> <span class="keywordtype">char</span>* next) {<span class="comment"></span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">    /// @todo lc_cli_arg_parse_pre implementation</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../db/d77/args_8h.html#a5465f71932152eec38fdf1c54c46897c">  107</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(<a class="code hl_struct" href="../../de/ddc/structLC__CLI__ARG__PRE.html">LC_CLI_ARG_PRE</a>* arg, <span class="keyword">const</span> <span class="keywordtype">char</span>* next) {<span class="comment"></span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">    /// @todo lc_cli_arg_parse_pre implementation</span></div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55">  110</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d86/args_8c.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a>(<a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* args, <span class="keywordtype">size_t</span> c, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span>* argv, <span class="keywordtype">int</span> start) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start; i &lt; argc; i++) {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="comment">// Check if it starts with a dash</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span>(argv[i][0] != <span class="charliteral">&#39;-&#39;</span>)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a>;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="comment">// Check if it&#39;s a long string</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">int</span> lng = argv[i][1] == <span class="charliteral">&#39;-&#39;</span> ? 1 : 0;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">char</span>* arg = malloc(strlen(argv[i]) - (lng ? 2 : 1) + 1);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        strcpy(arg, argv[i] + (lng ? 2 : 1));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../db/d77/args_8h.html#a4e959e6f7661be8180aed8194c5f0b55">  113</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d86/args_8c.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a>(<a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* args, <span class="keywordtype">size_t</span> c, <span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span>* argv, <span class="keywordtype">int</span> start) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start; i &lt; argc; i++) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="comment">// Check if it starts with a dash</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">if</span>(argv[i][0] != <span class="charliteral">&#39;-&#39;</span>)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a10495e25ffab679f1fc82bd877340602">LC_CLI_ARGS_UNK_ARG</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="comment">// Check if it&#39;s a long string</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">int</span> lng = argv[i][1] == <span class="charliteral">&#39;-&#39;</span> ? 1 : 0;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* _arg = NULL;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="comment">// Now try to find it</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; c; j++) {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">if</span>(lng) {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <span class="keywordflow">if</span>(strcmp(args[j].name, arg) == 0) {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    _arg = &amp;args[j];</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                <span class="keywordflow">if</span>(strcmp(args[j].small, arg) == 0) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                    _arg = &amp;args[j];</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                }</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        free(arg);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">if</span>(_arg == NULL) {</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <a class="code hl_define" href="../../de/d3c/macros_8h.html#ae201a83c11f4c70ec4d098ada6d9d7ca">LC_CLI_PRT_WRN_T</a>(<span class="stringliteral">&quot;Failed to find argument, expect unexpected behaviour&quot;</span>);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="comment">// Then parse stuff</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordtype">int</span> ret = <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">switch</span>(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a98ee9d38c1c41a63b9cd1ce9ec5d9919">type</a>) {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a>:</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8">lc_cli_arg_parse_str</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ac1e45844e0398f4faccf9d4050248926">STR</a>), argv[i + 1]);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                i++;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca03558ac21832c5f83a68ff01d53e0ff8">LC_CLI_ARG_TYPE_INT</a>:</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#a7818f14fca93d0f7d6315e4c58818036">INT</a>), argv[i + 1]);</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                i++;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca4c2c81b084e5ecea4f1f1f9864ab95b6">LC_CLI_ARG_TYPE_FLT</a>:</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ab7d1d2ee8f58927be7972a2a2ee31d9d">FLT</a>), argv[i + 1]);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                i++;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacae5593f04227fac9506f978716da2e943">LC_CLI_ARG_TYPE_FLG</a>:</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                <span class="keywordflow">if</span>(i + 1 &lt; argc &amp;&amp; argv[i + 1][0] != <span class="charliteral">&#39;-&#39;</span>) {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), argv[i + 1]);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                    i++;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                    <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), NULL);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                }</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca60a16163ba9009b28edcf54c1abfcc32">LC_CLI_ARG_TYPE_PRE</a>:</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#afc2c2e84bb3a51a0b5bb88d0b90e2bcd">PRE</a>), argv[i + 1]);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                i++;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">if</span>(ret != <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>)</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordtype">char</span>* arg = malloc(strlen(argv[i]) - (lng ? 2 : 1) + 1);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        strcpy(arg, argv[i] + (lng ? 2 : 1));</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_struct" href="../../d8/dd9/structLC__CLI__ARG.html">LC_CLI_ARG</a>* _arg = NULL;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="comment">// Now try to find it</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; c; j++) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">if</span>(lng) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                <span class="keywordflow">if</span>(strcmp(args[j].name, arg) == 0) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                    _arg = &amp;args[j];</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                <span class="keywordflow">if</span>(strcmp(args[j].small, arg) == 0) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                    _arg = &amp;args[j];</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        free(arg);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span>(_arg == NULL) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <a class="code hl_define" href="../../de/d3c/macros_8h.html#ae201a83c11f4c70ec4d098ada6d9d7ca">LC_CLI_PRT_WRN_T</a>(<span class="stringliteral">&quot;Failed to find argument, expect unexpected behaviour&quot;</span>);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="comment">// Then parse stuff</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordtype">int</span> ret = <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">switch</span>(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a98ee9d38c1c41a63b9cd1ce9ec5d9919">type</a>) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacafd576a559a9061380acbf20eb4f52cce">LC_CLI_ARG_TYPE_STR</a>:</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#afe357eb4fd3bf8230c6ffb5bb47b7bb8">lc_cli_arg_parse_str</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ac1e45844e0398f4faccf9d4050248926">STR</a>), argv[i + 1]);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                i++;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca03558ac21832c5f83a68ff01d53e0ff8">LC_CLI_ARG_TYPE_INT</a>:</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#a7818f14fca93d0f7d6315e4c58818036">INT</a>), argv[i + 1]);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                i++;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca4c2c81b084e5ecea4f1f1f9864ab95b6">LC_CLI_ARG_TYPE_FLT</a>:</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ab7d1d2ee8f58927be7972a2a2ee31d9d">FLT</a>), argv[i + 1]);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                i++;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdacae5593f04227fac9506f978716da2e943">LC_CLI_ARG_TYPE_FLG</a>:</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                <span class="keywordflow">if</span>(i + 1 &lt; argc &amp;&amp; argv[i + 1][0] != <span class="charliteral">&#39;-&#39;</span>) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                    ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), argv[i + 1]);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                    i++;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                    ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#ae43e2444ec3f0847fc12fb3f96926b06">FLG</a>), NULL);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../db/d77/args_8h.html#ab2695965cb15d63e8a99f4704a98bdaca60a16163ba9009b28edcf54c1abfcc32">LC_CLI_ARG_TYPE_PRE</a>:</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <span class="keywordflow">if</span>(i + 1 &gt;= argc) <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#a9d4e9c89f156f96dccaf0b77a1cbbe68">LC_CLI_ARGS_TFA_ERR</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                ret = <a class="code hl_function" href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a>(&amp;(_arg-&gt;<a class="code hl_variable" href="../../d8/dd9/structLC__CLI__ARG.html#a193dde75aee55e0bbfd6ddde6f30609d">val</a>.<a class="code hl_variable" href="../../de/ddc/unionLC__CLI__ARG__VALUE.html#afc2c2e84bb3a51a0b5bb88d0b90e2bcd">PRE</a>), argv[i + 1]);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                i++;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#af5243ac71bd8162a41d7a902e70a8a65">LC_CLI_ARGS_UNK_ERR</a>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span>(ret != <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../dc/db0/cli_8h.html#ae6e449b4947eb67e9386de142229868c">LC_CLI_ARGS_NOERROR</a>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
 </div>
 <div class="ttc" id="aargs_8c_html_a229e43c9e6c1e8c0a3fc05127c359c46"><div class="ttname"><a href="../../dc/d86/args_8c.html#a229e43c9e6c1e8c0a3fc05127c359c46">lc_cli_arg_parse_int</a></div><div class="ttdeci">int lc_cli_arg_parse_int(LC_CLI_ARG_INT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="#l00013">args.c:13</a></div></div>
 <div class="ttc" id="aargs_8c_html_a46be0698958f30010816490781659254"><div class="ttname"><a href="../../dc/d86/args_8c.html#a46be0698958f30010816490781659254">lc_cli_arg_parse_flt</a></div><div class="ttdeci">int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="#l00030">args.c:30</a></div></div>
-<div class="ttc" id="aargs_8c_html_a4e959e6f7661be8180aed8194c5f0b55"><div class="ttname"><a href="../../dc/d86/args_8c.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a></div><div class="ttdeci">int lc_cli_arg_parse(LC_CLI_ARG *args, size_t c, int argc, const char *const *argv, int start)</div><div class="ttdef"><b>Definition</b> <a href="#l00110">args.c:110</a></div></div>
-<div class="ttc" id="aargs_8c_html_a5465f71932152eec38fdf1c54c46897c"><div class="ttname"><a href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a></div><div class="ttdeci">int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="#l00104">args.c:104</a></div></div>
+<div class="ttc" id="aargs_8c_html_a4e959e6f7661be8180aed8194c5f0b55"><div class="ttname"><a href="../../dc/d86/args_8c.html#a4e959e6f7661be8180aed8194c5f0b55">lc_cli_arg_parse</a></div><div class="ttdeci">int lc_cli_arg_parse(LC_CLI_ARG *args, size_t c, int argc, const char *const *argv, int start)</div><div class="ttdef"><b>Definition</b> <a href="#l00113">args.c:113</a></div></div>
+<div class="ttc" id="aargs_8c_html_a5465f71932152eec38fdf1c54c46897c"><div class="ttname"><a href="../../dc/d86/args_8c.html#a5465f71932152eec38fdf1c54c46897c">lc_cli_arg_parse_pre</a></div><div class="ttdeci">int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="#l00107">args.c:107</a></div></div>
 <div class="ttc" id="aargs_8c_html_a73c747768db1fb04ad450a89160fb678"><div class="ttname"><a href="../../dc/d86/args_8c.html#a73c747768db1fb04ad450a89160fb678">lc_cli_arg_parse_flg</a></div><div class="ttdeci">int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG *arg, const char *next)</div><div class="ttdef"><b>Definition</b> <a href="#l00079">args.c:79</a></div></div>
 <div class="ttc" id="aargs_8c_html_abc0a18976a3f7ea02930a524e5f95e93"><div class="ttname"><a href="../../dc/d86/args_8c.html#abc0a18976a3f7ea02930a524e5f95e93">__lc_cli_is_true</a></div><div class="ttdeci">int __lc_cli_is_true(char *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00047">args.c:47</a></div></div>
 <div class="ttc" id="aargs_8c_html_ae4aa5264eebfd66b8e09afe4fce5af78"><div class="ttname"><a href="../../dc/d86/args_8c.html#ae4aa5264eebfd66b8e09afe4fce5af78">__lc_cli_is_false</a></div><div class="ttdeci">int __lc_cli_is_false(char *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">args.c:63</a></div></div>
