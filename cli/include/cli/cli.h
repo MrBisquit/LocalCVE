@@ -61,6 +61,9 @@ typedef struct {
 #define LC_CLI_ARGS_UNK_ERR     (0xEEEEEE)
 #define LC_CLI_ARGS_PARSE_ERR   (0xE00001)
 #define LC_CLI_ARGS_TFA_ERR     (0xE00002) // Too Few Arguments
+#define LC_CLI_ARGS_INT_OOB_ERR (0xE10000) // (INT) Out Of Bounds
+#define LC_CLI_ARGS_FLT_OOB_ERR (0xE20000) // (FLT) Out Of Bounds
+#define LC_CLI_ARGS_FLG_UNK     (0xE30000) // (FLG) Unknown value
 
 extern const lc_cli_cmd lc_cmds[];
 extern const size_t lc_cmds_size;

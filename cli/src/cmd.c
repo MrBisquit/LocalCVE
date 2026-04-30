@@ -9,7 +9,7 @@ const lc_cli_cmd lc_cmds[] = {
         "help",
         "Provides usage information",
 
-        "--command/-c <str>",
+        "--command/-c <str>,--minimal/-m",
 
         0x0
     },

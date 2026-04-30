@@ -1,3 +1,4 @@
+#include <localcve/utils/string.h>
 #include <cli/cli.h>
 
 int lc_cli_arg_parse_str(LC_CLI_ARG_STR* arg, const char* next) {
@@ -10,18 +11,99 @@ int lc_cli_arg_parse_str(LC_CLI_ARG_STR* arg, const char* next) {
 }
 
 int lc_cli_arg_parse_int(LC_CLI_ARG_INT* arg, const char* next) {
+    errno = 0;
+    char* endptr;
+
+    long val = strtol(next, &endptr, 10);
+    if(endptr == next || *endptr != '\0') {
+        return LC_CLI_ARGS_PARSE_ERR;
+    }
+
+    arg->val = (int)val;
+    if(arg->min > arg->val || arg->max < arg->val) {
+        return LC_CLI_ARGS_INT_OOB_ERR;
+    }
+
     return LC_CLI_ARGS_NOERROR;
 }
 
 int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT* arg, const char* next) {
+    errno = 0;
+    char* endptr;
+
+    float val = strtof(next, &endptr);
+    if(endptr == next || *endptr != '\0') {
+        return LC_CLI_ARGS_PARSE_ERR;
+    }
+
+    arg->val = (int)val;
+    if(arg->min > arg->val || arg->max < arg->val) {
+        return LC_CLI_ARGS_INT_OOB_ERR;
+    }
+
     return LC_CLI_ARGS_NOERROR;
 }
 
+int __lc_cli_is_true(char* str) {
+    if(str == NULL || strlen(str) == 0) {
+        return 0;
+    }
+
+    if(strcmp(str, "1") == 0 ||
+        strcmp(str, "true") == 0 ||
+        strcmp(str, "on") == 0 ||
+        strcmp(str, "yes") == 0 ||
+        strcmp(str, "y") == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int __lc_cli_is_false(char* str) {
+    if(str == NULL || strlen(str) == 0) {
+        return 0;
+    }
+
+    if(strcmp(str, "0") == 0 ||
+        strcmp(str, "false") == 0 ||
+        strcmp(str, "off") == 0 ||
+        strcmp(str, "no") == 0 ||
+        strcmp(str, "n") == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next) {
+    if(next == NULL) {
+        arg->val = arg->def == 1 ? 0 : 1;
+        return LC_CLI_ARGS_NOERROR;
+    }
+
+    if(lc_utils_tolower(next) != 1) {
+        return LC_CLI_ARGS_PARSE_ERR;
+    }
+
+    int is_true = __lc_cli_is_true(next);
+    int is_false = __lc_cli_is_false(next);
+
+    if(!is_true && !is_false) {
+        arg->val = arg->def == 1 ? 0 : 1;
+    } else if(is_true || is_false) {
+        arg->val = is_true ? 1 : is_false ? 0 : 2;
+    } else {
+        arg->val = 2;
+        return LC_CLI_ARGS_FLG_UNK;
+    }
+
     return LC_CLI_ARGS_NOERROR;
 }
 
 int lc_cli_arg_parse_pre(LC_CLI_ARG_PRE* arg, const char* next) {
+    /// @todo lc_cli_arg_parse_pre implementation
+
     return LC_CLI_ARGS_NOERROR;
 }
 
