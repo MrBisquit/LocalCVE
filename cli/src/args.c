@@ -90,8 +90,11 @@ int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next) {
     int is_false = __lc_cli_is_false(next);
 
     if(!is_true && !is_false) {
-        arg->val = arg->def == 1 ? 0 : 1;
-    } else if(is_true || is_false) {
+        arg->val = 2;
+        return LC_CLI_ARGS_FLG_UNK;
+    }
+
+    if(is_true || is_false) {
         arg->val = is_true ? 1 : is_false ? 0 : 2;
     } else {
         arg->val = 2;
@@ -167,10 +170,10 @@ int lc_cli_arg_parse(LC_CLI_ARG* args, size_t c, int argc, const char* const* ar
                 break;
             case LC_CLI_ARG_TYPE_FLG:
                 if(i + 1 < argc && argv[i + 1][0] != '-') {
-                    lc_cli_arg_parse_flg(&(_arg->val.FLG), argv[i + 1]);
+                    ret = lc_cli_arg_parse_flg(&(_arg->val.FLG), argv[i + 1]);
                     i++;
                 } else {
-                    lc_cli_arg_parse_flg(&(_arg->val.FLG), NULL);
+                    ret = lc_cli_arg_parse_flg(&(_arg->val.FLG), NULL);
                 }
                 break;
             case LC_CLI_ARG_TYPE_PRE:
