@@ -34,6 +34,7 @@ var cli_8h =
     [ "lc_cli_cmd_find", "dc/db0/cli_8h.html#a66f0cc4132d126b4fb5f5416fc56fa77", null ],
     [ "lc_cli_cmd_match", "dc/db0/cli_8h.html#a6dd496399db77cea850621f2692c549a", null ],
     [ "lc_cli_exec", "dc/db0/cli_8h.html#aff74555947c15abb0ca34cc7051ab077", null ],
+    [ "lc_cli_get_data_dir", "dc/db0/cli_8h.html#aed929f33689dcb87c8e48766f782d306", null ],
     [ "lc_cli_last", "dc/db0/cli_8h.html#a1114a481124ff60c08755027648dd00f", null ],
     [ "lc_cmds", "dc/db0/cli_8h.html#a742d18caa49a0ec1d0f0bea11386d3c3", null ],
     [ "lc_cmds_size", "dc/db0/cli_8h.html#a111e201faad2f3cd571f52b964f3ff24", null ]
