@@ -1,11 +1,11 @@
 #include <localcve/utils/path.h>
 
 char* lc_utils_path_combine(char* a, char* b) {
-    int has_trailing = a[strlen(a) - 1] == LC_SEP; // Check if A ends with the value of `LC_SEP`
-    int has_leading = b[0] == LC_SEP; // Check if B starts with the value of `LC_SEP`
+    int has_trailing = a[strlen(a) - 1] == LC_SEP[0]; // Check if A ends with the value of `LC_SEP`
+    int has_leading = b[0] == LC_SEP[0]; // Check if B starts with the value of `LC_SEP`
     int has_both = has_trailing && has_leading;
 
-    int needs_sep = (has_trailing || has_leading) && !has_both;
+    int needs_sep = !has_trailing && !has_leading && !has_both;
 
     size_t total = strlen(a) +
         strlen(b) +
@@ -16,11 +16,13 @@ char* lc_utils_path_combine(char* a, char* b) {
     char* buffer = malloc(sizeof(char) * total);
     strcpy(buffer, a);
 
-    if(needs_sep)
+    if(needs_sep) {
         strcat(buffer, LC_SEP);
+    }
 
-    if(has_both)
+    if(has_both) {
         b++; // Basically, skip the leading separater
+    }
 
     strcat(buffer, b);
 

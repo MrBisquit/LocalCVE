@@ -55,8 +55,24 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
 
     if(args[0].val.STR.val_len == 0) {
         if(args[1].val.FLG.val == 0) {
-             printf("LocalCVE CLI version " LC_CLI_VER_STRING
+            printf("LocalCVE CLI version " LC_CLI_VER_STRING
                 "\nLocalCVE backend version " LC_VER_STRING "\n\n");
+
+            if(strcmp(argv[1], "help") != 0) {
+                printf("For the command that you ran, the following path would be "
+                    "provided: " CONSOLE_GRAPHICS_SET(CONSOLE_GRAPHICS_BLINKING));
+
+                char* data_path;
+
+                if(!lc_cli_get_data_dir(&data_path, argv[1])) {
+                    printf("%s\n", data_path);
+                    free(data_path);
+                } else {
+                    LC_CLI_PRT_WRN("Couldn't fetch information");
+                }
+
+                printf(CONSOLE_GRAPHICS_RESET);
+            }
 
             printf("For commands that are marked as \"NODB\", you do not need to specify "
                 "a path to use.\n\n"

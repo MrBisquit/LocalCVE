@@ -68,6 +68,8 @@ typedef struct {
 extern const lc_cli_cmd lc_cmds[];
 extern const size_t lc_cmds_size;
 
+int lc_cli_get_data_dir(char** path, char* arg_str);
+
 int lc_cli_cmd_match(const char* str, LC_CLI_CMD** cmd, int flags);
 int lc_cli_cmd_find(LC_CLI_CMD* cmd, lc_cli_cmd** ptr);
 int lc_cli_exec(lc_cli_cmd* ptr, int argc, const char* const argv[]);

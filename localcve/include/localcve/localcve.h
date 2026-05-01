@@ -7,6 +7,10 @@
 
 #include <localcve/defs.h>
 #include <localcve/config.h>
+#include <localcve/platform/platform.h>
+
+#include <localcve/utils/path.h>
+#include <localcve/utils/string.h>
 
 typedef struct {
     sqlite3* db;

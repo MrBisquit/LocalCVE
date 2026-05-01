@@ -1,0 +1,8 @@
+#ifndef LOCALCVE_PLATFORM_SHARED_DEFS_H
+#define LOCALCVE_PLATFORM_SHARED_DEFS_H
+
+typedef enum {
+    LC_PLAT_RET_NOERROR     = 0x000000
+} LC_PLAT_RET;
+
+#endif

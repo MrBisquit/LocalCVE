@@ -21,6 +21,30 @@
 
 int lc_cli_last = LC_OK;
 
+int lc_cli_get_data_dir(char** path, char* arg_str) {
+    char* appdata_path = NULL;
+    if(arg_str[0] != '-') {
+        appdata_path = malloc(sizeof(arg_str));
+        strcpy(appdata_path, arg_str);
+    } else {
+        LC_PLAT_RET gdd_ret;
+        if((gdd_ret = lc_platform_get_data_dir(&appdata_path)) != LC_PLAT_RET_NOERROR) {
+            LC_CLI_PRT_ERR_UR("lc_platform_get_data_dir", gdd_ret, LC_PLAT_RET_NOERROR);
+            return 0;
+        }
+    }
+
+    char* base_path = lc_utils_path_combine(appdata_path, "LocalCVE");
+
+    *path = malloc(sizeof(base_path));
+    strcpy(*path, base_path);
+
+    free(appdata_path);
+    free(base_path);
+
+    return 1;
+}
+
 int main(int argc, const char* const argv[]) {
     if(argc == 1) {
         printf(
@@ -38,8 +62,8 @@ int main(int argc, const char* const argv[]) {
     LC_CLI_CMD* cmd = NULL;
     lc_cli_cmd* match = NULL;
 
-    if((lc_cli_last = lc_cli_cmd_match(argv[1], &cmd, LC_CLI_FLG_NODB)) & LC_CLI_CMD_FOUND) {
-        if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) & LC_CLI_CMD_FOUND) {
+    if((lc_cli_last = lc_cli_cmd_match(argv[1], &cmd, LC_CLI_FLG_NODB)) == LC_CLI_CMD_FOUND) {
+        if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) == LC_CLI_CMD_FOUND) {
             if((lc_cli_last = lc_cli_exec(match, argc, argv)) == LC_CLI_RET_NOERROR) {
                 return 0;
             } else {
@@ -59,8 +83,18 @@ int main(int argc, const char* const argv[]) {
         return 1;
     }
 
-    if((lc_cli_last = lc_cli_cmd_match(argv[1], &cmd, LC_CLI_FLG_NONE)) & LC_CLI_CMD_FOUND) {
-        if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) & LC_CLI_CMD_FOUND) {
+    if(cmd) {
+        free(cmd);
+        cmd = NULL;
+    }
+
+    if(match) {
+        free(match);
+        match = NULL;
+    }
+
+    if((lc_cli_last = lc_cli_cmd_match(argv[2], &cmd, LC_CLI_FLG_NONE)) == LC_CLI_CMD_FOUND) {
+        if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) == LC_CLI_CMD_FOUND) {
             if((lc_cli_last = lc_cli_exec(match, argc, argv)) == LC_CLI_RET_NOERROR) {
                 return 0;
             } else {
