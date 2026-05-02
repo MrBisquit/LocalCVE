@@ -19,4 +19,24 @@ int lc_platform_get_data_dir(char** path) {
     return LC_PLAT_RET_NOERROR;
 }
 
+int lc_platform_dir_exist(const char* path) {
+    DWORD attributes = GetFileAttributesA(path);
+
+    if (attributes == INVALID_FILE_ATTRIBUTES) {
+        return 0;
+    }
+
+    return (attributes & FILE_ATTRIBUTE_DIRECTORY) != 0;
+}
+
+int lc_platform_dir_create(const char* path) {
+    SHCreateDirectoryEx(NULL, path, NULL);
+
+    return LC_PLAT_RET_NOERROR;
+}
+
+int lc_platform_dir_delete(const char* path) {
+
+}
+
 #endif

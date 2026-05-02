@@ -35,13 +35,9 @@ int lc_cli_get_data_dir(char** path, char* arg_str) {
     }
 
     char* base_path = lc_utils_path_combine(appdata_path, "LocalCVE");
-
     *path = malloc(sizeof(base_path));
+
     strcpy(*path, base_path);
-
-    free(appdata_path);
-    free(base_path);
-
     return 1;
 }
 

@@ -60,18 +60,17 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
 
             if(strcmp(argv[1], "help") != 0) {
                 printf("For the command that you ran, the following path would be "
-                    "provided: " CONSOLE_GRAPHICS_SET(CONSOLE_GRAPHICS_BLINKING));
+                    "provided: " CC(FG_WHITE));
 
-                char* data_path;
+                char* data_path = NULL;
 
-                if(!lc_cli_get_data_dir(&data_path, argv[1])) {
+                if(lc_cli_get_data_dir(&data_path, argv[1])) {
                     printf("%s\n", data_path);
-                    free(data_path);
                 } else {
                     LC_CLI_PRT_WRN("Couldn't fetch information");
                 }
 
-                printf(CONSOLE_GRAPHICS_RESET);
+                printf(CCR);
             }
 
             printf("For commands that are marked as \"NODB\", you do not need to specify "
@@ -90,8 +89,8 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
             printf(CC(FG_WHITE) "\tDescription:" CCR " %s\n", lc_cmds[i].desc);
             printf(CC(FG_WHITE) "\tArgs:" CCR " %s\n", lc_cmds[i].arg_string);
             if(args[1].val.FLG.val == 0) {
-                printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n", argv[0],
-                    lc_cmds[i].name, lc_cmds[i].arg_string);
+                printf(CC(FG_WHITE) "\tExample:" CCR " %s%s%s (%s)\n", argv[0],
+                        lc_cmds[i].requires_db ? " - " : " ", lc_cmds[i].name, lc_cmds[i].arg_string);
             }
             if(lc_cmds[i].func == NULL)
                 printf(CC(FG_YELLOW) "\tNOT IMPLEMENTED" CCR "\n");
@@ -105,11 +104,13 @@ int lc_cli_cmd_help(int argc, const char* const* argv) {
                 printf(CC(FG_WHITE) "\tDescription:" CCR " %s\n", lc_cmds[i].desc);
                 printf(CC(FG_WHITE) "\tArgs:" CCR " %s\n", lc_cmds[i].arg_string);
                 if(args[1].val.FLG.val == 0) {
-                    printf(CC(FG_WHITE) "\tExample:" CCR " %s %s (%s)\n", argv[0],
-                        lc_cmds[i].name, lc_cmds[i].arg_string);
+                    printf(CC(FG_WHITE) "\tExample:" CCR " %s%s%s (%s)\n", argv[0],
+                        lc_cmds[i].requires_db ? " - " : " ", lc_cmds[i].name, lc_cmds[i].arg_string);
                 }
                 if(lc_cmds[i].func == NULL)
                     printf(CC(FG_YELLOW) "\tNOT IMPLEMENTED" CCR "\n");
+                else
+                    printf("\n");
 
                 printf(CC(FG_WHITE) "Command-specific usage:\n" CCR);
                 lc_cmds[i].func(-1, NULL);

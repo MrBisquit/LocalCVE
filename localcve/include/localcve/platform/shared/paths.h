@@ -9,4 +9,19 @@
 /// @returns A code accourding to the platform return enum (LC_PLAT_RET)
 int lc_platform_get_data_dir(char** path);
 
+/// @brief Checks if the directory exists
+/// @param path The directory path
+/// @return 1 if it exists, 0 if not
+int lc_platform_dir_exist(const char* path);
+
+/// @brief Creates a directory
+/// @param path The directory path
+/// @return A code accourding to the platform return enum (LC_PLAT_RET)
+int lc_platform_dir_create(const char* path);
+
+/// @brief Deletes a directory
+/// @param path The directory path
+/// @return A code accourding to the platform return enum (LC_PLAT_RET)
+int lc_platform_dir_delete(const char* path);
+
 #endif

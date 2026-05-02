@@ -3,5 +3,6 @@
 
 int lc_cli_cmd_help(int argc, const char* const* argv);
 int lc_cli_cmd_version(int argc, const char* const* argv);
+int lc_cli_cmd_setup(int argc, const char* const* argv);
 
 #endif

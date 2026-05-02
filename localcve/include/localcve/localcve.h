@@ -40,16 +40,25 @@ int localcve_clean(void);
 /// @return `LC_OK` or `LC_ERROR`
 int localcve_init(localcve** lCVE, localcve_args args);
 
-/// @brief Sets the LocalCVE database and configuration up
+/// @brief Sets the LocalCVE configuration up
 /// @note This should only be run if there is no pre-existing
 ///       LocalCVE setup
-/// @warning This will entirely remove all present database
-///          data, and any configuration present, this is
-///          irreversible
+/// @warning This will entirely remove all configuration data,
+///          this is irreversible
 /// @param lCVE LocalCVE
 /// @return `LC_OK` or `LC_ERROR`
-/// @todo Implement `localcve_setup`
-int localcve_setup(localcve* lCVE);
+/// @todo Implement `localcve_setup_config`
+int localcve_setup_config(localcve* lCVE);
+
+/// @brief Sets the LocalCVE database up
+/// @note This should only be run if there is no pre-existing
+///       LocalCVE setup
+/// @warning This will entirely remove all database data,
+///          this is irreversible
+/// @param lCVE LocalCVE
+/// @return `LC_OK` or `LC_ERROR`
+/// @todo Implement `localcve_setup_database`
+int localcve_setup_database(localcve* lCVE);
 
 /// @brief Checks the LocalCVE database, and configuration
 /// @param lCVE LocalCVE

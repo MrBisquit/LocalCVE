@@ -29,12 +29,12 @@ const lc_cli_cmd lc_cmds[] = {
     {
         LC_CLI_CMD_SETUP,
 
-        NULL,
+        lc_cli_cmd_setup,
 
         "setup",
         "Sets up LocalCVE in a directory",
 
-        "No args",
+        "--db-only/-db,--cve-git/-cg <str>,--ghsa-git/-gg <str>",
 
         0x1
     },

@@ -19,6 +19,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add executable
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 
+# Compiler options
+if (MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O3)
+endif()
+
 # Set executable name
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME localcve)
 

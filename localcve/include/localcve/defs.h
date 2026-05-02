@@ -42,7 +42,7 @@
 
 // Default values
 #define LC_DEFAULT_CVE_PATH     ("https://github.com/CVEProject/cvelistV5.git\0")
-#define LC_DEFAULT_GHSA_PATH    ("https://github.com/github/advisories.git\0")
+#define LC_DEFAULT_GHSA_PATH    ("https://github.com/github/advisory-database.git\0")
 
 extern const char* localcve_default_cve_path;
 extern const char* localcve_default_ghsa_path;

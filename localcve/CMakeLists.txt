@@ -15,6 +15,13 @@ find_package(libgit2 CONFIG REQUIRED)
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES})
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+# Compiler options
+if (MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O3)
+endif()
+
 # Some properties
 set_target_properties(
     ${PROJECT_NAME} PROPERTIES
