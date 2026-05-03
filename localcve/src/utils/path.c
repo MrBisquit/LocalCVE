@@ -13,8 +13,9 @@ char* lc_utils_path_combine(char* a, char* b) {
         (has_both ? -strlen(LC_SEP) : 0)
         + 1; // for '\0'
 
-    char* buffer = malloc(sizeof(char) * total);
-    strcpy(buffer, a);
+    /*char* buffer = malloc(sizeof(char) * total);
+    strcpy(buffer, a);*/
+    char* buffer = strdup(a);
 
     if(needs_sep) {
         strcat(buffer, LC_SEP);

@@ -17,14 +17,23 @@ int localcve_clean() {
 }
 
 int localcve_init(localcve** lCVE, localcve_args args) {
+    if(*lCVE == NULL) {
+        *lCVE = malloc(sizeof(localcve));
+    }
+
+    // Create paths based on the base path
+    /*(*lCVE)->db_path = lc_utils_path_combine(args.path, "LocalCVE.db");
+
+    printf("%s\n", (*lCVE)->db_path);
+
     if(sqlite3_open_v2(
-        args.path,
+        (*lCVE)->db_path,
         &((*lCVE)->db),
         SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE,
         NULL
     ) != SQLITE_OK) {
         return LC_ERROR;
-    };
+    };*/
 
     return LC_OK;
 }

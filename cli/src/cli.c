@@ -22,17 +22,18 @@ int lc_cli_cmd_match(const char* str, LC_CLI_CMD** cmd, int flags) {
     }
 
     for(size_t i = 0; i < table_size; i++) {
-        if(strcmp(str, table[i].name) == 0)
+        if(strcmp(str, table[i].name) == 0) {
             if(flags & LC_CLI_FLG_NODB)
                 if(table[i].nodb == 0x1) {
-                    *cmd = &(table[i].cmd);
+                    *cmd = (LC_CLI_CMD*)&(table[i].cmd);
                     return LC_CLI_CMD_FOUND;
                 } else
                     return LC_CLI_CMD_NOTFOUND;
             else {
-                *cmd = &(table[i].cmd);
+                *cmd = (LC_CLI_CMD*)&(table[i].cmd);
                 return LC_CLI_CMD_FOUND;
             }
+        }
     }
 
     return LC_CLI_CMD_NOTFOUND;
@@ -41,7 +42,7 @@ int lc_cli_cmd_match(const char* str, LC_CLI_CMD** cmd, int flags) {
 int lc_cli_cmd_find(LC_CLI_CMD* cmd, lc_cli_cmd** ptr) {
     for(size_t i = 0; i < lc_cmds_size; i++) {
         if(lc_cmds[i].cmd == *cmd) {
-            *ptr = &lc_cmds[i];
+            *ptr = (lc_cli_cmd*)&lc_cmds[i];
             return LC_CLI_CMD_FOUND;
         }
     }

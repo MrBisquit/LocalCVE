@@ -1,3 +1,4 @@
+#include <errno.h>
 #include <localcve/utils/string.h>
 #include <cli/cli.h>
 
@@ -82,12 +83,15 @@ int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next) {
         return LC_CLI_ARGS_NOERROR;
     }
 
-    if(lc_utils_tolower(next) != 1) {
+    char* val = malloc(sizeof(*next));
+    memcpy(val, next, sizeof(*next));
+
+    if(lc_utils_tolower(val) != 1) {
         return LC_CLI_ARGS_PARSE_ERR;
     }
 
-    int is_true = __lc_cli_is_true(next);
-    int is_false = __lc_cli_is_false(next);
+    int is_true = __lc_cli_is_true(val);
+    int is_false = __lc_cli_is_false(val);
 
     if(!is_true && !is_false) {
         arg->val = 2;

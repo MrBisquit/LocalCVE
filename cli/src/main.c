@@ -21,7 +21,7 @@
 
 int lc_cli_last = LC_OK;
 
-int lc_cli_get_data_dir(char** path, char* arg_str) {
+int lc_cli_get_data_dir(char** path, const char* arg_str) {
     char* appdata_path = NULL;
     if(arg_str[0] != '-') {
         appdata_path = malloc(sizeof(arg_str));
@@ -35,9 +35,10 @@ int lc_cli_get_data_dir(char** path, char* arg_str) {
     }
 
     char* base_path = lc_utils_path_combine(appdata_path, "LocalCVE");
-    *path = malloc(sizeof(base_path));
+    /**path = malloc(sizeof(base_path));
 
-    strcpy(*path, base_path);
+    strcpy(*path, base_path);*/
+    *path = strdup(base_path);
     return 1;
 }
 
@@ -92,7 +93,7 @@ int main(int argc, const char* const argv[]) {
     if((lc_cli_last = lc_cli_cmd_match(argv[2], &cmd, LC_CLI_FLG_NONE)) == LC_CLI_CMD_FOUND) {
         if((lc_cli_last = lc_cli_cmd_find(cmd, &match)) == LC_CLI_CMD_FOUND) {
             if((lc_cli_last = lc_cli_exec(match, argc, argv)) == LC_CLI_RET_NOERROR) {
-                return 0;
+                //return 0;
             } else {
                 LC_CLI_PRT_INF_UR("lc_cli_exec", lc_cli_last, LC_CLI_RET_NOERROR);
                 return 1;
@@ -101,6 +102,8 @@ int main(int argc, const char* const argv[]) {
             LC_CLI_PRT_WRN("Command recognised, but couldn't be found\n");
         }
     }
+
+    LC_CLI_PRT_INF("Cleaning up LocalCVE");
 
     if((lc_cli_last = localcve_clean()) != LC_OK) {
         LC_CLI_PRT_ERR_UR("localcve_clean", lc_cli_last, LC_OK);

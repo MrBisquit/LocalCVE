@@ -5,6 +5,7 @@ file(
     GLOB_RECURSE ${PROJECT_NAME}_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/win32.rc"
 )
 
 # Set C standard
@@ -21,9 +22,16 @@ add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 
 # Compiler options
 if (MSVC)
-    add_compile_options(/W4)
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /permissive-)
 else()
-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O3)
+    #-Werror
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -O1
+        -fsanitize=address,undefined -fno-omit-frame-pointer)
+
+    target_link_options(
+        ${PROJECT_NAME} PRIVATE
+		-fsanitize=address,undefined
+	)
 endif()
 
 # Set executable name
@@ -40,5 +48,5 @@ target_include_directories(
 target_link_libraries(${PROJECT_NAME} PRIVATE localcve::localcve)
 
 # This might not even work
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+#set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3")
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")

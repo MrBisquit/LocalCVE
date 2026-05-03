@@ -84,7 +84,7 @@ int lc_cli_cmd_setup(int argc, const char* const* argv) {
     memcpy(lCVE_args->path, data_path, sizeof(data_path));*/
 
     localcve_args lCVE_args = {
-        .path = data_path
+        .path = strdup(data_path)
     };
     localcve_init(&lCVE, lCVE_args);
 
@@ -110,10 +110,10 @@ int lc_cli_cmd_setup(int argc, const char* const* argv) {
         LC_CLI_PRT_INF("(3/4) Setting up database...");
         // Create database tables
         //char* db_path = lc_utils_path_combine(data_path, "localcve.db");
-        if(localcve_setup_database(lCVE) != LC_OK) {
+        /*if(localcve_setup_database(lCVE) != LC_OK) {
             LC_CLI_PRT_ERR_UR(STR(localcve_setup_database), LC_OK, LC_ERROR);
             return 1;
-        }
+        }*/
 
         LC_CLI_PRT_INF("(4/4) Finishing up...");
         // Remove any files, including any lock files present

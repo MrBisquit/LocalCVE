@@ -1,0 +1,52 @@
+#include <cli/cli.h>
+
+#if defined(__MINGW64__) || defined(__MINGW32__)
+	// MinGW-w64, MinGW
+	#if defined(__has_include) && __has_include(<winres.h>)
+		#include <winres.h>
+	#else
+		#include <afxres.h>
+		#include <winresrc.h>
+	#endif
+#else
+	// MSVC, Windows SDK
+	#include <winres.h>
+#endif
+
+//IDI_ICON1               ICON                    PRODUCT_ICON
+
+LANGUAGE LANG_ENGLISH, SUBLANG_DEFAULT
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION LC_CLI_VER_MAJOR , LC_CLI_VER_MINOR , LC_CLI_VER_PATCH , 0
+    PRODUCTVERSION LC_CLI_VER_MAJOR , LC_CLI_VER_MINOR , LC_CLI_VER_PATCH , 0
+    FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+    FILEFLAGS 0x1L
+#else
+    FILEFLAGS 0x0L
+#endif
+    FILEOS 0x4L
+    FILETYPE 0x1L
+    FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "Comments", "https://github.com/MrBisquit/LocalCVE\0"
+            VALUE "CompanyName", "WTDawson\0"
+            VALUE "FileDescription", "The CVE database, but local\0"
+            VALUE "FileVersion", LC_CLI_VER_STRING "\0"
+            VALUE "InternalName", "LocalCVE.exe\0"
+            VALUE "LegalCopyright", "Copyright 2026 WTDawson\0"
+            VALUE "OriginalFilename", "LocalCVE.exe\0"
+            VALUE "ProductName", "LocalCVE\0"
+            VALUE "ProductVersion", LC_CLI_VER_STRING "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END

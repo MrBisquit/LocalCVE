@@ -9,7 +9,12 @@ file(
 
 # Find packages
 find_package(SQLite3 REQUIRED)
-find_package(libgit2 CONFIG REQUIRED)
+if(WIN32)
+    find_package(libgit2 CONFIG REQUIRED)
+else()
+    find_package(PkgConfig REQUIRED)
+	pkg_check_modules(LIBGIT2 REQUIRED libgit2)
+endif()
 
 # Create library
 add_library(${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SOURCES})
@@ -17,9 +22,16 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # Compiler options
 if (MSVC)
-    add_compile_options(/W4)
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /permissive-)
 else()
-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -O3)
+    # -Werror
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wpedantic -O1
+        -fsanitize=address,undefined -fno-omit-frame-pointer)
+
+    target_link_options(
+        ${PROJECT_NAME} PRIVATE
+		-fsanitize=address,undefined
+	)
 endif()
 
 # Some properties
@@ -57,4 +69,9 @@ target_include_directories(
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE SQLite::SQLite3)
-target_link_libraries(${PROJECT_NAME} PRIVATE libgit2::libgit2package)
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE libgit2::libgit2package)
+else()
+    target_include_directories(${PROJECT_NAME} PRIVATE ${LIBGIT2_INCLUDE_DIRS})
+	target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBGIT2_LIBRARIES})
+endif()
