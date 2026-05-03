@@ -79,39 +79,40 @@ $(function(){initNavTree('db/d41/path_8c_source.html','../../',''); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        (has_both ? -strlen(<a class="code hl_define" href="../../d5/d64/defs_8h.html#a3ca09c242e124472cb317354e6b7b9ca">LC_SEP</a>) : 0)</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        + 1; <span class="comment">// for &#39;\0&#39;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">char</span>* buffer = malloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * total);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    strcpy(buffer, a);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span>(needs_sep) {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        strcat(buffer, <a class="code hl_define" href="../../d5/d64/defs_8h.html#a3ca09c242e124472cb317354e6b7b9ca">LC_SEP</a>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span>(has_both) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        b++; <span class="comment">// Basically, skip the leading separater</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    strcat(buffer, b);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> buffer;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">/*char* buffer = malloc(sizeof(char) * total);</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    strcpy(buffer, a);*/</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span>* buffer = strdup(a);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">if</span>(needs_sep) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        strcat(buffer, <a class="code hl_define" href="../../d5/d64/defs_8h.html#a3ca09c242e124472cb317354e6b7b9ca">LC_SEP</a>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span>(has_both) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        b++; <span class="comment">// Basically, skip the leading separater</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    strcat(buffer, b);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d7/dd4/path_8h.html#a7fc78e26394a14300d406d3b380afdd3">   32</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d41/path_8c.html#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a>(<span class="keywordtype">char</span>* path) {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">return</span> strlen(path) == 1 &amp;&amp; path[0] == <span class="charliteral">&#39;-&#39;</span> ? 0x1 : 0x0;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d7/dd4/path_8h.html#a7fc78e26394a14300d406d3b380afdd3">   33</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d41/path_8c.html#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a>(<span class="keywordtype">char</span>* path) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> strlen(path) == 1 &amp;&amp; path[0] == <span class="charliteral">&#39;-&#39;</span> ? 0x1 : 0x0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">   36</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">lc_utils_generate_default</a>(<span class="keywordtype">char</span>** path) {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Generate the default path</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">   37</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">lc_utils_generate_default</a>(<span class="keywordtype">char</span>** path) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Generate the default path</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 </div>
 <div class="ttc" id="adefs_8h_html_a3ca09c242e124472cb317354e6b7b9ca"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a3ca09c242e124472cb317354e6b7b9ca">LC_SEP</a></div><div class="ttdeci">#define LC_SEP</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00040">defs.h:40</a></div></div>
-<div class="ttc" id="apath_8c_html_a7fc78e26394a14300d406d3b380afdd3"><div class="ttname"><a href="../../db/d41/path_8c.html#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a></div><div class="ttdeci">int lc_utils_path_is_default(char *path)</div><div class="ttdef"><b>Definition</b> <a href="#l00032">path.c:32</a></div></div>
-<div class="ttc" id="apath_8c_html_aa55b8d9bc629dffe938b56d3b2f82405"><div class="ttname"><a href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">lc_utils_generate_default</a></div><div class="ttdeci">int lc_utils_generate_default(char **path)</div><div class="ttdef"><b>Definition</b> <a href="#l00036">path.c:36</a></div></div>
+<div class="ttc" id="apath_8c_html_a7fc78e26394a14300d406d3b380afdd3"><div class="ttname"><a href="../../db/d41/path_8c.html#a7fc78e26394a14300d406d3b380afdd3">lc_utils_path_is_default</a></div><div class="ttdeci">int lc_utils_path_is_default(char *path)</div><div class="ttdef"><b>Definition</b> <a href="#l00033">path.c:33</a></div></div>
+<div class="ttc" id="apath_8c_html_aa55b8d9bc629dffe938b56d3b2f82405"><div class="ttname"><a href="../../db/d41/path_8c.html#aa55b8d9bc629dffe938b56d3b2f82405">lc_utils_generate_default</a></div><div class="ttdeci">int lc_utils_generate_default(char **path)</div><div class="ttdef"><b>Definition</b> <a href="#l00037">path.c:37</a></div></div>
 <div class="ttc" id="apath_8c_html_aa64af9be2753ebffcf2e073a74a9b126"><div class="ttname"><a href="../../db/d41/path_8c.html#aa64af9be2753ebffcf2e073a74a9b126">lc_utils_path_combine</a></div><div class="ttdeci">char * lc_utils_path_combine(char *a, char *b)</div><div class="ttdef"><b>Definition</b> <a href="#l00003">path.c:3</a></div></div>
 <div class="ttc" id="apath_8h_html"><div class="ttname"><a href="../../d7/dd4/path_8h.html">path.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

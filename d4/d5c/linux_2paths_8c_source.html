@@ -65,18 +65,83 @@ $(function(){initNavTree('d4/d5c/linux_2paths_8c_source.html','../../',''); });
 <div class="contents">
 <a href="../../d4/d5c/linux_2paths_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if !defined(WIN32) &amp;&amp; !defined(WIN64)</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="../../da/d66/string_8h.html">string.h</a>&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;malloc.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d03/platform_8h.html">localcve/platform/platform.h</a>&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="../../dd/df2/paths_8h.html#a6498fd8c14c129883de5cd058c8f7be0">    7</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#a6498fd8c14c129883de5cd058c8f7be0">lc_platform_get_data_dir</a>(<span class="keywordtype">char</span>** path) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;pwd.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;<a class="code" href="../../da/d66/string_8h.html">string.h</a>&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;malloc.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="../../de/d03/platform_8h.html">localcve/platform/platform.h</a>&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// Utils</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d4/d5c/linux_2paths_8c.html#ae730923d34bfa895f6d3971494b8b151">   14</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#ae730923d34bfa895f6d3971494b8b151">__expand_home</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path, <span class="keywordtype">char</span>* out, <span class="keywordtype">size_t</span> out_size) {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">if</span>(path[0] == <span class="charliteral">&#39;~&#39;</span>) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* home = getenv(<span class="stringliteral">&quot;HOME&quot;</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">if</span>(!home) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keyword">struct </span>passwd* pw = getpwuid(getuid());</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            home = pw ? pw-&gt;pw_dir : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        snprintf(out, out_size, <span class="stringliteral">&quot;%s%s&quot;</span>, home, path + 1);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        snprintf(out, out_size, <span class="stringliteral">&quot;%s&quot;</span>, path);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
 </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="alinux_2paths_8c_html_a6498fd8c14c129883de5cd058c8f7be0"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#a6498fd8c14c129883de5cd058c8f7be0">lc_platform_get_data_dir</a></div><div class="ttdeci">int lc_platform_get_data_dir(char **path)</div><div class="ttdoc">Fetches the path of the data directory.</div><div class="ttdef"><b>Definition</b> <a href="#l00007">paths.c:7</a></div></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/df2/paths_8h.html#a6498fd8c14c129883de5cd058c8f7be0">   27</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#a6498fd8c14c129883de5cd058c8f7be0">lc_platform_get_data_dir</a>(<span class="keywordtype">char</span>** path) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* env = getenv(<span class="stringliteral">&quot;XDG_DATA_HOME&quot;</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span>(env) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#ae730923d34bfa895f6d3971494b8b151">__expand_home</a>(env, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#ae730923d34bfa895f6d3971494b8b151">__expand_home</a>(<span class="stringliteral">&quot;~/.local/share/&quot;</span>, buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    *path = strdup(buffer);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!*path) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d1/df7/platform_2shared_2defs_8h.html#a586367a6b481aa45ebf619899b0bde28a9a875cfddadac4fa1fe5126ab35b0e0f">LC_PLAT_RET_NOERROR</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d1/df7/platform_2shared_2defs_8h.html#a586367a6b481aa45ebf619899b0bde28a9a875cfddadac4fa1fe5126ab35b0e0f">LC_PLAT_RET_NOERROR</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../dd/df2/paths_8h.html#ae10d655e119c6d2b604c9d46245b6a5e">   43</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#ae10d655e119c6d2b604c9d46245b6a5e">lc_platform_dir_exist</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">struct </span>stat stats;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">if</span>(stat(path, &amp;stats) == 0 &amp;&amp; S_ISDIR(stats.st_mode)) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../dd/df2/paths_8h.html#a491d78fb7a7795eb56084c24cd3ee863">   53</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#a491d78fb7a7795eb56084c24cd3ee863">lc_platform_dir_create</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    mkdir(path, 0755);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../d1/df7/platform_2shared_2defs_8h.html#a586367a6b481aa45ebf619899b0bde28a9a875cfddadac4fa1fe5126ab35b0e0f">LC_PLAT_RET_NOERROR</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../dd/df2/paths_8h.html#a3d4b9044a0a4b51e618ec68e4763240c">   59</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d4/d5c/linux_2paths_8c.html#a3d4b9044a0a4b51e618ec68e4763240c">lc_platform_dir_delete</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path) {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alinux_2paths_8c_html_a3d4b9044a0a4b51e618ec68e4763240c"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#a3d4b9044a0a4b51e618ec68e4763240c">lc_platform_dir_delete</a></div><div class="ttdeci">int lc_platform_dir_delete(const char *path)</div><div class="ttdoc">Deletes a directory.</div><div class="ttdef"><b>Definition</b> <a href="#l00059">paths.c:59</a></div></div>
+<div class="ttc" id="alinux_2paths_8c_html_a491d78fb7a7795eb56084c24cd3ee863"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#a491d78fb7a7795eb56084c24cd3ee863">lc_platform_dir_create</a></div><div class="ttdeci">int lc_platform_dir_create(const char *path)</div><div class="ttdoc">Creates a directory.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">paths.c:53</a></div></div>
+<div class="ttc" id="alinux_2paths_8c_html_a6498fd8c14c129883de5cd058c8f7be0"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#a6498fd8c14c129883de5cd058c8f7be0">lc_platform_get_data_dir</a></div><div class="ttdeci">int lc_platform_get_data_dir(char **path)</div><div class="ttdoc">Fetches the path of the data directory.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">paths.c:27</a></div></div>
+<div class="ttc" id="alinux_2paths_8c_html_ae10d655e119c6d2b604c9d46245b6a5e"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#ae10d655e119c6d2b604c9d46245b6a5e">lc_platform_dir_exist</a></div><div class="ttdeci">int lc_platform_dir_exist(const char *path)</div><div class="ttdoc">Checks if the directory exists.</div><div class="ttdef"><b>Definition</b> <a href="#l00043">paths.c:43</a></div></div>
+<div class="ttc" id="alinux_2paths_8c_html_ae730923d34bfa895f6d3971494b8b151"><div class="ttname"><a href="../../d4/d5c/linux_2paths_8c.html#ae730923d34bfa895f6d3971494b8b151">__expand_home</a></div><div class="ttdeci">static void __expand_home(const char *path, char *out, size_t out_size)</div><div class="ttdef"><b>Definition</b> <a href="#l00014">paths.c:14</a></div></div>
+<div class="ttc" id="aplatform_2shared_2defs_8h_html_a586367a6b481aa45ebf619899b0bde28a9a875cfddadac4fa1fe5126ab35b0e0f"><div class="ttname"><a href="../../d1/df7/platform_2shared_2defs_8h.html#a586367a6b481aa45ebf619899b0bde28a9a875cfddadac4fa1fe5126ab35b0e0f">LC_PLAT_RET_NOERROR</a></div><div class="ttdeci">@ LC_PLAT_RET_NOERROR</div><div class="ttdef"><b>Definition</b> <a href="../../d1/df7/platform_2shared_2defs_8h_source.html#l00005">defs.h:5</a></div></div>
 <div class="ttc" id="aplatform_8h_html"><div class="ttname"><a href="../../de/d03/platform_8h.html">platform.h</a></div></div>
 <div class="ttc" id="astring_8h_html"><div class="ttname"><a href="../../da/d66/string_8h.html">string.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

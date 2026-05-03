@@ -113,7 +113,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00044">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00045">main()</a>.</p>
 
 </div>
 </div>
@@ -148,20 +148,29 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00019">19</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   19</span>                                                       {</div>
-<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">if</span>(sqlite3_open_v2(</div>
-<div class="line"><span class="lineno">   21</span>        args.<a class="code hl_variable" href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">path</a>,</div>
-<div class="line"><span class="lineno">   22</span>        &amp;((*lCVE)-&gt;db),</div>
-<div class="line"><span class="lineno">   23</span>        SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE,</div>
-<div class="line"><span class="lineno">   24</span>        NULL</div>
-<div class="line"><span class="lineno">   25</span>    ) != SQLITE_OK) {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a>;</div>
-<div class="line"><span class="lineno">   27</span>    };</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><span class="lineno">   30</span>}</div>
-<div class="ttc" id="astructlocalcve__args_html_ae72a59393a60accd5c8ca9501a9788cd"><div class="ttname"><a href="../../d1/d13/structlocalcve__args.html#ae72a59393a60accd5c8ca9501a9788cd">localcve_args::path</a></div><div class="ttdeci">char * path</div><div class="ttdoc">The base path for the repository stuff.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00026">localcve.h:26</a></div></div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">if</span>(*lCVE == NULL) {</div>
+<div class="line"><span class="lineno">   21</span>        *lCVE = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../dd/d68/structlocalcve.html">localcve</a>));</div>
+<div class="line"><span class="lineno">   22</span>    }</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    <span class="comment">// Create paths based on the base path</span></div>
+<div class="line"><span class="lineno">   25</span>    <span class="comment">/*(*lCVE)-&gt;db_path = lc_utils_path_combine(args.path, &quot;LocalCVE.db&quot;);</span></div>
+<div class="line"><span class="lineno">   26</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   27</span><span class="comment">    printf(&quot;%s\n&quot;, (*lCVE)-&gt;db_path);</span></div>
+<div class="line"><span class="lineno">   28</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   29</span><span class="comment">    if(sqlite3_open_v2(</span></div>
+<div class="line"><span class="lineno">   30</span><span class="comment">        (*lCVE)-&gt;db_path,</span></div>
+<div class="line"><span class="lineno">   31</span><span class="comment">        &amp;((*lCVE)-&gt;db),</span></div>
+<div class="line"><span class="lineno">   32</span><span class="comment">        SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE,</span></div>
+<div class="line"><span class="lineno">   33</span><span class="comment">        NULL</span></div>
+<div class="line"><span class="lineno">   34</span><span class="comment">    ) != SQLITE_OK) {</span></div>
+<div class="line"><span class="lineno">   35</span><span class="comment">        return LC_ERROR;</span></div>
+<div class="line"><span class="lineno">   36</span><span class="comment">    };*/</span></div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   39</span>}</div>
+<div class="ttc" id="astructlocalcve_html"><div class="ttname"><a href="../../dd/d68/structlocalcve.html">localcve</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/localcve_8h_source.html#l00015">localcve.h:15</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERROR</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>, and <a class="el" href="../../d2/db1/localcve_8h_source.html#l00026">localcve_args::path</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d2/d2e/setup_8c_source.html#l00003">lc_cli_cmd_setup()</a>.</p>
 
@@ -191,11 +200,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><span class="tt"><a class="el" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c" title="No errors.">LC_OK</a></span>, <span class="tt"><a class="el" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069" title="There are probably errors.">LC_ERROR</a></span> or <span class="tt"><a class="el" href="../../d5/d64/defs_8h.html#a526f6913e03aff97cc3e923131263a19" title="Retured by localcve_iserror when it is unable to work out if the code is an error or not.">LC_UNKNOWN</a></span> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00042">42</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   42</span>                                {</div>
-<div class="line"><span class="lineno">   43</span>    <span class="comment">// Basically just checks if the code contains LC_ERROR, or LC_OK</span></div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> code &amp; <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> ? <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> : code &amp; <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> ? <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> : <a class="code hl_define" href="../../d5/d64/defs_8h.html#a526f6913e03aff97cc3e923131263a19">LC_UNKNOWN</a>;</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00051">51</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                {</div>
+<div class="line"><span class="lineno">   52</span>    <span class="comment">// Basically just checks if the code contains LC_ERROR, or LC_OK</span></div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> code &amp; <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> ? <a class="code hl_define" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069">LC_ERROR</a> : code &amp; <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> ? <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a> : <a class="code hl_define" href="../../d5/d64/defs_8h.html#a526f6913e03aff97cc3e923131263a19">LC_UNKNOWN</a>;</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="adefs_8h_html_a526f6913e03aff97cc3e923131263a19"><div class="ttname"><a href="../../d5/d64/defs_8h.html#a526f6913e03aff97cc3e923131263a19">LC_UNKNOWN</a></div><div class="ttdeci">#define LC_UNKNOWN</div><div class="ttdoc">Retured by localcve_iserror when it is unable to work out if the code is an error or not.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d64/defs_8h_source.html#l00019">defs.h:19</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERROR</a>, <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00019">LC_UNKNOWN</a>.</p>
@@ -231,7 +240,7 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00016">LC_ERROR</a>, and <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00044">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d0/d29/main_8c_source.html#l00045">main()</a>.</p>
 
 </div>
 </div>
@@ -250,11 +259,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00032">32</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>                                   {</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><span class="lineno">   35</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00041">41</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>                                   {</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   44</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
 
@@ -285,11 +294,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A code (<span class="tt"><a class="el" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c" title="No errors.">LC_OK</a></span> or <span class="tt"><a class="el" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069" title="There are probably errors.">LC_ERROR</a></span>) <span class="tt">|</span> <span class="tt">LC_STATUS_</span>... Use <span class="tt">localcve_iserror</span>, or <span class="tt">code &amp; <a class="el" href="../../d5/d64/defs_8h.html#adff039b5de4390f6c13887a119fa3069" title="There are probably errors.">LC_ERROR</a></span> </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="../../dd/da0/todo.html#_todo000004">Todo</a></b></dt><dd>Implement <span class="tt"><a class="el" href="../../d2/db1/localcve_8h.html#a105d98155984189ebc6b6182e713bfcb" title="Checks the LocalCVE database, and configuration.">localcve_status</a></span> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00037">37</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>                                    {</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
-<div class="line"><span class="lineno">   40</span>}</div>
+<p class="definition">Definition at line <a class="el" href="../../d7/d55/localcve_8c_source.html#l00046">46</a> of file <a class="el" href="../../d7/d55/localcve_8c_source.html">localcve.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>                                    {</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="../../d5/d64/defs_8h.html#a147faac5134fafbfa302160cfa24826c">LC_OK</a>;</div>
+<div class="line"><span class="lineno">   49</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="../../d5/d64/defs_8h_source.html#l00014">LC_OK</a>.</p>
 
