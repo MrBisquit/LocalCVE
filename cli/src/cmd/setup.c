@@ -121,5 +121,7 @@ int lc_cli_cmd_setup(int argc, const char* const* argv) {
         printf(LC_CLI_INF("Use \"%s sync\" to pull data from the databases") "\n", argv[0]);
     }
 
+    localcve_deinit(&lCVE);
+
     return LC_CLI_RET_NOERROR;
 }

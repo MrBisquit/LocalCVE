@@ -24,8 +24,9 @@ int lc_cli_last = LC_OK;
 int lc_cli_get_data_dir(char** path, const char* arg_str) {
     char* appdata_path = NULL;
     if(arg_str[0] != '-') {
-        appdata_path = malloc(sizeof(arg_str));
-        strcpy(appdata_path, arg_str);
+        /*appdata_path = malloc(sizeof(arg_str));
+        strcpy(appdata_path, arg_str);*/
+        appdata_path = strdup(arg_str);
     } else {
         LC_PLAT_RET gdd_ret;
         if((gdd_ret = lc_platform_get_data_dir(&appdata_path)) != LC_PLAT_RET_NOERROR) {
@@ -35,10 +36,12 @@ int lc_cli_get_data_dir(char** path, const char* arg_str) {
     }
 
     char* base_path = lc_utils_path_combine(appdata_path, "LocalCVE");
+    free(appdata_path);
     /**path = malloc(sizeof(base_path));
 
     strcpy(*path, base_path);*/
     *path = strdup(base_path);
+    free(base_path);
     return 1;
 }
 
@@ -82,12 +85,12 @@ int main(int argc, const char* const argv[]) {
 
     if(cmd) {
         free(cmd);
-        cmd = NULL;
+        //cmd = NULL;
     }
 
     if(match) {
         free(match);
-        match = NULL;
+        //match = NULL;
     }
 
     if((lc_cli_last = lc_cli_cmd_match(argv[2], &cmd, LC_CLI_FLG_NONE)) == LC_CLI_CMD_FOUND) {
@@ -104,6 +107,14 @@ int main(int argc, const char* const argv[]) {
     }
 
     LC_CLI_PRT_INF("Cleaning up LocalCVE");
+
+    if(cmd) {
+        //free(cmd);
+    }
+
+    if(match) {
+        //free(match);
+    }
 
     if((lc_cli_last = localcve_clean()) != LC_OK) {
         LC_CLI_PRT_ERR_UR("localcve_clean", lc_cli_last, LC_OK);

@@ -22,7 +22,7 @@ int localcve_init(localcve** lCVE, localcve_args args) {
     }
 
     // Create paths based on the base path
-    /*(*lCVE)->db_path = lc_utils_path_combine(args.path, "LocalCVE.db");
+    (*lCVE)->db_path = lc_utils_path_combine(args.path, "LocalCVE.db");
 
     printf("%s\n", (*lCVE)->db_path);
 
@@ -33,8 +33,37 @@ int localcve_init(localcve** lCVE, localcve_args args) {
         NULL
     ) != SQLITE_OK) {
         return LC_ERROR;
-    };*/
+    };
 
+    return LC_OK;
+}
+
+int localcve_deinit(localcve** lCVE) {
+    /*printf("1\n");
+    if(*lCVE == NULL) {
+        return LC_OK;
+    }
+    printf("2\n");
+    if((*lCVE)->db_path) {
+        free((*lCVE)->db_path);
+    }
+    printf("3\n");
+    if((*lCVE)->cve_path) {
+        free((*lCVE)->cve_path);
+    }
+    printf("4\n");
+    if((*lCVE)->ghsa_path) {
+        free((*lCVE)->ghsa_path);
+    }
+    printf("5\n");
+    if((*lCVE)->db) {
+        if(sqlite3_close(&((*lCVE)->db)) != SQLITE_OK) {
+            return LC_ERROR;
+        }
+    }
+    printf("6\n");
+    free(*lCVE);
+    printf("7\n");*/
     return LC_OK;
 }
 

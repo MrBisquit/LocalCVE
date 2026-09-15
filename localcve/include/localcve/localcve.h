@@ -40,6 +40,11 @@ int localcve_clean(void);
 /// @return `LC_OK` or `LC_ERROR`
 int localcve_init(localcve** lCVE, localcve_args args);
 
+/// @brief Deinitialises LocalCVE
+/// @param lCVE LocalCVE
+/// @return `LC_OK` or `LC_ERROR`
+int localcve_deinit(localcve** lCVE);
+
 /// @brief Sets the LocalCVE configuration up
 /// @note This should only be run if there is no pre-existing
 ///       LocalCVE setup

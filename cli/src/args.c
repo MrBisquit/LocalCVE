@@ -4,8 +4,12 @@
 
 int lc_cli_arg_parse_str(LC_CLI_ARG_STR* arg, const char* next) {
     if(strlen(next) > 0) {
-        arg->val = malloc(sizeof(next));
-        strcpy(arg->val, next);
+        /*arg->val = malloc(sizeof(next));
+        strcpy(arg->val, next);*/
+        if(arg->val) {
+            free(arg->val);
+        }
+        arg->val = strdup(next);
         arg->val_len = strlen(next);
     }
     return LC_CLI_ARGS_NOERROR;
@@ -37,7 +41,7 @@ int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT* arg, const char* next) {
         return LC_CLI_ARGS_PARSE_ERR;
     }
 
-    arg->val = (int)val;
+    arg->val = val;
     if(arg->min > arg->val || arg->max < arg->val) {
         return LC_CLI_ARGS_INT_OOB_ERR;
     }
@@ -45,7 +49,7 @@ int lc_cli_arg_parse_flt(LC_CLI_ARG_FLT* arg, const char* next) {
     return LC_CLI_ARGS_NOERROR;
 }
 
-int __lc_cli_is_true(char* str) {
+int __lc_cli_is_true(const char* str) {
     if(str == NULL || strlen(str) == 0) {
         return 0;
     }
@@ -61,7 +65,7 @@ int __lc_cli_is_true(char* str) {
     }
 }
 
-int __lc_cli_is_false(char* str) {
+int __lc_cli_is_false(const char* str) {
     if(str == NULL || strlen(str) == 0) {
         return 0;
     }
@@ -83,8 +87,9 @@ int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next) {
         return LC_CLI_ARGS_NOERROR;
     }
 
-    char* val = malloc(sizeof(*next));
-    memcpy(val, next, sizeof(*next));
+    /*char* val = malloc(sizeof(*next));
+    memcpy(val, next, sizeof(*next));*/
+    char* val = strdup(next);
 
     if(lc_utils_tolower(val) != 1) {
         return LC_CLI_ARGS_PARSE_ERR;
@@ -92,6 +97,8 @@ int lc_cli_arg_parse_flg(LC_CLI_ARG_FLG* arg, const char* next) {
 
     int is_true = __lc_cli_is_true(val);
     int is_false = __lc_cli_is_false(val);
+
+    free(val);
 
     if(!is_true && !is_false) {
         arg->val = 2;

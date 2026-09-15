@@ -9,13 +9,13 @@ char* lc_utils_path_combine(char* a, char* b) {
 
     size_t total = strlen(a) +
         strlen(b) +
-        (has_trailing || has_leading && !has_both ? strlen(LC_SEP) : 0) +
-        (has_both ? -strlen(LC_SEP) : 0)
+        (has_trailing || has_leading && !has_both ? 1 : 0) +
+        (has_both ? -1 : 0)
         + 1; // for '\0'
 
-    /*char* buffer = malloc(sizeof(char) * total);
-    strcpy(buffer, a);*/
-    char* buffer = strdup(a);
+    char* buffer = malloc(sizeof(char) * total);
+    strcpy(buffer, a);
+    //char* buffer = strdup(a);
 
     if(needs_sep) {
         strcat(buffer, LC_SEP);
