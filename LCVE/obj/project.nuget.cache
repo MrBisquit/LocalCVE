@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yHCpIWNNll4=",
+  "dgSpecHash": "S7jAf6AGII0=",
   "success": true,
-  "projectFilePath": "G:\\source\\Projects\\localcve\\LCVE\\LCVE.csproj",
+  "projectFilePath": "G:\\source\\Projects\\localcve\\LCVE\\LocalCVE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\William\\.nuget\\packages\\libgit2sharp\\0.32.0\\libgit2sharp.0.32.0.nupkg.sha512",
     "C:\\Users\\William\\.nuget\\packages\\libgit2sharp.nativebinaries\\2.0.324\\libgit2sharp.nativebinaries.2.0.324.nupkg.sha512",
