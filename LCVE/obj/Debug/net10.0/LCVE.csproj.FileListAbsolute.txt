@@ -1,0 +1,13 @@
+G:\source\Projects\localcve\bin\Debug\net10.0\LCVE.deps.json
+G:\source\Projects\localcve\bin\Debug\net10.0\LCVE.dll
+G:\source\Projects\localcve\bin\Debug\net10.0\LCVE.pdb
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.csproj.AssemblyReference.cache
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.GeneratedMSBuildEditorConfig.editorconfig
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.AssemblyInfoInputs.cache
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.AssemblyInfo.cs
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.csproj.CoreCompileInputs.cache
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.sourcelink.json
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.dll
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\refint\LCVE.dll
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\LCVE.pdb
+G:\source\Projects\localcve\LCVE\obj\Debug\net10.0\ref\LCVE.dll
