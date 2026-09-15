@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="LocalCVE.Core.Test/LocalCVE.Core.Test.csproj" Id="00491444-068a-4cdb-8d17-6306d8015ef5" />
   <Project Path="LocalCVE.Core/LocalCVE.Core.csproj" Id="7da5d925-464e-470a-bb82-870a15685bff" />
+  <Project Path="LocalCVE/LocalCVE.csproj" Id="aac01ee7-aa36-4dda-af2a-12eb976a5156" />
 </Solution>

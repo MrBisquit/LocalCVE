@@ -8,5 +8,5 @@
 
 # Visual Studio
 .vs/
-**/obj/**
 **/bin/**
+**/obj/**
