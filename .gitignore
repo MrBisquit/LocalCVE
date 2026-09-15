@@ -5,3 +5,6 @@
 
 # VCPKG
 **/vcpkg_installed/**
+
+# Visual Studio
+.vs/
