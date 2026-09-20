@@ -185,7 +185,7 @@ namespace LocalCVE.Core.CVE
             public string? Status;
 
             [JsonProperty("version")]
-            public string? Version;
+            public string? Value;
 
             [JsonExtensionData]
             public Dictionary<string, JToken>? Property;

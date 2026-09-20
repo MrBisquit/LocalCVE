@@ -1,0 +1,11 @@
+G:\source\Projects\localcve\bin\Debug\net10.0\.msCoverageSourceRootsMapping_LocalCVE.Core.Test
+G:\source\Projects\localcve\bin\Debug\net10.0\CoverletSourceRootsMapping_LocalCVE.Core.Test
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.csproj.AssemblyReference.cache
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.GeneratedMSBuildEditorConfig.editorconfig
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.AssemblyInfoInputs.cache
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.AssemblyInfo.cs
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.csproj.CoreCompileInputs.cache
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.sourcelink.json
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.dll
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\refint\LocalCVE.Core.Test.dll
+G:\source\Projects\localcve\LocalCVE.Core.Test\obj\Debug\net10.0\LocalCVE.Core.Test.pdb
