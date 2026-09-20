@@ -8,6 +8,14 @@ namespace LocalCVE.Core.CVE
 {
     public static class V5
     {
+        /* Links:
+         * - Schema:                    https://github.com/CVEProject/cve-schema/blob/main/schema/CVE_Record_Format.json
+         * - TypeScript Implementation: https://github.com/CVEProject/cve-core/blob/dev/src/cve/record/generated/CveRecordV5.ts
+         * - Example:                   https://github.com/cveproject/cve-schema/blob/main/schema/docs/full-record-advanced-example.json
+         * 
+         * This is the C# adaptation of the TypeScript implementation (linked above).
+         * */
+
         public class CVERecordV5
         {
             [JsonProperty("containers")]
