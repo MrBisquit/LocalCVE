@@ -75,7 +75,7 @@ namespace LocalCVE.Core.OSV
             public string RepoURL;
 
             [JsonProperty("commit")]
-            public string Commit;
+            public string Value;
         }
 
         public class Package
