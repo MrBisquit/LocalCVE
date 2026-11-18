@@ -17,7 +17,14 @@ namespace LocalCVE.Commands
             Option<string> yeah = new("--a", "--b");
             cmd.Options.Add(yeah);
 
+            cmd.SetAction(Run);
+
             return cmd;
+        }
+
+        public void Run(ParseResult? result)
+        {
+            
         }
     }
 }

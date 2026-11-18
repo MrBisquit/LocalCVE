@@ -44,7 +44,7 @@ namespace LocalCVE.Core
 
         internal static string GetGlobalLogsPath()
         {
-            return Path.Combine(GlobalLocalPath, "Logs");
+            return Path.Combine(GlobalLocalPath, "LocalCVE", "Logs");
         }
     }
 }

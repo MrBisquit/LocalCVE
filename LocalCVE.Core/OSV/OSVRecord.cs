@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LocalCVE.Core.OSV
 {
-    public class OSVRecord
+    public static class OSV
     {
         /* Links:
          * - Schema:  https://ossf.github.io/osv-schema/
@@ -16,7 +16,7 @@ namespace LocalCVE.Core.OSV
          * This might be wrong.
          * */
 
-        public class Record
+        public class OSVRecord
         {
             [JsonProperty("schema_version")]
             public string SchemaVersion;

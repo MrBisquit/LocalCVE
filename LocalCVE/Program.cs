@@ -8,7 +8,7 @@ namespace LocalCVE
     {
         static void Main(string[] args)
         {
-            LCVE lcve;
+            LocalCVE.Core.LocalCVE lcve = new();
 
             RootCommand rootCommand = new();
             foreach(ICommand command in ICommand.Commands)
@@ -17,6 +17,8 @@ namespace LocalCVE
             }
 
             rootCommand.Parse(args).Invoke();
+
+            lcve.Dispose();
         }
     }
 }

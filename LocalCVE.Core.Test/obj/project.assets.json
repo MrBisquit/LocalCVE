@@ -1064,11 +1064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\source\\Projects\\localcve\\LocalCVE.Core.Test\\LocalCVE.Core.Test.csproj",
+      "projectUniqueName": "G:\\source\\Projects\\LocalCVE\\LocalCVE.Core.Test\\LocalCVE.Core.Test.csproj",
       "projectName": "LocalCVE.Core.Test",
-      "projectPath": "G:\\source\\Projects\\localcve\\LocalCVE.Core.Test\\LocalCVE.Core.Test.csproj",
+      "projectPath": "G:\\source\\Projects\\LocalCVE\\LocalCVE.Core.Test\\LocalCVE.Core.Test.csproj",
       "packagesPath": "C:\\Users\\William\\.nuget\\packages\\",
-      "outputPath": "G:\\source\\Projects\\localcve\\LocalCVE.Core.Test\\obj\\",
+      "outputPath": "G:\\source\\Projects\\LocalCVE\\LocalCVE.Core.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1091,8 +1091,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "G:\\source\\Projects\\localcve\\LocalCVE.Core\\LocalCVE.Core.csproj": {
-              "projectPath": "G:\\source\\Projects\\localcve\\LocalCVE.Core\\LocalCVE.Core.csproj"
+            "G:\\source\\Projects\\LocalCVE\\LocalCVE.Core\\LocalCVE.Core.csproj": {
+              "projectPath": "G:\\source\\Projects\\LocalCVE\\LocalCVE.Core\\LocalCVE.Core.csproj"
             }
           }
         }
@@ -1107,7 +1107,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "11.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -1147,7 +1147,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

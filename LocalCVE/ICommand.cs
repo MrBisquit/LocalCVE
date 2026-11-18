@@ -13,5 +13,6 @@ namespace LocalCVE
         };
 
         public Command GetCommand();
+        public void Run(ParseResult? result);
     }
 }
