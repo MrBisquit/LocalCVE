@@ -15,7 +15,7 @@ namespace LocalCVE.Common
 
         public static void InitLogger(string appLogPath, bool console = false)
         {
-            string versionedPath = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WTDawson", "LocalCVE", appLogPath);
+            string versionedPath = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WTDawson", "LocalCVE", appLogPath, Version);
             string basePath = Path.GetDirectoryName(versionedPath);
 
             if(!Directory.Exists(versionedPath))

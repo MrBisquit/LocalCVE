@@ -38,6 +38,10 @@ namespace LocalCVE.Runner.WinUI
         {
             InitializeComponent();
 
+            Logger.InitLogger("LocalCVE.Runner.WinUI", true);
+
+            Logger.LogInfo("Starting up");
+
             UnhandledException += (sender, e) =>
             {
                 Logger.LogTrace($"Unhandled Exception: {e.Message}: {e.Exception?.ToString() ?? "Unknown exception"}");
@@ -51,8 +55,6 @@ namespace LocalCVE.Runner.WinUI
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            Logger.InitLogger("LocalCVE.Runner.WinUI");
-
             _window = new MainWindow();
             _window.Activate();
         }
