@@ -1,4 +1,5 @@
-﻿using LocalCVE.Core;
+﻿using LocalCVE.Common;
+using LocalCVE.Core;
 using LocalCVE.Core.OSV;
 using System.CommandLine;
 
@@ -8,6 +9,8 @@ namespace LocalCVE
     {
         static void Main(string[] args)
         {
+            Logger.InitLogger("LocalCVE.Runner", true);
+
             LocalCVE.Core.LocalCVE lcve = new();
 
             RootCommand rootCommand = new();

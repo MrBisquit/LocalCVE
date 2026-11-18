@@ -9,7 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.32.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="11.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocalCVE.Common\LocalCVE.Common.csproj" />
   </ItemGroup>
 
 </Project>

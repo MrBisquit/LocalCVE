@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LocalCVE.Core
 {
-    internal static class Logger
+    /*internal static class Logger
     {
         private static FileStream GlobalLogsFile;
         private static StreamWriter GlobalLogs;
@@ -77,5 +77,5 @@ namespace LocalCVE.Core
         {
             Source = source;
         }
-    }
+    }*/
 }

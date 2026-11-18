@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LocalCVE.Runner.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LocalCVE.Runner.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
