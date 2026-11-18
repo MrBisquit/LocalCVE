@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LocalCVE.Core\LocalCVE.Core.csproj" />
+    <ProjectReference Include="..\..\shared\LocalCVE.Core\LocalCVE.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
