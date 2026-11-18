@@ -57,6 +57,8 @@ namespace LocalCVE.Runner.WinUI
         {
             _window = new MainWindow();
             _window.Activate();
+
+            Logger.LogDebug("Main window created and activated");
         }
     }
 }
