@@ -1,19 +1,20 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/runner/">
-    <Project Path="src/runner/LocalCVE.Runner/LocalCVE.Runner.csproj" />
+    <Project Path="G:/source/Projects/localcve/src/runner/LocalCVE.Runner/LocalCVE.Runner.csproj" />
   </Folder>
   <Folder Name="/src/runner/winui/">
-    <Project Path="src/runner/winui/LocalCVE.Runner.WinUI/LocalCVE.Runner.WinUI.csproj" Id="5d1ca973-6c53-43cd-a194-b9ead5245045">
+    <Project Path="G:/source/Projects/localcve/src/runner/winui/LocalCVE.Runner.WinUI/LocalCVE.Runner.WinUI.csproj" Id="5d1ca973-6c53-43cd-a194-b9ead5245045">
       <Platform Project="x64" />
       <Deploy />
     </Project>
   </Folder>
   <Folder Name="/src/shared/">
-    <Project Path="src/shared/LocalCVE.Common/LocalCVE.Common.csproj" Id="14459d23-6421-468e-aaad-b83fd1c35299" />
-    <Project Path="src/shared/LocalCVE.Core/LocalCVE.Core.csproj" />
+    <Project Path="G:/source/Projects/localcve/src/shared/LocalCVE.Common.Runner/LocalCVE.Common.Runner.csproj" Id="7d2a78f8-b957-4b47-892d-2f42bf4371f8" />
+    <Project Path="G:/source/Projects/localcve/src/shared/LocalCVE.Common/LocalCVE.Common.csproj" Id="14459d23-6421-468e-aaad-b83fd1c35299" />
+    <Project Path="G:/source/Projects/localcve/src/shared/LocalCVE.Core/LocalCVE.Core.csproj" />
   </Folder>
   <Folder Name="/src/tests/">
-    <Project Path="src/tests/LocalCVE.Core.Test/LocalCVE.Core.Test.csproj" />
+    <Project Path="G:/source/Projects/localcve/src/tests/LocalCVE.Core.Test/LocalCVE.Core.Test.csproj" />
   </Folder>
 </Solution>

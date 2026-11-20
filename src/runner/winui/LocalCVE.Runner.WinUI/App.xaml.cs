@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -30,6 +31,9 @@ namespace LocalCVE.Runner.WinUI
     {
         private Window? _window;
 
+        public Mutex Mut;
+        public CancellationTokenSource PipeCTS;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -37,6 +41,18 @@ namespace LocalCVE.Runner.WinUI
         public App()
         {
             InitializeComponent();
+
+            if(!InstanceManager.CreateMutex("LocalCVE.Runner.WinUI", out Mut))
+            {
+                var data = new InstanceManager.InstanceInfo.InstanceInfoData.InstanceCreatedEvent() { Args = Environment.GetCommandLineArgs() };
+                CancellationTokenSource cts = new(2000);
+
+                InstanceManager.SendMessageAsync("LocalCVE.Runner.WinUI", new(data), cts.Token).Wait();
+                Environment.Exit(0);
+            }
+
+            PipeCTS = new();
+            InstanceManager.StartPipeServer("LocalCVE.Runner.WinUI", d => { }, PipeCTS.Token);
 
             Logger.InitLogger("LocalCVE.Runner.WinUI", true);
 
